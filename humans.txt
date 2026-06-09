@@ -1,0 +1,11 @@
+/* TEAM */
+Developer: Samet Çolak
+Role: Software Developer & High School Student
+Location: Istanbul, Turkey
+Contact: smttr.cccc@gmail.com
+
+/* SITE */
+Last update: 2026
+Language: Turkish, English
+Technologies: HTML5, CSS3, Vanilla JavaScript
+IDE: Visual Studio Code

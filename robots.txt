@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sametcolak.com.tr/sitemap.xml
