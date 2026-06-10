@@ -87,7 +87,7 @@
         <div class="projects-grid fade-in">
             
             <!-- Berber Sitesi Projesi -->
-            <div class="project-card" data-date="2026-06-09">
+            <div class="project-card" data-date="2026-06-09" data-i18n-extra="project_barber_extra">
                 
                 <div class="project-img-wrapper">
                     <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80');"></div>
@@ -126,6 +126,25 @@
 
         </div>
     </section>
+
+    <!-- PROJE MODAL (POP-UP) İSKELETİ -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modal-img" src="" alt="Proje Görseli">
+                </div>
+                <div class="modal-info">
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-desc"></p>
+                    <p id="modal-extra" class="modal-extra-text"></p>
+                    <div id="modal-tech" class="project-tech"></div>
+                    <div id="modal-links" class="project-links"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
  <footer class="modern-footer">
         <div class="footer-content">
