@@ -25,7 +25,7 @@ Bu depo, sametcolak.com.tr adresinde yayında olan kişisel portfolyo platformum
 
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Sparkles.png" alt="Sparkles" width="25" height="25" /> Öne Çıkan Özellikler
 
-- <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/High%20Voltage.png" alt="High Voltage" width="20" height="20" /> **Zero-Dependency (Sıfır Bağımlılık):** React, Bootstrap veya Tailwind gibi dış çerçeveler (framework) kullanılmadan, tamamen **Vanilla JS** ve **saf CSS** ile geliştirilmiş anında yüklenen altyapı.
+- ⚡ **Zero-Dependency (Sıfır Bağımlılık):** React, Bootstrap veya Tailwind gibi dış çerçeveler (framework) kullanılmadan, tamamen **Vanilla JS** ve **saf CSS** ile geliştirilmiş anında yüklenen altyapı.
 - <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Artist%20Palette.png" alt="Artist Palette" width="20" height="20" /> **A-Kalite Modern UI/UX:** 
   - Gelişmiş **Glassmorphism** (cam efekti) ve saydam arka planlar (backdrop-filter).
   - Modern asimetrik **Bento Grid** (kutu) düzenleri.
@@ -74,10 +74,8 @@ Projelerim hakkında detaylı bilgi almak, potansiyel staj/iş birliklerini değ
 
 <div align="center">
 
-| Bağlantı | Adres |
-| :--- | :--- |
-| 🌐 **Web Sitesi** | [sametcolak.com.tr](https://sametcolak.com.tr) |
-| 📧 **E-Posta** | smttr.cccc@gmail.com |
+[![Websitem](https://img.shields.io/badge/Websitem-sametcolak.com.tr-00d2ff?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sametcolak.com.tr)
+[![E-mail](https://img.shields.io/badge/E--mail-smttr.cccc@gmail.com-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:smttr.cccc@gmail.com)
 
 <br>
 
