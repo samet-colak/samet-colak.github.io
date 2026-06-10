@@ -39,15 +39,6 @@ const translations = {
         btn_github: "GitHub Kodu",
         certs_empty_title: "Sertifikalar Yükleniyor",
         certs_empty_desc: "Eğitim süreçlerim ve katıldığım kurslar sonucunda almaya hak kazanacağım uluslararası geçerliliğe sahip sertifikalar yakında bu alanda listelenecektir.",
-        project1_title: "Kişisel Blog",
-        project1_desc: "HTML ve CSS kullanarak tasarladığım tamamen duyarlı (responsive) kişisel blog tasarımı.",
-        project2_title: "Hesap Makinesi",
-        project2_desc: "JavaScript ile geliştirdiğim, modern arayüzlü ve animasyonlu hesap makinesi uygulaması.",
-        project3_title: "Görev Yöneticisi",
-        project3_desc: "Kullanıcıların görev ekleyip silebildiği LocalStorage destekli To-Do App.",
-        edu_school: "Tuzla Mesleki ve Teknik Anadolu Lisesi",
-        edu_date: "2023 - Devam Ediyor",
-        edu_desc: "Bilişim Teknolojileri Alanı - Yazılım Geliştirme Dalı",
         contact_text: "Bana aşağıdaki e-posta adresinden veya LinkedIn üzerinden ulaşabilirsiniz.",
         contact_title: "Fikirleri Gerçeğe Dönüştürelim.",
         contact_desc: "Kariyer hedeflerim doğrultusundaki staj fırsatları, profesyonel iş birlikleri veya yenilikçi projeler için benimle iletişime geçebilirsiniz. Fikirleri, ölçeklenebilir ve nitelikli dijital çözümlere dönüştürmek için doğrudan bana ulaşın.",
@@ -102,15 +93,6 @@ const translations = {
         btn_github: "GitHub Code",
         certs_empty_title: "Certificates Loading",
         certs_empty_desc: "The internationally recognized certificates I will earn as a result of my education and courses will be listed in this area very soon.",
-        project1_title: "Personal Blog",
-        project1_desc: "A fully responsive personal blog designed using HTML and CSS.",
-        project2_title: "Calculator",
-        project2_desc: "A calculator app with a modern interface and animations, built with JavaScript.",
-        project3_title: "Task Manager",
-        project3_desc: "A LocalStorage supported To-Do App where users can add and delete tasks.",
-        edu_school: "Tuzla Vocational and Technical Anatolian High School",
-        edu_date: "2023 - Present",
-        edu_desc: "Information Technologies - Software Development Branch",
         contact_text: "You can reach me via the email below or through LinkedIn.",
         contact_title: "Let's Turn Ideas Into Reality.",
         contact_desc: "You can contact me for internship opportunities aligned with my career goals, professional collaborations, or innovative projects. Reach out to me directly to transform ideas into scalable and qualified digital solutions.",
@@ -233,35 +215,6 @@ document.addEventListener("visibilitychange", () => {
         document.title = currentLang === 'tr' ? "Seni özledik... ✨" : "We missed you... ✨";
     } else {
         document.title = originalTitle; // Geri döndüğünde orijinal başlığı geri yükle
-    }
-});
-
-// --- PROJE ÖNİZLEME PENCERESİ (MODAL) YÖNETİMİ ---
-function openProjectModal(url) {
-    const modal = document.getElementById('project-modal');
-    const iframe = document.getElementById('project-iframe');
-    if (modal && iframe) {
-        iframe.src = url;
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Arka plan sitenin kaymasını engelle
-    }
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('project-modal');
-    const iframe = document.getElementById('project-iframe');
-    if (modal && iframe) {
-        modal.classList.remove('show');
-        setTimeout(() => { iframe.src = ''; }, 400); // Kapanma animasyonu bitince içini temizle
-        document.body.style.overflow = 'auto'; // Arka plan kaymasını geri aç
-    }
-}
-
-// --- MODAL DIŞINA (KARANLIK ALANA) TIKLAYINCA KAPATMA ---
-window.addEventListener('click', (e) => {
-    const modal = document.getElementById('project-modal');
-    if (e.target === modal) {
-        closeProjectModal();
     }
 });
 
