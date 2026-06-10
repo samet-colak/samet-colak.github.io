@@ -54,13 +54,15 @@ Proje, temiz kod prensiplerine ve sayfa bazlı modüler yapıya sadık kalınara
 
 ```bash
 📦 samet-portfolyo
- ┣ 📜 index.html         # Hero, 3D Terminal ve Ana Özet
- ┣ 📜 about.html         # Biyografi ve Yetenek Barları (Progress)
- ┣ 📜 projects.html      # Proje Vitrini (GitHub & Canlı İzleme entegreli)
- ┣ 📜 certificates.html  # Başarılar ve Eğitimler
- ┣ 📜 contact.html       # Bento Grid İletişim, Konum ve Canlı Saat
- ┣ 📜 style.css          # Global Tasarım Sistemi & Cam Efektleri
- ┣ 📜 script.js          # Çeviri Motoru, 3D Efektler ve Animasyonlar
+ ┣ 📂 pages
+ ┃ ┣ 📜 about.html
+ ┃ ┣ 📜 projects.html
+ ┃ ┣ 📜 certificates.html
+ ┃ ┗ 📜 contact.html
+ ┣ 📂 css                   # Tüm CSS dosyaları
+ ┣ 📂 js                    # Tüm JS dosyaları
+ ┣ 📂 assets               # Resimler, logolar ve diğer statik dosyalar
+ ┣ 📜 index.html         # Ana Sayfa (Landing Page)
  ┣ 📜 sitemap.xml        # Arama Motoru İndeks Haritası
  ┣ 📜 robots.txt         # Tarayıcı Bot / Crawl İzinleri
  ┗ 📜 humans.txt         # Proje Mimarı / Geliştirici Künyesi
