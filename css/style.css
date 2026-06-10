@@ -663,17 +663,38 @@ nav.scrolled {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: var(--bg-color); /* Sitenin ana koyu rengiyle bütünleşir */
-    z-index: 99999; /* Tüm elementlerin üstünde kalır */
+    background: radial-gradient(circle at center, var(--card-bg) 0%, var(--bg-darker) 100%);
+    z-index: 99999;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
-    transform: translateY(0);
+    transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateY(0) scale(1);
+}
+
+#preloader::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    animation: preloader-pulse 2s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes preloader-pulse {
+    0% { transform: scale(0.8); opacity: 0.1; }
+    100% { transform: scale(1.2); opacity: 0.25; }
 }
 
 #preloader.loaded {
-    transform: translateY(-100%); /* Sayfa yüklenince yukarı doğru pürüzsüzce açılır */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px) scale(1.05); /* Yumuşak bir şekilde kaybolur ve hafif büyür */
 }
 
 .preloader-logo {
@@ -683,6 +704,32 @@ nav.scrolled {
     display: flex;
     align-items: center;
     letter-spacing: -0.5px;
+    position: relative;
+    animation: float-logo 3s ease-in-out infinite;
+}
+
+@keyframes float-logo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.preloader-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--primary-color);
+    animation: loading-line 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-line {
+    0% { width: 0; opacity: 0; }
+    50% { width: 120px; opacity: 1; }
+    100% { width: 0; opacity: 0; }
 }
 
 .preloader-logo span {
@@ -694,7 +741,7 @@ nav.scrolled {
     -webkit-text-fill-color: transparent;
     margin-left: 8px;
     animation: fill-preloader 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.3));
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
 }
 
 @keyframes fill-preloader {
