@@ -69,7 +69,7 @@ Projelerim hakkında detaylı bilgi almak, potansiyel staj/iş birliklerini değ
 
 | Bağlantı | Adres |
 | :--- | :--- |
-| 🌐 **Web Sitesi** | sametcolak.com.tr |
+| 🌐 **Web Sitesi** | [sametcolak.com.tr](https://sametcolak.com.tr) |
 | 📧 **E-Posta** | smttr.cccc@gmail.com |
 
 <br>
