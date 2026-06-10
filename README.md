@@ -6,7 +6,7 @@
 
 > *"Fikirleri temiz kodla, vizyonu modern tasarımla gerçeğe dönüştürüyorum."*
 
-Bu depo, [sametcolak.com.tr](https://sametcolak.com.tr) adresinde yayında olan kişisel portfolyo ve web platformumun temel kaynak kodlarını (Source Code) barındırmaktadır. Geleneksel şablonların ötesinde; modern web standartlarına uygun, performans odaklı ve arama motoru (SEO) uyumlu bir mimariyle sıfırdan geliştirilmiştir.
+Bu depo, [sametcolak.com.tr](https://sametcolak.com.tr) adresinde yayında olan kişisel portfolyo ve web platformumun temel kaynak kodlarını barındırmaktadır. Geleneksel şablonların ötesinde; modern web standartlarına uygun, performans odaklı ve arama motoru (SEO) uyumlu bir mimariyle sıfırdan geliştirilmiştir.
 
 ## 🌟 Öne Çıkan Özellikler
 
@@ -17,16 +17,31 @@ Bu depo, [sametcolak.com.tr](https://sametcolak.com.tr) adresinde yayında olan 
 
 ## 📂 Mimari & Dosya Yapısı
 
-Proje, temiz kod (clean code) prensiplerine ve sayfa bazlı modüler yapıya sadık kalınarak inşa edilmiştir:
+Proje, temiz kod prensiplerine ve sayfa bazlı modüler yapıya sadık kalınarak inşa edilmiştir:
 
-```text
-├── index.html          # Ana sayfa ve genel özet
-├── about.html          # Detaylı biyografi, vizyon ve yetenekler
-├── projects.html       # Geliştirilen projelerin ve ürünlerin vitrini
-├── certificates.html   # Alınan eğitimler, başarılar ve sertifikalar
-├── contact.html        # Kullanıcı etkileşimi için iletişim formu
-├── style.css           # Global stil tanımlamaları ve UI kuralları
-├── script.js           # Dinamik etkileşimler ve animasyonlar
-├── sitemap.xml         # SEO için arama motoru indeks haritası
-├── robots.txt          # Tarayıcı bot ve crawl optimizasyonu
-└── humans.txt          # Proje mimarı ve geliştirici detayları
+* `index.html` — Ana sayfa ve genel özet
+* `about.html` — Detaylı biyografi, vizyon ve yetenekler
+* `projects.html` — Geliştirilen projelerin ve ürünlerin vitrini
+* `certificates.html` — Alınan eğitimler, başarılar ve sertifikalar
+* `contact.html` — Kullanıcı etkileşimi için iletişim formu
+* `style.css` — Global stil tanımlamaları ve UI kuralları
+* `script.js` — Dinamik etkileşimler ve animasyonlar
+* `sitemap.xml` — SEO için arama motoru indeks haritası
+* `robots.txt` — Tarayıcı bot ve crawl optimizasyonu
+* `humans.txt` — Proje mimarı ve geliştirici detayları
+
+## 🛠️ Kullanılan Teknolojiler
+
+* **Frontend Mimari:** HTML5, CSS3, ES6+ JavaScript
+* **Sürüm Kontrolü:** Git, GitHub
+* **Ağ & Güvenlik:** Cloudflare (Custom DNS, Global CDN, Edge Security)
+
+## 📬 İletişim & Ağ (Network)
+
+Projelerim hakkında fikir alışverişi yapmak, potansiyel iş birliklerini değerlendirmek veya sadece teknoloji üzerine konuşmak isterseniz bana aşağıdaki kanallardan ulaşabilirsiniz:
+
+* 🌐 **Web:** [sametcolak.com.tr](https://sametcolak.com.tr)
+* 📧 **E-Posta:** [smttr.cccc@gmail.com]
+
+---
+*© 2026 Samet Çolak. Tüm hakları saklıdır.*
