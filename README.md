@@ -71,7 +71,6 @@ Projelerim hakkında detaylı bilgi almak, potansiyel staj/iş birliklerini değ
 | :--- | :--- |
 | 🌐 **Web Sitesi** | sametcolak.com.tr |
 | 📧 **E-Posta** | smttr.cccc@gmail.com |
-| 💼 **LinkedIn** | linkedin.com/in/samet-colak |
 
 <br>
 
