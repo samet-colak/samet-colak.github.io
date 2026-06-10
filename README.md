@@ -41,7 +41,7 @@ Proje, temiz kod prensiplerine ve sayfa bazlı modüler yapıya sadık kalınara
 Projelerim hakkında fikir alışverişi yapmak, potansiyel iş birliklerini değerlendirmek veya sadece teknoloji üzerine konuşmak isterseniz bana aşağıdaki kanallardan ulaşabilirsiniz:
 
 * 🌐 **Web:** [sametcolak.com.tr](https://sametcolak.com.tr)
-* 📧 **E-Posta:** [smttr.cccc@gmail.com]
+* 📧 **E-Posta:** smttr.cccc@gmail.com
 
 ---
 *© 2026 Samet Çolak. Tüm hakları saklıdır.*
