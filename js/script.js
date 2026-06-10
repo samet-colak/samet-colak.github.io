@@ -35,6 +35,8 @@ const translations = {
         projects_empty_desc: "Staj ve kariyer hedeflerim doğrultusunda geliştirmekte olduğum modern web ve yapay zeka entegreli projelerim, son optimizasyonların ardından çok yakında bu alanda sergilenecektir.",
         project_barber_title: "Modern Berber & Kuaför Sitesi",
         project_barber_desc: "Müşteri deneyimini merkeze alan, premium hissi veren modern arayüzü ve akıcı animasyonlarıyla öne çıkan tam duyarlı (responsive) berber salonu web platformu.",
+        project_barber_extra: "Bir berber veya kuaför salonunun sunduğu kaliteli hizmeti dijital dünyaya taşıyan bu proje, müşterilerinizin sitenizde keyifle vakit geçirmesi için tasarlandı. Göz yormayan şık tasarımı, kolay kullanımı ve hızlı yapısıyla ziyaretçilerinize güven veren, birinci sınıf bir deneyim sunuyor.",
+        modal_extra_empty: "Bu proje hakkında ekstra bir bilgi bulunmuyor.",
         btn_live_view: "Canlı İzle",
         btn_github: "GitHub Kodu",
         certs_empty_title: "Sertifikalar Yükleniyor",
@@ -91,6 +93,8 @@ const translations = {
         projects_empty_desc: "The modern web and AI-integrated projects I am developing in line with my internship and career goals will be showcased here very soon after final optimizations.",
         project_barber_title: "Modern Barber & Salon Website",
         project_barber_desc: "A fully responsive premium barber salon web platform, standing out with its customer-centric approach, modern interface, and fluid animations.",
+        project_barber_extra: "Bringing the high-quality service of a barber or hair salon into the digital world, this project is designed for your customers to easily navigate and enjoy your site. With its elegant and modern design, user-friendly structure, and fast performance, it offers visitors a premium and trustworthy experience.",
+        modal_extra_empty: "There is no extra information about this project.",
         btn_live_view: "Live View",
         btn_github: "GitHub Code",
         certs_empty_title: "Certificates Loading",
@@ -253,6 +257,74 @@ if (window.matchMedia("(pointer: fine)").matches) {
             cursorOutline.classList.remove('cursor-hover');
             cursorDot.classList.remove('cursor-hover');
         });
+    });
+
+// --- URL'DEN .HTML UZANTISINI GİZLEME (CLEAN URL) ---
+if (window.location.pathname.endsWith('.html')) {
+    // Eğer sayfa index.html ise ana dizine (/) çevir, değilse sadece .html kısmını sil
+    let cleanPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    if (cleanPath === '') cleanPath = '/';
+    const cleanUrl = cleanPath + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanUrl);
+}
+}
+
+// --- PROJE MODAL (POP-UP) SİSTEMİ ---
+const projectModal = document.getElementById('project-modal');
+const projectCards = document.querySelectorAll('.project-card');
+
+if (projectModal && projectCards.length > 0) {
+    const modalClose = projectModal.querySelector('.modal-close');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalExtra = document.getElementById('modal-extra');
+    const modalTech = document.getElementById('modal-tech');
+    const modalLinks = document.getElementById('modal-links');
+
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Eğer GitHub veya Canlı İzle butonuna tıklandıysa pop-up'ı AÇMA (orijinal linke gitsin)
+            if (e.target.closest('.project-links')) return;
+
+            // Karttan mevcut verileri çek
+            modalTitle.innerHTML = card.querySelector('.project-title').innerHTML;
+            
+            const descElement = card.querySelector('p[data-i18n]');
+            modalDesc.setAttribute('data-i18n', descElement.getAttribute('data-i18n'));
+            modalDesc.innerHTML = descElement.innerHTML;
+            
+            modalTech.innerHTML = card.querySelector('.project-tech').innerHTML;
+            modalLinks.innerHTML = card.querySelector('.project-links').innerHTML;
+            
+            // Arka plan resmini al
+            const bgImage = window.getComputedStyle(card.querySelector('.project-img')).backgroundImage;
+            modalImg.src = bgImage.replace(/(url\(|\)|"|')/g, '') !== 'none' ? bgImage.replace(/(url\(|\)|"|')/g, '') : '';
+            
+            // Ekstra metni dil sistemine entegre ederek al
+            const extraKey = card.getAttribute('data-i18n-extra');
+            if (extraKey && translations[currentLang][extraKey]) {
+                modalExtra.setAttribute('data-i18n', extraKey);
+                modalExtra.innerHTML = translations[currentLang][extraKey];
+            } else {
+                modalExtra.setAttribute('data-i18n', 'modal_extra_empty');
+                modalExtra.innerHTML = translations[currentLang]['modal_extra_empty'];
+            }
+
+            // Modalı göster ve arka plan kaymasını engelle
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        });
+    });
+
+    // Modalı Kapatma
+    const closeModal = () => { projectModal.classList.remove('active'); document.body.style.overflow = 'auto'; };
+    modalClose.addEventListener('click', closeModal);
+    projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeModal(); });
+
+    // Esc tuşu ile kapatma
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projectModal.classList.contains('active')) closeModal();
     });
 }
 
