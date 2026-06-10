@@ -1,0 +1,266 @@
+/* --- PROJE FİLTRE VE SIRALAMA PANELİ --- */
+.projects-header-actions {
+    display: flex;
+    justify-content: flex-end; /* Sadece sıralama kaldığı için sağa yaslıyoruz */
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-sort {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+/* Sıralama kutusunun etrafındaki dönen renkli ışık efekti */
+.project-sort::before {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(120deg, var(--primary-color), transparent, var(--secondary-color));
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background-size: 200% 200%;
+    animation: shine-border 3s ease infinite alternate;
+}
+
+.project-sort:hover::before {
+    opacity: 0.6;
+}
+
+@keyframes shine-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.sort-toggle-btn {
+    background: rgba(30, 41, 59, 0.5);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-toggle-btn:hover {
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.2);
+    transform: translateY(-2px);
+    color: var(--primary-color);
+}
+
+.sort-icon {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--primary-color);
+}
+
+/* Projeler Kartları */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Kartların sıralanırken uygulayacağı Pop-in (Zıplama) animasyonu */
+@keyframes pop-in-card {
+    0% { transform: scale(0.8) translateY(30px); opacity: 0; }
+    60% { transform: scale(1.02); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.project-card {
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 210, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 210, 255, 0.15);
+}
+
+.project-card:hover::before {
+    left: 200%;
+}
+
+.project-img-wrapper {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-img-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(30, 41, 59, 1), transparent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    background-color: #1e293b;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-info h3 {
+    color: var(--text-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.project-title:hover {
+    color: var(--primary-color) !important;
+}
+
+@keyframes pole-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(10deg); filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6)); }
+}
+
+.barber-pole-icon {
+    display: inline-block;
+    animation: pole-pulse 2.5s ease-in-out infinite;
+}
+
+.project-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-features li {
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-features li:hover {
+    transform: translateX(6px);
+    color: #f8fafc;
+}
+
+.project-features li svg {
+    color: var(--primary-color);
+}
+
+.project-tech {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.project-tech span {
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Etiketlerin (HTML, CSS vb.) üzerinden geçen ince ışık süzmesi */
+.project-tech span::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.4s ease;
+    pointer-events: none;
+}
+
+.project-tech span:hover::after {
+    left: 100%;
+}
+
+.project-tech span:hover {
+    transform: translateY(-3px);
+    background: rgba(0, 210, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-links .btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

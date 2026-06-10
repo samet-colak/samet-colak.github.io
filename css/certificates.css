@@ -1,0 +1,69 @@
+/* --- YENİ PROFESYONEL PROJELER BOŞ DURUM --- */
+.pro-empty-state {
+    text-align: center;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    padding: 70px 50px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 750px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-empty-state::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.loader-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 210, 255, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+.cert-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.pro-empty-state h3 {
+    color: #f8fafc;
+    font-size: 28px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.pro-empty-state p {
+    color: #94a3b8;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-inline: auto;
+}
