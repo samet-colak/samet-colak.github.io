@@ -63,10 +63,16 @@ Proje, temiz kod prensiplerine ve sayfa bazlı modüler yapıya sadık kalınara
  ┣ 📂 js                    # Tüm JS dosyaları
  ┣ 📂 assets               # Resimler, logolar ve diğer statik dosyalar
  ┣ 📜 index.html         # Ana Sayfa (Landing Page)
- ┣ 📜 sitemap.xml        # Arama Motoru İndeks Haritası
+ ┣ 📜 sitemap.xml        # Arama Motoru İndeks Haritası   
  ┣ 📜 robots.txt         # Tarayıcı Bot / Crawl İzinleri
  ┗ 📜 humans.txt         # Proje Mimarı / Geliştirici Künyesi
 ```
+
+<br>
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Scroll.png" alt="Scroll" width="35" height="35" /> Lisans & Kullanım Hakları
+
+Bu projenin kaynak kodları, yazılım geliştirme topluluğuna katkı sağlamak ve ilham vermek amacıyla açık olarak paylaşılmıştır. Kodları inceleyebilir, kendi kişisel projeleriniz için ilham alabilir ve öğrenme amacıyla dilediğiniz gibi kullanabilirsiniz. Projenin tasarım bütünlüğü, metinleri ve şahsi içeriklerinin tüm hakları **Samet Çolak**'a aittir.
 
 <br>
 
