@@ -75,7 +75,11 @@ const translations = {
         form_message_placeholder: "Projenizden veya fikrinizden bahsedin...",
         form_send_btn: "Mesajı Gönder",
         form_success: "Mesajınız başarıyla iletildi! 🚀",
-        form_error: "Gönderilemedi. Lütfen tekrar deneyin."
+        form_error: "Gönderilemedi. Lütfen tekrar deneyin.",
+        ctx_home: "Ana Sayfaya Dön",
+        ctx_contact: "Bana Ulaşın",
+        sel_copy: "Kopyala",
+        sel_copied: "Kopyalandı!"
     },
     en: {
         home: "Home",
@@ -141,7 +145,11 @@ const translations = {
         form_message_placeholder: "Tell me about your project or idea...",
         form_send_btn: "Send Message",
         form_success: "Your message has been sent successfully! 🚀",
-        form_error: "Failed to send. Please try again."
+        form_error: "Failed to send. Please try again.",
+        ctx_home: "Back to Home",
+        ctx_contact: "Contact Me",
+        sel_copy: "Copy",
+        sel_copied: "Copied!"
     }
 };
 
@@ -854,3 +862,87 @@ if (emailInput && suggestionsList) {
         }
     });
 }
+
+// --- ÖZEL SAĞ TIK MENÜSÜ & METİN SEÇİM ARACI (ULTRA PREMIUM) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. HTML Yapılarını Enjekte Et
+    const ctxHTML = `
+        <div id="custom-ctx-menu" class="custom-context-menu">
+            <a href="/" class="ctx-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span data-i18n="ctx_home">Ana Sayfaya Dön</span>
+            </a>
+            <div class="ctx-divider"></div>
+            <a href="/pages/contact" class="ctx-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span data-i18n="ctx_contact">Bana Ulaşın</span>
+            </a>
+        </div>
+    `;
+    
+    const selHTML = `
+        <div id="selection-tooltip" class="selection-tooltip">
+            <button id="sel-btn-copy" class="sel-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span data-i18n="sel_copy">Kopyala</span>
+            </button>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', ctxHTML + selHTML);
+    updateLanguage(currentLang);
+    
+    const ctxMenu = document.getElementById('custom-ctx-menu');
+    const selMenu = document.getElementById('selection-tooltip');
+    
+    // 2. Sağ Tık Menüsü Mantığı
+    document.addEventListener('contextmenu', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return; // Form alanlarında orijinali kalsın
+        e.preventDefault();
+        
+        selMenu.classList.remove('active'); // Seçim aracı açıksa kapat
+        let x = e.pageX;
+        let y = e.pageY;
+        
+        if (x + 220 > window.innerWidth) x = window.innerWidth - 230; // Taşırmama kontrolü
+        ctxMenu.style.left = `${x}px`;
+        ctxMenu.style.top = `${y}px`;
+        ctxMenu.classList.add('active');
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.custom-context-menu')) ctxMenu.classList.remove('active');
+    });
+    
+    // 3. Apple Stili Metin Seçim Aracı
+    const showSelectionMenu = () => {
+        setTimeout(() => {
+            const selection = window.getSelection();
+            const text = selection.toString().trim();
+            
+            if (text.length > 0 && !ctxMenu.classList.contains('active')) {
+                const range = selection.getRangeAt(0);
+                const rect = range.getBoundingClientRect();
+                
+                selMenu.style.top = `${rect.top + window.scrollY - selMenu.offsetHeight - 8}px`;
+                selMenu.style.left = `${rect.left + window.scrollX + (rect.width / 2) - (selMenu.offsetWidth / 2)}px`;
+                selMenu.classList.add('active');
+            } else {
+                selMenu.classList.remove('active');
+            }
+        }, 10);
+    };
+    
+    document.addEventListener('mouseup', showSelectionMenu);
+    document.addEventListener('keyup', showSelectionMenu);
+    document.addEventListener('mousedown', (e) => { if(!e.target.closest('#selection-tooltip')) selMenu.classList.remove('active'); });
+    
+    // Buton Fonksiyonları
+    document.getElementById('sel-btn-copy').addEventListener('click', () => {
+        navigator.clipboard.writeText(window.getSelection().toString());
+        const span = document.querySelector('#sel-btn-copy span');
+        const oldText = span.textContent;
+        span.textContent = translations[currentLang]['sel_copied'];
+        setTimeout(() => span.textContent = oldText, 2000);
+    });
+});
