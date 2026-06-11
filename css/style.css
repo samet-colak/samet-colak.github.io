@@ -25,6 +25,17 @@ body {
     overflow-x: hidden;
 }
 
+/* --- SİNEMATİK KUMLANMA (FILM GRAIN / NOISE) --- */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9998; /* Preloader altında, her şeyin üstünde */
+    opacity: 0.04; /* Göz yormayan, premium stüdyo seviyesine geri alındı */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
 /* --- ÖZEL METİN SEÇİM RENGİ --- */
 ::selection {
     background-color: var(--primary-color) !important;
@@ -838,6 +849,54 @@ nav.scrolled {
 .cmd-item svg { color: #94a3b8; transition: color 0.2s ease; }
 .cmd-item:hover, .cmd-item.active { background: rgba(0, 210, 255, 0.1); color: #fff; }
 .cmd-item:hover svg, .cmd-item.active svg { color: var(--primary-color); }
+
+/* --- FARE FENERİ (SPOTLIGHT HOVER) EFEKTİ --- */
+.project-card, .bento-card {
+    position: relative;
+}
+
+/* Kart İçi Soft Aydınlatma (Inner Glow) */
+.project-card::before, .bento-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(
+        600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), 
+        rgba(0, 210, 255, 0.06),
+        transparent 40%
+    );
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Kart Dış Çerçevesinde Gezen Parlama (Border Glow) */
+.project-card::after, .bento-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border-radius: inherit;
+    padding: 1.5px; /* Parlayan çerçevenin kalınlığı */
+    background: radial-gradient(
+        400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), 
+        rgba(0, 210, 255, 0.5),
+        transparent 40%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.project-card:hover::before, .bento-card:hover::before,
+.project-card:hover::after, .bento-card:hover::after {
+    opacity: 1;
+}
 
 /* --- HERO BÖLÜMÜ YENİ EKLENTİLER --- */
 
