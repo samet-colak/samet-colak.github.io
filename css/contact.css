@@ -177,6 +177,97 @@
     100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
 }
 
+/* --- A-KALİTE İLETİŞİM FORMU TASARIMI --- */
+.form-card {
+    grid-column: span 3;
+    padding: 40px;
+}
+
+.premium-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #64748b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 300px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-status {
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.form-status.show { opacity: 1; }
+.form-status.success { color: #27c93f; }
+.form-status.error { color: #ff5f56; }
+
+.submit-btn {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+}
+
+.spinner {
+    width: 20px; 
+    height: 20px; 
+    border: 2px solid rgba(255,255,255,0.3); 
+    border-top-color: #fff; 
+    border-radius: 50%; 
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+.submit-btn.loading span, .submit-btn.loading svg { display: none; }
+.submit-btn.loading .spinner { display: block; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
 /* Mobil Uyumluluk */
 @media (max-width: 900px) {
     .contact-bento-grid { grid-template-columns: 1fr; }
@@ -184,4 +275,10 @@
     .location-card { flex-direction: column; text-align: center; gap: 30px; }
     .email-card .bento-title { font-size: 20px; }
     .bento-title { font-size: 22px; }
+    
+    .form-card { grid-column: span 1; padding: 30px 20px; }
+    .premium-form { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    .form-submit { flex-direction: column-reverse; gap: 20px; text-align: center; }
+    .submit-btn { width: 100%; }
 }
