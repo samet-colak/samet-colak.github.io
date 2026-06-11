@@ -3,21 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samet Çolak - Stajyer Yazılım Geliştirici Portfolyosu. HTML, CSS, Python, C# ve AI araçları.">
-    <meta name="keywords" content="Samet Çolak, Yazılım Geliştirici, Web Tasarım, Portfolyo, Python, C#, Frontend, Yazılımcı">
-    <meta name="author" content="Samet Çolak">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Sayfa Bulunamadı | Samet Çolak">
-    <meta property="og:description" content="Stajyer Yazılım Geliştirici | HTML • CSS • Python • C# | Modern ve yenilikçi web arayüzleri geliştiriyorum.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://sametcolak.com.tr/404.html">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="https://sametcolak.com.tr/404.html">
+    <meta name="description" content="Aradığınız sayfa bulunamadı. Samet Çolak dijital portfolyosuna geri dönün.">
+    <meta name="robots" content="noindex, follow">
     <title>Sayfa Bulunamadı | Samet Çolak</title>
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/assets/favicon.svg">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/404.css">
+    <link rel="icon" href="https://sametcolak.com.tr/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="https://sametcolak.com.tr/assets/favicon.svg">
+    
+    <!-- CSS dosyalarına giden yollar, klasör derinliği fark etmeksizin çalışması için '/' ile başlar -->
+    <link rel="stylesheet" href="/css/style.css?v=1.2">
+    <link rel="stylesheet" href="/css/404.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
@@ -49,6 +43,7 @@
         }
     </script>
 
+    <!-- NAVİGASYON MENÜSÜ -->
     <nav>
         <a href="/" class="logo">Samet <span>Çolak.</span></a>
         <ul class="nav-links">
@@ -71,9 +66,9 @@
         </div>
     </nav>
 
-    <!-- id="error_page" sayesinde script.js başlığı (Title) dile göre çevirecek -->
-    <section id="error_page" class="error-container">
-        <div class="error-content fade-in">
+    <!-- 404 KATA İÇERİĞİ -->
+    <section class="error-container">
+        <div class="error-content">
             <h1>404</h1>
             <h3 data-i18n="error_404_title">404 - Kayıp Uzay</h3>
             <p data-i18n="error_404_desc">Görünüşe göre aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış. Lütfen ana sayfaya dönerek portfolyomu keşfetmeye devam edin.</p>
@@ -81,7 +76,8 @@
         </div>
     </section>
 
- <footer class="modern-footer">
+    <!-- FOOTER -->
+    <footer class="modern-footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <a href="/" class="logo">Samet <span>Çolak.</span></a>
@@ -121,6 +117,6 @@
         </div>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js?v=1.2"></script>
 </body>
 </html>
