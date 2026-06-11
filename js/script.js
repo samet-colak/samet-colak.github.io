@@ -650,3 +650,17 @@ document.addEventListener('DOMContentLoaded', () => {
         visibleItems[nextIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
 });
+
+// --- FARE FENERİ (SPOTLIGHT) MOTORU ---
+document.addEventListener('mousemove', (e) => {
+    // Hem projelerdeki hem de iletişim sayfasındaki kartları (bento) bul
+    const spotlightCards = document.querySelectorAll('.project-card, .bento-card');
+    
+    spotlightCards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
