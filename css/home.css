@@ -316,11 +316,16 @@
     color: #fff;
 }
 
-.copy-btn {
+.terminal-actions {
     position: absolute;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.copy-btn, .run-btn {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #94a3b8;
@@ -334,13 +339,29 @@
     transition: all 0.3s ease;
 }
 
-.terminal-window:hover .copy-btn {
+.run-btn {
+    background: rgba(39, 201, 63, 0.1);
+    border-color: rgba(39, 201, 63, 0.2);
+    color: #27c93f;
+}
+
+.terminal-window:hover .copy-btn, .terminal-window:hover .run-btn {
     opacity: 1;
 }
 
 .copy-btn:hover {
     background: rgba(0, 210, 255, 0.2);
     color: #fff;
+}
+
+.run-btn:hover {
+    background: rgba(39, 201, 63, 0.3);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.run-btn:active {
+    transform: scale(0.95);
 }
 
 .icon-check {
@@ -350,7 +371,7 @@
 .copy-btn.copied {
     background-color: rgba(39, 201, 63, 0.15) !important;
     border-color: rgba(39, 201, 63, 0.4) !important;
-    transform: translateY(-50%) scale(1.1) !important;
+    transform: scale(1.1) !important;
     color: #27c93f !important;
 }
 
@@ -385,6 +406,49 @@
 .term-string { color: #98c379; }
 .term-operator { color: #56b6c2; }
 .term-cursor { animation: blink 1s step-end infinite; color: var(--primary-color); font-weight: bold; border-left: 2px solid var(--primary-color); margin-left: 2px;}
+
+/* --- TERMINAL CLI & CONSOLE OUTPUT --- */
+.cli-output {
+    margin-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    color: #a3be8c;
+    font-size: 13px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.cli-output.active { display: flex; }
+.cli-output span.error { color: #e06c75; }
+.cli-output span.info { color: #61afef; }
+.cli-output::-webkit-scrollbar { width: 4px; }
+.cli-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+.terminal-cli {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.cli-prompt { color: #e5c07b; font-weight: bold; }
+
+#cli-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #f8fafc;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+.terminal-header { cursor: grab; }
+.terminal-header:active { cursor: grabbing; }
 
 @media (max-width: 900px) {
     .copy-btn {
