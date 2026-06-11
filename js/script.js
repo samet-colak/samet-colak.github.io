@@ -764,3 +764,93 @@ if (contactForm) {
         });
     });
 }
+
+// --- E-POSTA OTOMATİK TAMAMLAMA (PREMIUM AUTOCOMPLETE) ---
+const emailInput = document.getElementById('user_email');
+const suggestionsList = document.getElementById('email-suggestions');
+
+if (emailInput && suggestionsList) {
+    const popularDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'icloud.com', 'yandex.com'];
+    let currentFocus = -1;
+
+    emailInput.addEventListener('input', function() {
+        const val = this.value;
+        suggestionsList.innerHTML = '';
+        currentFocus = -1;
+
+        if (!val || !val.includes('@')) {
+            suggestionsList.classList.remove('active');
+            return;
+        }
+
+        const parts = val.split('@');
+        const username = parts[0];
+        const domainQuery = parts[1].toLowerCase();
+
+        const matchedDomains = popularDomains.filter(domain => domain.startsWith(domainQuery) && domain !== domainQuery);
+
+        if (matchedDomains.length === 0 || username.length === 0) {
+            suggestionsList.classList.remove('active');
+            return;
+        }
+
+        matchedDomains.forEach(domain => {
+            const li = document.createElement('li');
+            li.className = 'email-suggestion-item';
+            
+            const typedPart = domain.substring(0, domainQuery.length);
+            const remainingPart = domain.substring(domainQuery.length);
+
+            li.innerHTML = `<span class="username">${username}@</span><span class="typed">${typedPart}</span><span class="domain-highlight">${remainingPart}</span>`;
+            
+            li.addEventListener('click', () => {
+                emailInput.value = `${username}@${domain}`;
+                suggestionsList.classList.remove('active');
+                emailInput.focus();
+            });
+            
+            suggestionsList.appendChild(li);
+        });
+
+        suggestionsList.classList.add('active');
+    });
+
+    emailInput.addEventListener('keydown', function(e) {
+        let items = suggestionsList.getElementsByTagName('li');
+        if (!suggestionsList.classList.contains('active') || items.length === 0) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            currentFocus++;
+            addActive(items);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            currentFocus--;
+            addActive(items);
+        } else if (e.key === 'Enter') {
+            if (currentFocus > -1) {
+                e.preventDefault(); // Enter'a basınca formun yanlışlıkla yollanmasını engeller
+                items[currentFocus].click();
+            }
+        }
+    });
+
+    function addActive(items) {
+        removeActive(items);
+        if (currentFocus >= items.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = items.length - 1;
+        items[currentFocus].classList.add('selected');
+    }
+
+    function removeActive(items) {
+        for (let i = 0; i < items.length; i++) {
+            items[i].classList.remove('selected');
+        }
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target !== emailInput && e.target !== suggestionsList) {
+            suggestionsList.classList.remove('active');
+        }
+    });
+}
