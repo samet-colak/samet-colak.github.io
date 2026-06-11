@@ -94,6 +94,11 @@
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.hero-desc .color-html { color: #f97316; font-weight: 600; text-shadow: 0 0 12px rgba(249, 115, 22, 0.4); }
+.hero-desc .color-css { color: #3b82f6; font-weight: 600; text-shadow: 0 0 12px rgba(59, 130, 246, 0.4); }
+.hero-desc .color-python { color: #eab308; font-weight: 600; text-shadow: 0 0 12px rgba(234, 179, 8, 0.4); }
+.hero-desc .color-cs { color: #a855f7; font-weight: 600; text-shadow: 0 0 12px rgba(168, 85, 247, 0.4); }
+
 .hero-buttons {
     display: flex;
     gap: 20px;
@@ -172,6 +177,29 @@
     }
 }
 
+/* --- YENİ MODERN UI/UX EKLENTİLERİ --- */
+
+/* Terminal Arkası Aydınlatma (Ambient Glow) */
+.terminal-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(0, 210, 255, 0.15) 0%, transparent 60%);
+    filter: blur(40px);
+    z-index: -1;
+    border-radius: 50%;
+    animation: glow-pulse 4s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
 /* --- TERMINAL / KOD PENCERESİ (ANA SAYFA SAĞ KISIM) --- */
 .terminal-window {
     width: 100%;
@@ -184,6 +212,7 @@
     -webkit-backdrop-filter: blur(20px);
     overflow: hidden;
     animation: floatTerminal 6s ease-in-out infinite;
+    transition: max-width 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 @keyframes floatTerminal {
@@ -209,6 +238,51 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.terminal-buttons span:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Sarı Buton (Minimize) Durumu */
+.terminal-window.terminal-minimized .terminal-body {
+    display: none;
+}
+
+/* Yeşil Buton (Maximize) Durumu */
+.terminal-window.terminal-maximized {
+    max-width: 550px;
+    transform: scale(1.05) translateY(-10px) !important;
+    animation: none; /* Büyütüldüğünde süzülmeyi durdurur */
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 210, 255, 0.3);
+    z-index: 20;
+}
+
+/* Kırmızı Buton (Close / Restart) Durumu (Eski TV Kapanma Efekti) */
+.terminal-window.terminal-shutting-down {
+    animation: tv-shut-down 0.6s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+    pointer-events: none;
+}
+
+.terminal-window.terminal-rebooting {
+    animation: tv-turn-on 0.6s cubic-bezier(0, 0, 0.2, 1) forwards !important;
+    pointer-events: none;
+}
+
+@keyframes tv-shut-down {
+    0% { transform: scale(1, 1); opacity: 1; filter: brightness(1); }
+    40% { transform: scale(1, 0.02); opacity: 1; filter: brightness(2); }
+    80% { transform: scale(0.02, 0.02); opacity: 0.8; }
+    100% { transform: scale(0, 0); opacity: 0; filter: brightness(0); }
+}
+
+@keyframes tv-turn-on {
+    0% { transform: scale(0, 0); opacity: 0; filter: brightness(2); }
+    50% { transform: scale(1, 0.02); opacity: 0.8; filter: brightness(2); }
+    100% { transform: scale(1, 1); opacity: 1; filter: brightness(1); }
 }
 
 .terminal-buttons .close-btn { background: #ff5f56; }
@@ -222,6 +296,24 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 13px;
     padding-left: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.code-nav {
+    cursor: pointer;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.code-nav:hover {
+    background: rgba(0, 210, 255, 0.2);
+    color: #fff;
 }
 
 .copy-btn {
@@ -283,6 +375,7 @@
     line-height: 1.7;
     color: #e2e8f0;
     overflow-x: auto;
+    transition: opacity 0.3s ease;
 }
 
 .term-comment { color: #7f848e; font-style: italic; }
