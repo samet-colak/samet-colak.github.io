@@ -65,6 +65,7 @@ const translations = {
         error_404_desc: "Görünüşe göre aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış. Lütfen ana sayfaya dönerek portfolyomu keşfetmeye devam edin.",
         back_home: "Ana Sayfaya Dön",
         footer_text: "© 2026 Tüm Hakları Saklıdır.",
+        reveal_statement: "İyi tasarım sadece nasıl göründüğü ile ilgili değildir. Nasıl hissettirdiği ve nasıl çalıştığıyla ilgilidir. Kod satırları arasında bir hikaye yatar.",
         mobile_warn_title: "Daha İyi Bir Deneyim İçin",
         mobile_warn_desc: "Bu portfolyoda yer alan özel animasyonları ve ince tasarım detaylarını tam anlamıyla deneyimleyebilmek için bilgisayar veya tablet üzerinden ziyaret etmenizi tavsiye ederim.",
         mobile_warn_btn: "Yine de Devam Et"
@@ -123,6 +124,7 @@ const translations = {
         error_404_desc: "It looks like the page you are looking for has been moved, deleted, or never existed. Please return to the home page to continue exploring my portfolio.",
         back_home: "Back to Home",
         footer_text: "© 2026 All Rights Reserved.",
+        reveal_statement: "Good design is not just about what it looks like. It's about how it feels and how it works. A story lies between the lines of code.",
         mobile_warn_title: "For a Better Experience",
         mobile_warn_desc: "To fully experience the custom animations and intricate design details in this portfolio, I highly recommend visiting from a computer or tablet.",
         mobile_warn_btn: "Continue Anyway"
@@ -663,4 +665,33 @@ document.addEventListener('mousemove', (e) => {
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
     });
+});
+
+// --- DİJİTAL TIKLAMA PARÇACIKLARI (CLICK PARTICLE BURST) ---
+document.addEventListener('click', (e) => {
+    // Eğer komut menüsü overlay'ine tıklandıysa iptal et
+    if (e.target.closest('.cmd-palette-overlay')) return;
+
+    const colors = ['#00d2ff', '#3a7bd5', '#f8fafc'];
+    
+    for (let i = 0; i < 6; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'click-particle';
+        document.body.appendChild(particle);
+        
+        const size = Math.random() * 6 + 3; // 3px - 9px arası
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        const destinationX = (Math.random() - 0.5) * 80;
+        const destinationY = (Math.random() - 0.5) * 80;
+        
+        particle.style.cssText = `
+            width: ${size}px; height: ${size}px;
+            background: ${color}; box-shadow: 0 0 ${size + 2}px ${color};
+            left: ${e.clientX}px; top: ${e.clientY}px;
+        `;
+        
+        setTimeout(() => { particle.style.transform = `translate(${destinationX}px, ${destinationY}px) scale(0)`; particle.style.opacity = '0'; }, 10);
+        setTimeout(() => particle.remove(), 800);
+    }
 });
