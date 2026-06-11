@@ -12,8 +12,8 @@
     <title>Ana Sayfa | Samet Çolak</title>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/assets/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=1.1">
-    <link rel="stylesheet" href="css/home.css?v=1.1">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
+    <link rel="stylesheet" href="css/home.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
@@ -99,8 +99,8 @@
                 <!-- Terminal Arkası Aydınlatma (Ambient Glow) -->
                 <div class="terminal-glow"></div>
 
-                <div class="terminal-window hero-3d-card">
-                    <div class="terminal-header">
+                <div class="terminal-window hero-3d-card" id="terminal-window">
+                    <div class="terminal-header" id="terminal-header">
                         <div class="terminal-buttons">
                             <span class="close-btn"></span>
                             <span class="minimize-btn"></span>
@@ -111,12 +111,17 @@
                         <span id="current-file-name">developer.py</span>
                         <span class="code-nav" id="next-code" title="Sonraki Dil">&#10095;</span>
                     </div>
-                        <button class="copy-btn" title="Kodu Kopyala">
+                    <div class="terminal-actions">
+                        <button class="run-btn" id="run-btn" title="Kodu Çalıştır">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </button>
+                        <button class="copy-btn" id="copy-btn" title="Kodu Kopyala">
                             <svg class="icon-copy" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                             <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#27c93f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </button>
                     </div>
-                    <div class="terminal-body">
+                    </div>
+                    <div class="terminal-body" id="terminal-body">
 <pre><code id="code-to-copy"><span class="term-comment"># Samet Çolak - Profil</span>
 <span class="term-keyword">class</span> <span class="term-variable">Developer</span>:
     <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):
@@ -124,6 +129,11 @@
         <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>
         <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>]
         <span class="term-variable">self</span>.<span class="term-property">ai</span> <span class="term-operator">=</span> <span class="term-keyword">True</span><span class="term-cursor">_</span></code></pre>
+                    <div id="cli-output" class="cli-output"></div>
+                    <div class="terminal-cli">
+                        <span class="cli-prompt">samet@portfolio:~$</span>
+                        <input type="text" id="cli-input" autocomplete="off" spellcheck="false" maxlength="50" placeholder="Bir komut girin ('help')">
+                    </div>
                     </div>
                 </div>
             </div>
@@ -180,7 +190,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=1.1"></script>
-    <script src="js/home.js?v=1.1"></script>
+    <script src="js/script.js?v=1.2"></script>
+    <script src="js/home.js?v=1.2"></script>
 </body>
 </html>
