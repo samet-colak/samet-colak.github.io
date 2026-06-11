@@ -68,7 +68,14 @@ const translations = {
         reveal_statement: "İyi tasarım sadece nasıl göründüğü ile ilgili değildir. Nasıl hissettirdiği ve nasıl çalıştığıyla ilgilidir. Kod satırları arasında bir hikaye yatar.",
         mobile_warn_title: "Daha İyi Bir Deneyim İçin",
         mobile_warn_desc: "Bu portfolyoda yer alan özel animasyonları ve ince tasarım detaylarını tam anlamıyla deneyimleyebilmek için bilgisayar veya tablet üzerinden ziyaret etmenizi tavsiye ederim.",
-        mobile_warn_btn: "Yine de Devam Et"
+        mobile_warn_btn: "Yine de Devam Et",
+        form_heading: "Bana Mesaj Gönderin",
+        form_name_placeholder: "Adınız Soyadınız",
+        form_email_placeholder: "E-Posta Adresiniz",
+        form_message_placeholder: "Projenizden veya fikrinizden bahsedin...",
+        form_send_btn: "Mesajı Gönder",
+        form_success: "Mesajınız başarıyla iletildi! 🚀",
+        form_error: "Gönderilemedi. Lütfen tekrar deneyin."
     },
     en: {
         home: "Home",
@@ -127,7 +134,14 @@ const translations = {
         reveal_statement: "Good design is not just about what it looks like. It's about how it feels and how it works. A story lies between the lines of code.",
         mobile_warn_title: "For a Better Experience",
         mobile_warn_desc: "To fully experience the custom animations and intricate design details in this portfolio, I highly recommend visiting from a computer or tablet.",
-        mobile_warn_btn: "Continue Anyway"
+        mobile_warn_btn: "Continue Anyway",
+        form_heading: "Send Me a Message",
+        form_name_placeholder: "Your Full Name",
+        form_email_placeholder: "Your Email Address",
+        form_message_placeholder: "Tell me about your project or idea...",
+        form_send_btn: "Send Message",
+        form_success: "Your message has been sent successfully! 🚀",
+        form_error: "Failed to send. Please try again."
     }
 };
 
@@ -695,3 +709,58 @@ document.addEventListener('click', (e) => {
         setTimeout(() => particle.remove(), 800);
     }
 });
+
+// --- FORMSPREE İLETİŞİM FORMU ENTEGRASYONU ---
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const statusMsg = document.getElementById('form-status');
+        
+        submitBtn.classList.add('loading');
+        submitBtn.style.pointerEvents = 'none';
+        statusMsg.classList.remove('show', 'success', 'error');
+
+        // Form verilerini topla
+        const formData = new FormData(this);
+        const actionUrl = this.getAttribute('action');
+
+        // Eğer Formspree ID henüz girilmemişse, deneme (mock) animasyonu göster
+        if (!actionUrl || actionUrl.includes('YOUR_FORM_ID')) {
+             setTimeout(() => {
+                 submitBtn.classList.remove('loading');
+                 submitBtn.style.pointerEvents = 'auto';
+                 statusMsg.textContent = translations[currentLang]['form_success'];
+                 statusMsg.classList.add('show', 'success');
+                 contactForm.reset();
+                 setTimeout(() => { statusMsg.classList.remove('show'); }, 5000);
+             }, 1500);
+             return;
+        }
+
+        // Gerçek Formspree AJAX İsteği
+        fetch(actionUrl, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                submitBtn.classList.remove('loading');
+                submitBtn.style.pointerEvents = 'auto';
+                statusMsg.textContent = translations[currentLang]['form_success'];
+                statusMsg.classList.add('show', 'success');
+                contactForm.reset();
+                setTimeout(() => { statusMsg.classList.remove('show'); }, 5000);
+            } else {
+                throw new Error('Gönderim hatası');
+            }
+        }).catch(error => {
+            submitBtn.classList.remove('loading');
+            submitBtn.style.pointerEvents = 'auto';
+            statusMsg.textContent = translations[currentLang]['form_error'];
+            statusMsg.classList.add('show', 'error');
+        });
+    });
+}
