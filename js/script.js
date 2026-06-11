@@ -19,7 +19,7 @@ const translations = {
         contact: "İletişim",
         hero_greeting_small: "Merhaba, benim adım",
         hero_im: "Ben bir",
-        hero_desc: "Yazılım dünyasına tutkuyla bağlı, modern web teknolojileri ve yapay zeka araçlarını harmanlayarak yenilikçi çözümler üreten bir geliştiriciyim. HTML, CSS, Python ve C# alanlarındaki yetkinliklerimi sürekli ileriye taşıyor; kullanıcı deneyimini merkeze alan, ölçeklenebilir ve estetik projeler inşa ediyorum.",
+        hero_desc: "Yazılım dünyasına tutkuyla bağlı, modern web teknolojileri ve yapay zeka araçlarını harmanlayarak yenilikçi çözümler üreten bir geliştiriciyim. <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span> ve <span class='color-cs'>C#</span> alanlarındaki yetkinliklerimi sürekli ileriye taşıyor; kullanıcı deneyimini merkeze alan, ölçeklenebilir ve estetik projeler inşa ediyorum.",
         hero_badge: "Yenilikçi Çözümler",
         hero_btn: "Projelerimi Gör",
         hero_btn_contact: "İletişime Geç",
@@ -77,7 +77,7 @@ const translations = {
         contact: "Contact",
         hero_greeting_small: "Hello, my name is",
         hero_im: "I am a",
-        hero_desc: "A passionate developer crafting innovative solutions by blending modern web technologies with AI tools. I continuously advance my proficiency in HTML, CSS, Python, and C#, building scalable, aesthetic, and user-centric projects.",
+        hero_desc: "A passionate developer crafting innovative solutions by blending modern web technologies with AI tools. I continuously advance my proficiency in <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span>, and <span class='color-cs'>C#</span>, building scalable, aesthetic, and user-centric projects.",
         hero_badge: "Innovative Solutions",
         hero_btn: "View My Projects",
         hero_btn_contact: "Contact Me",
@@ -244,6 +244,21 @@ if (window.matchMedia("(pointer: fine)").matches) {
             left: `${posX}px`,
             top: `${posY}px`
         }, { duration: 400, fill: "forwards" });
+
+        // --- ARKA PLAN KÜRELERİ (PARALLAX) EFEKTİ ---
+        const bgShapes = document.querySelectorAll('.shape');
+        if (bgShapes.length > 0) {
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            bgShapes.forEach((shape, index) => {
+                // Her bir küreye farklı derinlik hissi (hız) veriyoruz
+                const speed = (index + 1.5) * 0.015; 
+                const moveX = (centerX - posX) * speed;
+                const moveY = (centerY - posY) * speed;
+                shape.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        }
     });
 
     // Tıklanabilir elementlerin (A-Kalite) üzerine gelme efekti
@@ -345,7 +360,7 @@ if (preloader) {
             setTimeout(() => {
                 preloader.classList.add('loaded');
                 sessionStorage.setItem('siteLoaded', 'true');
-            }, 1200); // Animasyonun daha net görülmesi için süre 1.2 saniyeye çıkarıldı
+            }, 1200);
         };
 
         if (document.readyState === 'complete') {
@@ -406,4 +421,232 @@ document.querySelectorAll('.scroll-top').forEach(btn => {
         };
         scrollToTop();
     });
+});
+
+// --- TERMINAL KOD DEĞİŞTİRME MOTORU ---
+document.addEventListener("DOMContentLoaded", () => {
+    const prevBtn = document.getElementById('prev-code');
+    const nextBtn = document.getElementById('next-code');
+    const fileNameDisplay = document.getElementById('current-file-name');
+    const codeDisplay = document.getElementById('code-to-copy');
+
+    if (prevBtn && nextBtn && fileNameDisplay && codeDisplay) {
+        const codeSnippets = [
+            {
+                file: "developer.py",
+                code: `<span class="term-comment"># Samet Çolak - Profil</span>\n<span class="term-keyword">class</span> <span class="term-variable">Developer</span>:\n    <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):\n        <span class="term-variable">self</span>.<span class="term-property">name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>\n        <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>\n        <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>]\n        <span class="term-variable">self</span>.<span class="term-property">ai</span> <span class="term-operator">=</span> <span class="term-keyword">True</span><span class="term-cursor">_</span>`
+            },
+            {
+                file: "developer.js",
+                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">const</span> <span class="term-variable">developer</span> <span class="term-operator">=</span> {\n    <span class="term-property">name</span>: <span class="term-string">"Samet Çolak"</span>,\n    <span class="term-property">role</span>: <span class="term-string">"Software Developer"</span>,\n    <span class="term-property">skills</span>: [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>],\n    <span class="term-property">learningAI</span>: <span class="term-keyword">true</span>\n};<span class="term-cursor">_</span>`
+            },
+            {
+                file: "developer.cs",
+                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">public class</span> <span class="term-variable">Developer</span> {\n    <span class="term-keyword">public string</span> <span class="term-property">Name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-keyword">public string</span> <span class="term-property">Role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>;\n    <span class="term-keyword">public string[]</span> <span class="term-property">Skills</span> <span class="term-operator">=</span> {<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>};\n    <span class="term-keyword">public bool</span> <span class="term-property">LearningAI</span> <span class="term-operator">=</span> <span class="term-keyword">true</span>;\n}<span class="term-cursor">_</span>`
+            },
+            {
+                file: "developer.html",
+                code: `<span class="term-comment">&lt;!-- Samet Çolak - Profil --&gt;</span>\n<span class="term-keyword">&lt;div</span> <span class="term-property">class=</span><span class="term-string">"developer"</span><span class="term-keyword">&gt;</span>\n    <span class="term-keyword">&lt;h1&gt;</span>Samet Çolak<span class="term-keyword">&lt;/h1&gt;</span>\n    <span class="term-keyword">&lt;p&gt;</span>Software Developer<span class="term-keyword">&lt;/p&gt;</span>\n    <span class="term-keyword">&lt;ul</span> <span class="term-property">class=</span><span class="term-string">"skills"</span><span class="term-keyword">&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>HTML &amp; CSS<span class="term-keyword">&lt;/li&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>Python &amp; C#<span class="term-keyword">&lt;/li&gt;</span>\n    <span class="term-keyword">&lt;/ul&gt;</span>\n<span class="term-keyword">&lt;/div&gt;</span><span class="term-cursor">_</span>`
+            },
+            {
+                file: "developer.css",
+                code: `<span class="term-comment">/* Samet Çolak - Profil */</span>\n<span class="term-keyword">.developer</span> {\n    <span class="term-property">--name</span>: <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-property">--role</span>: <span class="term-string">"Software Developer"</span>;\n    <span class="term-property">--skills</span>: <span class="term-string">"HTML, CSS, Python, C#"</span>;\n    <span class="term-property">display</span>: <span class="term-variable">flex</span>;\n    <span class="term-property">learning-ai</span>: <span class="term-variable">true</span>;\n}<span class="term-cursor">_</span>`
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateTerminal(index) {
+            codeDisplay.style.opacity = 0;
+            fileNameDisplay.style.opacity = 0;
+            
+            setTimeout(() => {
+                fileNameDisplay.textContent = codeSnippets[index].file;
+                codeDisplay.innerHTML = codeSnippets[index].code;
+                codeDisplay.style.opacity = 1;
+                fileNameDisplay.style.opacity = 1;
+            }, 200);
+        }
+
+        prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + codeSnippets.length) % codeSnippets.length; updateTerminal(currentIndex); });
+        nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % codeSnippets.length; updateTerminal(currentIndex); });
+        
+        codeDisplay.style.transition = "opacity 0.2s ease";
+        fileNameDisplay.style.transition = "opacity 0.2s ease";
+    }
+});
+
+// --- TERMINAL BUTONLARI ETKİLEŞİMİ (MINIMIZE, MAXIMIZE, CLOSE) ---
+document.addEventListener("DOMContentLoaded", () => {
+    const termWindow = document.querySelector('.terminal-window');
+    const closeBtn = document.querySelector('.close-btn');
+    const minBtn = document.querySelector('.minimize-btn');
+    const maxBtn = document.querySelector('.maximize-btn');
+    const termBody = document.querySelector('.terminal-body');
+
+    if (termWindow && closeBtn && minBtn && maxBtn && termBody) {
+        // Kırmızı (Kapatma) - Sistemi yeniden başlatır gibi retro animasyon
+        closeBtn.addEventListener('click', () => {
+            if (termWindow.classList.contains('terminal-shutting-down') || termWindow.classList.contains('terminal-rebooting')) return;
+            
+            termWindow.classList.add('terminal-shutting-down');
+            termWindow.classList.remove('terminal-maximized', 'terminal-minimized');
+            
+            setTimeout(() => {
+                termWindow.classList.remove('terminal-shutting-down');
+                termWindow.classList.add('terminal-rebooting');
+                termBody.style.opacity = '0'; // Açılırken kodu kısa süre gizler
+                
+                setTimeout(() => {
+                    termWindow.classList.remove('terminal-rebooting');
+                    termBody.style.opacity = '1'; // Kodları tekrar gösterir
+                }, 600); // Açılma süresi
+            }, 600); // Kapanma süresi
+        });
+
+        // Sarı (Simge Durumuna Küçült)
+        minBtn.addEventListener('click', () => {
+            if (!termWindow.classList.contains('terminal-shutting-down')) {
+                termWindow.classList.toggle('terminal-minimized');
+            }
+        });
+
+        // Yeşil (Büyüt)
+        maxBtn.addEventListener('click', () => {
+            if (!termWindow.classList.contains('terminal-shutting-down')) {
+                termWindow.classList.toggle('terminal-maximized');
+            }
+        });
+    }
+});
+
+// --- GELİŞTİRİCİ KOMUT MENÜSÜ (CMD+K / CTRL+K) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Menü HTML'ini sayfaya gizlice enjekte et
+    if (!document.getElementById('cmd-palette')) {
+        const cmdMenuHTML = `
+            <div id="cmd-palette" class="cmd-palette-overlay">
+                <div class="cmd-palette-container">
+                    <div class="cmd-header">
+                        <svg class="cmd-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="cmd-input" placeholder="Ne arıyorsunuz? (Örn: Projeler, İletişim...)">
+                        <span class="cmd-esc">ESC</span>
+                    </div>
+                    <div class="cmd-body">
+                        <div class="cmd-group" data-group="Navigasyon">
+                            <div class="cmd-group-title">Navigasyon</div>
+                            <a href="/" class="cmd-item active" data-keywords="ana sayfa home index">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                <span>Ana Sayfa</span>
+                            </a>
+                            <a href="/pages/about" class="cmd-item" data-keywords="hakkımda about me kimdir yetenekler">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span>Hakkımda</span>
+                            </a>
+                            <a href="/pages/projects" class="cmd-item" data-keywords="projeler projects işler portfolyo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                <span>Projeler</span>
+                            </a>
+                            <a href="/pages/certificates" class="cmd-item" data-keywords="sertifikalar certificates belgeler">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                <span>Sertifikalar</span>
+                            </a>
+                        </div>
+                        <div class="cmd-group" data-group="İletişim & Sosyal">
+                            <div class="cmd-group-title">İletişim & Sosyal</div>
+                            <a href="/pages/contact" class="cmd-item" data-keywords="iletişim contact ulaş mesaj mail e-posta">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span>İletişime Geç</span>
+                            </a>
+                            <a href="https://github.com/samet-colak" target="_blank" class="cmd-item" data-keywords="github kod kaynak repo">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                <span>GitHub Profilim</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', cmdMenuHTML);
+    }
+
+    // 2. Etkileşimler ve Mantık
+    const overlay = document.getElementById('cmd-palette');
+    const input = document.getElementById('cmd-input');
+    const items = Array.from(document.querySelectorAll('.cmd-item'));
+
+    const toggleMenu = (show) => {
+        if (show) {
+            overlay.classList.add('active');
+            input.value = '';
+            filterItems('');
+            setTimeout(() => input.focus(), 100);
+        } else {
+            overlay.classList.remove('active');
+            input.blur();
+        }
+    };
+
+    // Klavye Kısayolları (Ctrl+K / Mac için Cmd+K, Yön tuşları ve Enter)
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            toggleMenu(!overlay.classList.contains('active'));
+        }
+        
+        if (!overlay.classList.contains('active')) return;
+
+        if (e.key === 'Escape') { toggleMenu(false); } 
+        else if (e.key === 'ArrowDown') { e.preventDefault(); navigateItems(1); } 
+        else if (e.key === 'ArrowUp') { e.preventDefault(); navigateItems(-1); } 
+        else if (e.key === 'Enter') {
+            e.preventDefault();
+            const activeItem = items.find(item => item.classList.contains('active') && item.style.display !== 'none');
+            if (activeItem) activeItem.click();
+        }
+    });
+
+    // Dışarı tıklanınca kapanma
+    if (overlay) {
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) toggleMenu(false); });
+    }
+
+    // Canlı Arama/Filtreleme Fonksiyonu
+    if (input) {
+        input.addEventListener('input', (e) => filterItems(e.target.value.toLowerCase()));
+    }
+
+    function filterItems(query) {
+        let firstVisible = null;
+        items.forEach(item => {
+            item.classList.remove('active');
+            const text = item.querySelector('span').textContent.toLowerCase();
+            const keywords = item.getAttribute('data-keywords');
+            if (text.includes(query) || keywords.includes(query)) {
+                item.style.display = 'flex';
+                if (!firstVisible) firstVisible = item;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        document.querySelectorAll('.cmd-group').forEach(group => {
+            const visibleItems = Array.from(group.querySelectorAll('.cmd-item')).filter(i => i.style.display !== 'none');
+            group.style.display = visibleItems.length > 0 ? 'block' : 'none';
+        });
+
+        if (firstVisible) firstVisible.classList.add('active');
+    }
+
+    function navigateItems(direction) {
+        const visibleItems = items.filter(item => item.style.display !== 'none');
+        if (visibleItems.length === 0) return;
+        const currentIndex = visibleItems.findIndex(item => item.classList.contains('active'));
+        let nextIndex = currentIndex + direction;
+        if (nextIndex < 0) nextIndex = visibleItems.length - 1;
+        if (nextIndex >= visibleItems.length) nextIndex = 0;
+        visibleItems.forEach(item => item.classList.remove('active'));
+        visibleItems[nextIndex].classList.add('active');
+        visibleItems[nextIndex].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
 });
