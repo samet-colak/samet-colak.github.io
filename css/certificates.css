@@ -67,3 +67,17 @@
     max-width: 600px;
     margin-inline: auto;
 }
+
+@media (max-width: 768px) {
+    .pro-empty-state { padding: 40px 20px; }
+    .pro-empty-state h3 { font-size: 22px; }
+    .pro-empty-state p { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .pro-empty-state { padding: 30px 15px; border-radius: 12px; }
+    .pro-empty-state h3 { font-size: 18px; }
+    .pro-empty-state p { font-size: 13px; }
+    .loader-container { width: 60px; height: 60px; margin-bottom: 20px; }
+    .cert-icon { font-size: 20px; }
+}
