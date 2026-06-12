@@ -455,3 +455,31 @@
         opacity: 0.8;
     }
 }
+
+@media (max-width: 600px) {
+    .hero { padding: 100px 5% 50px; }
+    .hero-content h1 { font-size: 38px; }
+    .hero-content h2 { font-size: 20px; }
+    .hero-desc { font-size: 14px; padding: 12px 15px; }
+    .hero-buttons { flex-direction: column; width: 100%; gap: 15px; }
+    .hero-buttons .btn { width: 100%; display: block; text-align: center; margin-top: 0; margin-left: 0;}
+    .social-links { justify-content: center; width: 100%; margin-top: 10px; }
+    .terminal-window { width: 100%; border-radius: 8px; }
+    .terminal-body { padding: 15px; font-size: 12px; }
+    .terminal-title { font-size: 11px; padding-left: 10px; gap: 5px; }
+    .terminal-actions { right: 5px; }
+    .copy-btn, .run-btn { padding: 4px; }
+    .terminal-header { padding: 12px 8px; }
+}
+
+@media (max-width: 480px) {
+    .hero { padding: 90px 5% 40px; }
+    .hero-content h1 { font-size: 32px; }
+    .hero-content h2 { font-size: 18px; }
+    .hero-desc { font-size: 13px; padding: 12px; margin-bottom: 25px; border-radius: 12px; }
+    .terminal-title { font-size: 10px; padding-left: 0; flex: 1; justify-content: center; }
+    .code-nav { padding: 2px 4px; font-size: 10px; }
+    .terminal-body { padding: 15px 12px; font-size: 11px; }
+    .cli-output { font-size: 11px; }
+    .hero-buttons .btn { font-size: 14px; padding: 12px 20px; }
+}
