@@ -624,24 +624,44 @@ nav.scrolled {
 }
 
 .mobile-warning-content {
-    background: rgba(30, 41, 59, 0.6);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
     padding: 40px 30px;
     border-radius: 24px;
-    border: 1px solid rgba(0, 210, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.1);
-    max-width: 400px;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-width: 360px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: scale(0.8) translateY(30px);
+    opacity: 0;
+    animation: warning-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    position: relative;
+    overflow: hidden;
 }
 
-.mobile-warning-content .warning-icon {
-    font-size: 50px;
-    margin-bottom: 20px;
-    display: block;
+/* Ortaya Vuran Hafif Parlama Efekti */
+.mobile-warning-content::before {
+    content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+    width: 150px; height: 150px; background: var(--primary-color);
+    filter: blur(80px); opacity: 0.3; z-index: 0; pointer-events: none;
+}
+
+.mobile-warning-content > * { position: relative; z-index: 1; }
+
+@keyframes warning-pop {
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.warning-icon-wrapper {
+    width: 64px; height: 64px; background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
 }
 
 .mobile-warning-content h3 {
-    font-size: 24px;
+    font-size: 22px;
     margin-bottom: 15px;
     background: linear-gradient(to right, #fff, var(--primary-color));
     -webkit-background-clip: text;
@@ -650,9 +670,13 @@ nav.scrolled {
 
 .mobile-warning-content p {
     color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.mobile-warning-btn {
+    width: 100%; display: block; text-align: center; margin-top: 0;
 }
 
 /* --- TEPE KAYDIRMA ÇUBUĞU (SCROLL PROGRESS BAR) --- */
@@ -1178,7 +1202,7 @@ nav.scrolled {
 
 /* --- FULL MOBİL UYUM (RESPONSIVE) --- */
 @media (max-width: 768px) {
-    .section-padding { padding: 60px 5%; min-height: auto; }
+    .section-padding { padding: 100px 5% 60px; min-height: auto; }
     .section-title { font-size: 28px; margin-bottom: 30px; }
     .modern-footer { padding: 50px 5% 20px; }
     .cmd-palette-container { width: 95%; max-height: 80vh; }
@@ -1186,7 +1210,7 @@ nav.scrolled {
 }
 
 @media (max-width: 480px) {
-    .section-padding { padding: 50px 5%; }
+    .section-padding { padding: 90px 5% 50px; }
     .section-title { font-size: 24px; margin-bottom: 25px; }
     .modern-footer { padding: 40px 5% 20px; }
     .footer-links h4, .footer-social h4 { font-size: 16px; margin-bottom: 15px; }
