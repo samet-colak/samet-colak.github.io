@@ -426,3 +426,24 @@
     .form-submit { flex-direction: column-reverse; gap: 20px; text-align: center; }
     .submit-btn { width: 100%; }
 }
+
+@media (max-width: 600px) {
+    .premium-title { font-size: 28px; }
+    .premium-desc { font-size: 15px; }
+    .bento-card { padding: 25px 15px; }
+    .email-card .bento-title { font-size: 18px; word-break: break-all; }
+    .form-card { padding: 20px 15px; }
+    .form-group input, .form-group textarea { font-size: 14px; padding: 12px 15px; }
+    .live-clock-container { flex-direction: column; gap: 8px; align-items: center; }
+}
+
+@media (max-width: 480px) {
+    .premium-title { font-size: 24px; }
+    .premium-desc { font-size: 14px; }
+    .bento-card { padding: 20px 15px; border-radius: 16px; }
+    .email-card .bento-title { font-size: 16px; }
+    .form-card { padding: 25px 15px; }
+    .premium-form { gap: 15px; }
+    .form-group input, .form-group textarea { font-size: 13px; padding: 10px 15px; }
+    .form-status { left: 10px; right: 10px; bottom: 10px; font-size: 13px; padding: 15px; min-width: auto; transform: translateY(150%) scale(0.9) rotate(0deg); }
+}
