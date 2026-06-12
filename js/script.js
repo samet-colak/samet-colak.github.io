@@ -229,10 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
         warningDiv.id = "mobile-warning";
         warningDiv.innerHTML = `
             <div class="mobile-warning-content">
-                <span class="warning-icon">📱 🚫 💻</span>
+                <div class="warning-icon-wrapper">
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-color);"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
                 <h3 data-i18n="mobile_warn_title">Daha İyi Bir Deneyim İçin</h3>
                 <p data-i18n="mobile_warn_desc">Bu portfolyoda yer alan özel animasyonları ve ince tasarım detaylarını tam anlamıyla deneyimleyebilmek için bilgisayar veya tablet üzerinden ziyaret etmenizi tavsiye ederim.</p>
-                <button id="close-warning" class="btn" data-i18n="mobile_warn_btn">Yine de Devam Et</button>
+                <button id="close-warning" class="btn mobile-warning-btn" data-i18n="mobile_warn_btn">Yine de Devam Et</button>
             </div>
         `;
         document.body.appendChild(warningDiv);
