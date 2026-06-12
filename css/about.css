@@ -197,3 +197,22 @@
     0% { left: -100%; }
     100% { left: 200%; }
 }
+
+/* --- MOBİL UYUM (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    .about-container { gap: 30px; flex-direction: column; }
+    .about-text { padding: 30px 20px; min-width: 0; width: 100%; }
+    .about-skills { min-width: 0; width: 100%; padding: 0; }
+    .about-text h3, .about-skills h3 { font-size: 22px; margin-bottom: 20px; }
+    .about-text p { font-size: 14px; line-height: 1.6; }
+    .personal-info { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .skill-name { font-size: 13px; }
+    .skill-percent { font-size: 12px; }
+}
+@media (max-width: 480px) {
+    .personal-info { grid-template-columns: 1fr; }
+    .about-text { padding: 25px 15px; border-radius: 16px; }
+    .about-text h3, .about-skills h3 { font-size: 20px; }
+    .about-text p { font-size: 13px; }
+    .skill-name { font-size: 13px; }
+}
