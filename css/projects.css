@@ -70,7 +70,7 @@
 /* Projeler Kartları */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: center;
     gap: 30px;
 }
@@ -381,4 +381,28 @@
         width: 55%;
         padding: 40px;
     }
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .projects-header-actions { justify-content: center; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-img-wrapper { height: 180px; }
+    .project-info { padding: 15px 20px; }
+    .project-info h3 { font-size: 18px; }
+    .project-info p { font-size: 14px; }
+    .project-links { flex-direction: column; }
+    .modal-info { padding: 20px; }
+    .modal-info h3 { font-size: 20px; }
+    .modal-info p { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .project-img-wrapper { height: 160px; }
+    .project-info { padding: 15px; }
+    .project-info h3 { font-size: 18px; }
+    .project-info p { font-size: 13px; }
+    .project-tech span { font-size: 11px; padding: 4px 8px; }
+    .modal-img-container { height: 180px; }
+    .modal-info h3 { font-size: 18px; }
 }
