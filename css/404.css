@@ -44,3 +44,17 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
+
+@media (max-width: 768px) {
+    .error-container { padding: 60px 5%; }
+    .error-content h1 { font-size: 100px; }
+    .error-content h3 { font-size: 24px; }
+    .error-content p { font-size: 14px; }
+}
+
+@media (max-width: 480px) {
+    .error-container { padding: 40px 5%; }
+    .error-content h1 { font-size: 80px; }
+    .error-content h3 { font-size: 20px; }
+    .error-content p { font-size: 13px; }
+}
