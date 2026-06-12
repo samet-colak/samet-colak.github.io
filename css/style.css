@@ -1141,3 +1141,23 @@ nav.scrolled {
 
 .sel-btn:hover { background: rgba(255, 255, 255, 0.1); }
 .sel-btn svg { width: 14px; height: 14px; }
+
+/* --- FULL MOBİL UYUM (RESPONSIVE) --- */
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 5%; min-height: auto; }
+    .section-title { font-size: 28px; margin-bottom: 30px; }
+    .modern-footer { padding: 50px 5% 20px; }
+    .cmd-palette-container { width: 95%; max-height: 80vh; }
+    .cmd-body { max-height: 250px; }
+}
+
+@media (max-width: 480px) {
+    .section-padding { padding: 50px 5%; }
+    .section-title { font-size: 24px; margin-bottom: 25px; }
+    .modern-footer { padding: 40px 5% 20px; }
+    .footer-links h4, .footer-social h4 { font-size: 16px; margin-bottom: 15px; }
+    .footer-brand p { font-size: 13px; }
+    .cmd-header { padding: 12px 15px; }
+    #cmd-input { font-size: 14px; }
+    .cmd-item { padding: 10px 12px; font-size: 13px; }
+}
