@@ -40,9 +40,253 @@
     margin-bottom: 40px;
 }
 
+/* --- DÜNYA SEÇİCİ (WORLD SELECTOR) --- */
+.world-selector {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.w-btn {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    padding: 8px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.w-btn:hover { color: #f8fafc; background: rgba(255, 255, 255, 0.05); }
+.w-btn.active {
+    background: rgba(0, 210, 255, 0.15);
+    color: var(--primary-color);
+    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.1);
+}
+
+/* --- YILAN OYUNU BAŞLAT BUTONU --- */
+.snake-start-btn {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    color: var(--primary-color);
+    padding: 14px 28px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 210, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.snake-start-btn svg { transition: transform 0.3s ease; }
+
+.snake-start-btn:hover {
+    background: rgba(0, 210, 255, 0.15);
+    border-color: var(--primary-color);
+    color: #fff;
+    box-shadow: 0 10px 40px rgba(0, 210, 255, 0.3), inset 0 0 20px rgba(0, 210, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.snake-start-btn:hover svg { transform: rotate(15deg) scale(1.1); color: #fff; }
+.snake-start-btn:active { transform: translateY(1px); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.2); }
+
+/* --- YILAN OYUNU (EASTER EGG) TASARIMI --- */
+.game-wrapper {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-container {
+    background: rgba(11, 17, 32, 0.85);
+    border: 1px solid rgba(0, 210, 255, 0.15);
+    border-radius: 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 450px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#game-container.maximized {
+    max-width: 650px;
+    transform: scale(1.05);
+}
+
+.game-terminal-header {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.term-btns { display: flex; gap: 8px; }
+.t-btn { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease, filter 0.2s ease; }
+.t-btn:hover { transform: scale(1.2); filter: brightness(1.2); }
+.t-btn.close { background: #ff5f56; }
+.t-btn.min { background: #ffbd2e; }
+.t-btn.max { background: #27c93f; }
+
+.term-title {
+    flex: 1;
+    text-align: center;
+    color: #94a3b8;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    padding-right: 52px;
+}
+
+#game-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#game-container.minimized #game-body {
+    display: none;
+}
+
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1 / 1;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    background: #0b1120;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 17, 32, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.game-overlay h3 {
+    color: #ff5f56;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.game-header {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    color: #f8fafc;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.current-score { color: var(--primary-color); font-weight: 700; font-size: 18px; }
+
+.high-score-badge {
+    background: rgba(255, 189, 46, 0.1);
+    color: #ffbd2e;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 189, 46, 0.25);
+    font-size: 14px;
+    font-weight: 600;
+}
+.mobile-controls {
+    display: none;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.m-btn {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
+    border-radius: 10px;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.05), 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.15s ease;
+    outline: none;
+}
+
+.m-btn:active {
+    transform: scale(0.92) translateY(2px);
+    background: var(--primary-color);
+    color: #0f172a;
+    box-shadow: 0 0 20px var(--primary-color);
+    border-color: transparent;
+}
+
+.btn-up { grid-column: 2; grid-row: 1; }
+.btn-left { grid-column: 1; grid-row: 2; }
+.btn-down { grid-column: 2; grid-row: 2; }
+.btn-right { grid-column: 3; grid-row: 2; }
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
+}
+
+/* --- ÖLÜM EKRANI SARSINTISI (SCREEN SHAKE) --- */
+@keyframes screen-shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    20% { transform: translate(-10px, 5px) rotate(-1deg); }
+    40% { transform: translate(10px, -5px) rotate(1deg); }
+    60% { transform: translate(-10px, -5px) rotate(-1deg); }
+    80% { transform: translate(10px, 5px) rotate(1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+.shake-animation {
+    animation: screen-shake 0.4s cubic-bezier(.36,.07,.19,.97) both !important;
 }
 
 @media (max-width: 768px) {
@@ -50,6 +294,7 @@
     .error-content h1 { font-size: 100px; }
     .error-content h3 { font-size: 24px; }
     .error-content p { font-size: 14px; }
+    .mobile-controls { display: grid; }
 }
 
 @media (max-width: 480px) {
