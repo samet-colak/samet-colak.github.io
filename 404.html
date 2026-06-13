@@ -10,8 +10,8 @@
     <link rel="apple-touch-icon" href="https://sametcolak.com.tr/assets/favicon.svg">
     
     <!-- CSS dosyalarına giden yollar, klasör derinliği fark etmeksizin çalışması için '/' ile başlar -->
-    <link rel="stylesheet" href="/css/style.css?v=1.1">
-    <link rel="stylesheet" href="/css/404.css?v=1.1">
+    <link rel="stylesheet" href="/css/style.css?v=4.1">
+    <link rel="stylesheet" href="/css/404.css?v=4.1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
@@ -72,6 +72,61 @@
             <h1>404</h1>
             <h3 data-i18n="error_404_title">404 - Kayıp Uzay</h3>
             <p data-i18n="error_404_desc">Görünüşe göre aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış. Lütfen ana sayfaya dönerek portfolyomu keşfetmeye devam edin.</p>
+
+                <!-- Paskalya Yumurtası (Easter Egg) Yılan Oyunu -->
+            <div class="game-wrapper">
+                <button id="start-game-btn" class="snake-start-btn">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect><path d="M6 12h4m-2-2v4m8-2h.01M16 12h.01"></path></svg>
+                    <span data-i18n="play_snake">Terminal: Snake.exe Başlat</span>
+                </button>
+                <div id="game-container" style="display: none;">
+                <div class="game-terminal-header">
+                    <div class="term-btns">
+                        <span id="gt-close" class="t-btn close" title="Kapat"></span>
+                        <span id="gt-min" class="t-btn min" title="Küçült"></span>
+                        <span id="gt-max" class="t-btn max" title="Büyüt"></span>
+                    </div>
+                    <div class="term-title">Snake.exe</div>
+                    </div>
+                <div id="game-body">
+                    <div class="game-header">
+                        <div class="score-board">
+                            <span><span data-i18n="score_text">Skor</span>: <span id="score" class="current-score">0</span></span>
+                            <span class="high-score-badge"><span data-i18n="high_score_text">En Yüksek</span>: <span id="high-score">0</span></span>
+                        </div>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="gameCanvas" width="400" height="400"></canvas>
+                            <!-- HARİTA SEÇİM (MENU) EKRANI -->
+                            <div id="menu-overlay" class="game-overlay" style="display: none; background: rgba(11, 17, 32, 0.95); z-index: 20;">
+                                <h3 data-i18n="select_world" style="color: #f8fafc; font-size: 22px; font-family: 'Poppins', sans-serif;">Harita Seçimi</h3>
+                                <div class="world-selector" id="world-selector">
+                                    <button class="w-btn" data-size="300" data-i18n="world_small">Küçük</button>
+                                    <button class="w-btn active" data-size="400" data-i18n="world_medium">Orta</button>
+                                    <button class="w-btn" data-size="500" data-i18n="world_large">Büyük</button>
+                                </div>
+                                <button id="confirm-start-btn" class="btn" style="margin-top: 15px;"><span data-i18n="start_game">Oyuna Başla ➔</span></button>
+                            </div>
+                        <div id="game-overlay" class="game-overlay" style="display: none;">
+                            <h3 id="game-over-text" data-i18n="game_over">Sistem Çöktü!</h3>
+                            <button id="restart-game-btn" class="btn btn-outline" style="border-style: dashed; background: rgba(15, 23, 42, 0.9);">
+                                <span>Sistemi Yeniden Başlat ↻</span>
+                            </button>
+                            <button id="change-map-btn" class="btn btn-outline" style="margin-top: 10px; border-style: dashed; background: transparent; border-color: rgba(255,255,255,0.2); color: #cbd5e1; font-size: 13px; padding: 8px 20px;">
+                                <span data-i18n="change_map">Harita Değiştir 🗺️</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-controls">
+                        <button class="m-btn btn-up"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+                        <button class="m-btn btn-left"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                        <button class="m-btn btn-down"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                        <button class="m-btn btn-right"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
             <a href="/" class="btn" data-i18n="back_home">Ana Sayfaya Dön</a>
         </div>
     </section>
@@ -117,6 +172,7 @@
         </div>
     </footer>
 
-    <script src="/js/script.js?v=1.1"></script>
+    <script src="/js/script.js?v=4.1"></script>
+    <script src="/js/404.js?v=4.1"></script>
 </body>
 </html>
