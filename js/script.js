@@ -79,7 +79,17 @@ const translations = {
         ctx_home: "Ana Sayfaya Dön",
         ctx_contact: "Bana Ulaşın",
         sel_copy: "Kopyala",
-        sel_copied: "Kopyalandı!"
+        sel_copied: "Kopyalandı!",
+        play_snake: "Terminal: Snake.exe Başlat",
+        game_over: "Sistem Çöktü!",
+        score_text: "Skor",
+        high_score_text: "En Yüksek",
+        world_small: "Küçük",
+        world_medium: "Orta",
+        world_large: "Büyük",
+        select_world: "Harita Seçimi",
+        start_game: "Oyuna Başla ➔",
+        change_map: "Harita Değiştir 🗺️"
     },
     en: {
         home: "Home",
@@ -149,7 +159,17 @@ const translations = {
         ctx_home: "Back to Home",
         ctx_contact: "Contact Me",
         sel_copy: "Copy",
-        sel_copied: "Copied!"
+        sel_copied: "Copied!",
+        play_snake: "Terminal: Run Snake.exe",
+        game_over: "System Failure!",
+        score_text: "Score",
+        high_score_text: "Best",
+        world_small: "Small",
+        world_medium: "Medium",
+        world_large: "Large",
+        select_world: "Select Map",
+        start_game: "Start Game ➔",
+        change_map: "Change Map 🗺️"
     }
 };
 
