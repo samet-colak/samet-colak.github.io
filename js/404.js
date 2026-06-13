@@ -359,27 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.shadowBlur = 0;
 
         // 3. Yılan Çizimi (Yuvarlatılmış Neon Bloklar)
-        // Akıcı yılan çizgisi (Sub-pixel rendering)
-        if (snake.length > 0) {
-            ctx.beginPath();
-            let hPrev = lastSnake[0] || snake[0];
-            let hx = hPrev.x + (snake[0].x - hPrev.x) * ratio;
-            let hy = hPrev.y + (snake[0].y - hPrev.y) * ratio;
-            ctx.moveTo(hx * gridSize + gridSize/2, hy * gridSize + gridSize/2);
-
-            for(let i = 1; i < snake.length; i++) {
-                let pPrev = lastSnake[i] || snake[i];
-                let px = pPrev.x + (snake[i].x - pPrev.x) * ratio;
-                let py = pPrev.y + (snake[i].y - pPrev.y) * ratio;
-                ctx.lineTo(px * gridSize + gridSize/2, py * gridSize + gridSize/2);
-            }
-            ctx.strokeStyle = '#00d2ff'; // Ana tema rengimiz
-            ctx.lineWidth = gridSize - 4;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-            ctx.stroke();
-        }
-
         snake.forEach((part, index) => {
             let pPrev = lastSnake[index] || part;
             let px = pPrev.x + (part.x - pPrev.x) * ratio;
@@ -410,19 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const eyeDist = 4;
                 let eye1X = cx, eye1Y = cy, eye2X = cx, eye2Y = cy;
 
-                if (dx === 1) { // Sağa bak
-                    eye1X = cx + 2; eye1Y = cy - eyeDist;
-                    eye2X = cx + 2; eye2Y = cy + eyeDist;
-                } else if (dx === -1) { // Sola bak
-                    eye1X = cx - 2; eye1Y = cy - eyeDist;
-                    eye2X = cx - 2; eye2Y = cy + eyeDist;
-                } else if (dy === 1) { // Aşağı bak
-                    eye1X = cx - eyeDist; eye1Y = cy + 2;
-                    eye2X = cx + eyeDist; eye2Y = cy + 2;
-                } else { // Yukarı bak
-                    eye1X = cx - eyeDist; eye1Y = cy - 2;
-                    eye2X = cx + eyeDist; eye2Y = cy - 2;
-                }
+                if (dx === 1) { eye1X = cx + 2; eye1Y = cy - eyeDist; eye2X = cx + 2; eye2Y = cy + eyeDist; } 
+                else if (dx === -1) { eye1X = cx - 2; eye1Y = cy - eyeDist; eye2X = cx - 2; eye2Y = cy + eyeDist; } 
+                else if (dy === 1) { eye1X = cx - eyeDist; eye1Y = cy + 2; eye2X = cx + eyeDist; eye2Y = cy + 2; } 
+                else { eye1X = cx - eyeDist; eye1Y = cy - 2; eye2X = cx + eyeDist; eye2Y = cy - 2; }
 
                 ctx.beginPath(); ctx.arc(eye1X, eye1Y, 2, 0, Math.PI*2); ctx.fill();
                 ctx.beginPath(); ctx.arc(eye2X, eye2Y, 2, 0, Math.PI*2); ctx.fill();
