@@ -134,8 +134,9 @@ if (terminalWindow && terminalHeader) {
 
         // Sınırlandırma Bariyerleri (Ekrana sığacak şekilde sağdan, soldan, üstten ve alttan taşmasını engeller)
         const screenLimitLeft = window.innerWidth > 900 ? document.documentElement.clientWidth / 2 : 10; // Masaüstünde ortada görünmez duvar
+        const screenLimitRight = window.innerWidth > 900 ? 80 : 10; // HUD Waypoint göstergeleri ile çakışmayı önleyen sağ bariyer
         const minX = screenLimitLeft - baseLeft; // Sol tarafa (yazıların üstüne) geçmesini engelleyen bariyer
-        const maxX = document.documentElement.clientWidth - termWidth - baseLeft - 10; // Ekranın en sağından dışarı çıkamasın
+        const maxX = document.documentElement.clientWidth - termWidth - baseLeft - screenLimitRight; // Ekranın en sağından dışarı çıkamasın
         const minY = -baseTop + 80; // Üstteki navigasyon çubuğunun altına kadar çıkabilsin
         const maxY = document.documentElement.clientHeight - termHeight - baseTop - 10; // Aşağıya doğru taşmasın
 
@@ -192,17 +193,23 @@ if (runBtn && cliOutput) {
         cliOutput.classList.add('active');
         cliOutput.innerHTML = ''; // Temizle
         const fileName = currentFileName ? currentFileName.textContent : 'script';
+        const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+        const statusState = document.getElementById('term-status-state');
         
         runBtn.style.opacity = '0.5';
         runBtn.style.pointerEvents = 'none';
+        runBtn.classList.add('is-running');
+        if (statusState) {
+            statusState.innerHTML = `<span class="running-dot"></span> <span>${isEn ? 'Running...' : 'Çalışıyor...'}</span>`;
+        }
         
-        await printToConsole(`> Çalıştırılıyor: ${fileName}...`, 'info', 100);
+        await printToConsole(isEn ? `> Executing: ${fileName}...` : `> Yürütülüyor: ${fileName}...`, 'info', 100);
         
         setTimeout(async () => {
-            await printToConsole('İşlem Başarılı! [OK]', 'info', 50);
+            await printToConsole(isEn ? 'Process finished with exit code 0 [OK]' : 'İşlem başarıyla tamamlandı (exit code 0) [OK]', 'info', 50);
             setTimeout(async () => {
                 await printToConsole('', '', 50);
-                await printToConsole('ÇIKTI:', 'info', 100);
+                await printToConsole(isEn ? 'OUTPUT:' : 'ÇIKTI:', 'info', 100);
                 
                 switch(fileName) {
                     case 'developer.py':
@@ -230,8 +237,8 @@ if (runBtn && cliOutput) {
                                 <h1 style="color: #fff; font-size: 24px; margin-bottom: 5px;">Samet Çolak</h1>
                                 <p style="color: #00d2ff; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">Software Developer</p>
                                 <ul style="color: #cbd5e1; margin-left: 20px; font-size: 14px; line-height: 1.8;">
-                                    <li style="list-style-type: disc;">HTML &amp; CSS Uzmanı</li>
-                                    <li style="list-style-type: disc;">Python &amp; C# Geliştiricisi</li>
+                                    <li style="list-style-type: disc;">${isEn ? 'HTML &amp; CSS Specialist' : 'HTML &amp; CSS Uzmanı'}</li>
+                                    <li style="list-style-type: disc;">${isEn ? 'Python &amp; C# Developer' : 'Python &amp; C# Geliştiricisi'}</li>
                                 </ul>
                             </div>
                         `, '', 200);
@@ -244,17 +251,21 @@ if (runBtn && cliOutput) {
                         await printToConsole('&nbsp;&nbsp;<span class="term-property">design</span>: <span class="term-variable">premium</span>;', '', 100);
                         await printToConsole('&nbsp;&nbsp;<span class="term-property">passion</span>: <span class="term-variable">100%</span>;', '', 100);
                         await printToConsole('}', '', 100);
-                        await printToConsole('CSS Variables (theme: dark) loaded successfully.', 'info', 200);
+                        await printToConsole(isEn ? 'CSS Variables (theme: dark) loaded successfully.' : 'CSS Değişkenleri (tema: koyu) başarıyla yüklendi.', 'info', 200);
                         break;
                     default:
                         await printToConsole('Samet Çolak - Software Developer', '', 100);
-                        await printToConsole('Yetkinlikler: HTML, CSS, Python, C#', '', 100);
-                        await printToConsole('Durum: Yenilikçi Çözümlere Hazır 🚀', '', 100);
+                        await printToConsole(isEn ? 'Skills: HTML, CSS, Python, C#' : 'Yetkinlikler: HTML, CSS, Python, C#', '', 100);
+                        await printToConsole(isEn ? 'Status: Ready for Innovative Solutions 🚀' : 'Durum: Yenilikçi Çözümlere Hazır 🚀', '', 100);
                 }
                 
                 await printToConsole('', '', 100);
                 runBtn.style.opacity = '';
                 runBtn.style.pointerEvents = '';
+                runBtn.classList.remove('is-running');
+                if (statusState) {
+                    statusState.innerHTML = `<span class="ready-dot"></span> <span>${isEn ? 'Ready' : 'Hazır'}</span>`;
+                }
             }, 400);
         }, 600);
     });
@@ -267,34 +278,69 @@ if (cliInput && cliOutput) {
             cliInput.value = '';
             if (!command) return;
             
+            const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
             cliOutput.classList.add('active');
-            await printToConsole(`samet@portfolio:~$ ${command}`, '', 50);
+            await printToConsole(`<span class="prompt-user">samet</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span class="prompt-sep">:</span><span class="prompt-path">~</span><span class="prompt-sym">$</span> ${command}`, '', 50);
             
             switch (command) {
                 case 'help':
-                    await printToConsole('Kullanılabilir komutlar:', '', 100);
-                    await printToConsole('- <span class="info">whoami</span>: Benim hakkımda bilgi verir', '', 100);
-                    await printToConsole('- <span class="info">projects</span>: Projeler sayfasına yönlendirir', '', 100);
-                    await printToConsole('- <span class="info">contact</span>: İletişim sayfasına yönlendirir', '', 100);
-                    await printToConsole('- <span class="info">clear</span>: Konsolu temizler', '', 100);
+                    if (isEn) {
+                        await printToConsole('Available commands:', '', 80);
+                        await printToConsole('- <span class="info">whoami</span>: Displays brief author profile', '', 80);
+                        await printToConsole('- <span class="info">skills</span>: Shows technical proficiency', '', 80);
+                        await printToConsole('- <span class="info">projects</span>: Navigates to Projects section', '', 80);
+                        await printToConsole('- <span class="info">about</span>: Navigates to About section', '', 80);
+                        await printToConsole('- <span class="info">contact</span>: Navigates to Contact section', '', 80);
+                        await printToConsole('- <span class="info">clear</span>: Clears the terminal output', '', 80);
+                    } else {
+                        await printToConsole('Kullanılabilir komutlar:', '', 80);
+                        await printToConsole('- <span class="info">whoami</span>: Benim hakkımda özet bilgi verir', '', 80);
+                        await printToConsole('- <span class="info">skills</span>: Teknik yetkinlikleri listeler', '', 80);
+                        await printToConsole('- <span class="info">projects</span>: Projeler bölümüne kaydırır', '', 80);
+                        await printToConsole('- <span class="info">about</span>: Hakkımda bölümüne kaydırır', '', 80);
+                        await printToConsole('- <span class="info">contact</span>: İletişim bölümüne kaydırır', '', 80);
+                        await printToConsole('- <span class="info">clear</span>: Konsol çıktısını temizler', '', 80);
+                    }
                     break;
                 case 'whoami':
-                    await printToConsole('Samet Çolak. Lise Öğrencisi ve Tutkulu bir Yazılım Geliştirici.', '', 100);
+                    await printToConsole(isEn 
+                        ? 'Samet Çolak. High School Student & Passionate Software Developer.'
+                        : 'Samet Çolak. Lise Öğrencisi ve Tutkulu bir Yazılım Geliştirici.', '', 100);
+                    break;
+                case 'skills':
+                    await printToConsole(isEn
+                        ? 'Stack: HTML5, CSS3, JavaScript (ES6+), Python, C#, Three.js, Git/GitHub, AI Workflows.'
+                        : 'Yetenekler: HTML5, CSS3, JavaScript (ES6+), Python, C#, Three.js, Git/GitHub, AI Araçları.', 'info', 100);
                     break;
                 case 'projects':
-                    await printToConsole('Projeler sayfasına yönlendiriliyorsunuz...', 'info', 100);
-                    setTimeout(() => window.location.href = '/pages/projects', 800);
+                    await printToConsole(isEn ? 'Navigating to Projects section...' : 'Projeler bölümüne süzülünüyor...', 'info', 100);
+                    setTimeout(() => {
+                        const elem = document.querySelector('#projects');
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
+                    break;
+                case 'about':
+                    await printToConsole(isEn ? 'Navigating to About section...' : 'Hakkımda bölümüne süzülünüyor...', 'info', 100);
+                    setTimeout(() => {
+                        const elem = document.querySelector('#about');
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
                     break;
                 case 'contact':
-                    await printToConsole('İletişim sayfasına yönlendiriliyorsunuz...', 'info', 100);
-                    setTimeout(() => window.location.href = '/pages/contact', 800);
+                    await printToConsole(isEn ? 'Navigating to Contact section...' : 'İletişim bölümüne süzülünüyor...', 'info', 100);
+                    setTimeout(() => {
+                        const elem = document.querySelector('#contact');
+                        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+                    }, 600);
                     break;
                 case 'clear':
                     cliOutput.innerHTML = '';
                     cliOutput.classList.remove('active');
                     break;
                 default:
-                    await printToConsole(`bash: ${command}: command not found. Komutları görmek için 'help' yazın.`, 'error', 100);
+                    await printToConsole(isEn
+                        ? `bash: ${command}: command not found. Type 'help' to see available commands.`
+                        : `bash: ${command}: komut bulunamadı. Komutları görmek için 'help' yazın.`, 'error', 100);
             }
         }
     });

@@ -6,13 +6,30 @@
     <meta name="description" content="Aradığınız sayfa bulunamadı. Samet Çolak dijital portfolyosuna geri dönün.">
     <meta name="robots" content="noindex, follow">
     <title>Sayfa Bulunamadı | Samet Çolak</title>
-    <link rel="icon" href="https://sametcolak.com.tr/assets/favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="apple-touch-icon" href="https://sametcolak.com.tr/assets/favicon.svg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
     
-    <!-- CSS dosyalarına giden yollar, klasör derinliği fark etmeksizin çalışması için '/' ile başlar -->
-    <link rel="stylesheet" href="/css/style.css?v=4.3">
-    <link rel="stylesheet" href="/css/404.css?v=4.3">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <script>
+        // file://, localhost alt klasörleri veya derin 404 URL'lerinde doğru kök dizini çözer
+        (function() {
+            var base = document.createElement('base');
+            var path = window.location.pathname;
+            if (window.location.protocol === 'file:') {
+                base.href = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            } else {
+                var parts = path.split('/').filter(Boolean);
+                if (parts.length > 0 && (parts[0].indexOf('.io') !== -1 || parts[0].indexOf('samet-colak') !== -1)) {
+                    base.href = window.location.origin + '/' + parts[0] + '/';
+                } else {
+                    base.href = '/';
+                }
+            }
+            document.head.appendChild(base);
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css?v=6.0">
+    <link rel="stylesheet" href="css/404.css?v=6.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWQ31H4YTW"></script>
@@ -43,136 +60,292 @@
         }
     </script>
 
-    <!-- NAVİGASYON MENÜSÜ -->
-    <nav>
-        <a href="/" class="logo">Samet <span>Çolak.</span></a>
-        <ul class="nav-links">
-            <li><a href="/" data-i18n="home">Ana Sayfa</a></li>
-            <li><a href="/pages/about" data-i18n="about">Hakkımda</a></li>
-            <li><a href="/pages/projects" data-i18n="projects">Projeler</a></li>
-            <li><a href="/pages/certificates" data-i18n="certificates">Sertifikalar</a></li>
-            <li><a href="/pages/contact" data-i18n="contact">İletişim</a></li>
-        </ul>
-        <div class="nav-actions">
-            <button id="lang-btn" class="lang-switch">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                <span id="lang-text">EN</span>
-            </button>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <!-- YÜZEN MODERN ADA NAVBAR (DYNAMIC ISLAND NAVBAR) -->
+    <header class="nav-wrapper">
+        <nav class="floating-nav">
+            <!-- Sol: Logo -->
+            <div class="nav-left">
+                <a href="index.html#home" class="logo">Samet <span>Çolak.</span></a>
             </div>
-        </div>
-    </nav>
+
+            <!-- Orta: Hızlı Komut Paleti Tetikleyicisi (Ctrl+K) -->
+            <button class="nav-cmd-trigger" id="nav-cmd-btn" title="Komut Paletini Aç (Ctrl+K)" data-i18n-title="nav_cmd_title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span data-i18n="nav_search_text">Hızlı Arama...</span>
+                <kbd class="cmd-shortcut">⌘K</kbd>
+            </button>
+
+            <!-- Sağ: CTA Butonu, Dil Seçici ve Mobil Hamburger -->
+            <div class="nav-actions">
+                <a href="index.html#contact" class="nav-cta-btn">
+                    <span data-i18n="nav_cta">Bana Ulaşın</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <button id="lang-btn" class="lang-switch" title="Dili Değiştir / Switch Language" data-i18n-title="nav_lang_title">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <div class="hamburger" title="Menüyü Aç" data-i18n-title="nav_menu_title">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+
+            <!-- Mobil Menü Çekmecesi (Yalnızca mobilde hamburger açıldığında gösterilir) -->
+            <ul class="nav-links mobile-only-drawer">
+                <li><a href="index.html#home" data-i18n="home">Ana Sayfa</a></li>
+                <li><a href="index.html#about" data-i18n="about">Hakkımda</a></li>
+                <li><a href="index.html#projects" data-i18n="projects">Projeler</a></li>
+                <li><a href="index.html#certificates" data-i18n="certificates">Sertifikalar</a></li>
+                <li><a href="index.html#contact" data-i18n="contact">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- 404 KATA İÇERİĞİ -->
     <section class="error-container">
-        <div class="error-content">
-            <h1>404</h1>
-            <h3 data-i18n="error_404_title">404 - Kayıp Uzay</h3>
-            <p data-i18n="error_404_desc">Görünüşe göre aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış. Lütfen ana sayfaya dönerek portfolyomu keşfetmeye devam edin.</p>
+        <!-- Fütüristik Kozmik Parçacık ve Hologram Efektleri -->
+        <div class="cosmic-aura-ring" aria-hidden="true"></div>
+        <div class="cosmic-grid-flare" aria-hidden="true"></div>
+        
+        <div class="error-content" id="error-parallax-box">
+            <!-- Fütüristik Glitch & Holografik 404 Başlığı -->
+            <div class="glitch-404-wrapper">
+                <h1 class="glitch-404" data-text="404">404</h1>
+                <div class="hologram-scanline" aria-hidden="true"></div>
+                <div class="glow-orb-backdrop" aria-hidden="true"></div>
+            </div>
 
-                <!-- Paskalya Yumurtası (Easter Egg) Yılan Oyunu -->
+            <h3 class="error-subtitle" data-i18n="error_404_title">404 - Kayıp Uzay</h3>
+            <p class="error-description" data-i18n="error_404_desc">Görünüşe göre aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış. Lütfen ana sayfaya dönerek portfolyomu keşfetmeye devam edin.</p>
+
+            <!-- Paskalya Yumurtası (Easter Egg) Yılan Oyunu -->
             <div class="game-wrapper">
                 <button id="start-game-btn" class="snake-start-btn">
+                    <span class="btn-glow-pulse"></span>
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"></rect><path d="M6 12h4m-2-2v4m8-2h.01M16 12h.01"></path></svg>
                     <span data-i18n="play_snake">Terminal: Snake.exe Başlat</span>
                 </button>
+
+                <!-- TERMINAL OYUN ALANI -->
                 <div id="game-container" style="display: none;">
-                <div class="game-terminal-header">
-                    <div class="term-btns">
-                        <span id="gt-close" class="t-btn close" title="Kapat"></span>
-                        <span id="gt-min" class="t-btn min" title="Küçült"></span>
-                        <span id="gt-max" class="t-btn max" title="Büyüt"></span>
-                    </div>
-                    <div class="term-title">Snake.exe</div>
-                    </div>
-                <div id="game-body">
-                    <div class="game-header">
-                        <div class="score-board">
-                            <span><span data-i18n="score_text">Skor</span>: <span id="score" class="current-score">0</span></span>
-                            <span class="high-score-badge"><span data-i18n="high_score_text">En Yüksek</span>: <span id="high-score">0</span></span>
+                    <div class="game-terminal-header">
+                        <div class="term-btns">
+                            <span id="gt-close" class="t-btn close" title="Kapat" data-i18n-title="term_btn_close"></span>
+                            <span id="gt-min" class="t-btn min" title="Küçült" data-i18n-title="term_btn_minimize"></span>
+                            <span id="gt-max" class="t-btn max" title="Büyüt" data-i18n-title="term_btn_maximize"></span>
+                        </div>
+                        <div class="term-title">Snake.exe</div>
+                        <div class="term-actions">
+                            <button id="sound-toggle-btn" class="term-action-btn" title="Sesi Aç / Kapat" data-i18n-title="sound_toggle_title">
+                                <span id="sound-icon">🔊</span>
+                            </button>
                         </div>
                     </div>
-                    <div class="canvas-wrapper">
-                        <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+                    <div id="game-body">
+                        <!-- YENİ MECHA HUD BARI -->
+                        <div class="game-header">
+                            <div class="score-board">
+                                <div class="hud-stat-box score-box">
+                                    <span class="hud-label" data-i18n="score_text">Skor</span>
+                                    <span id="score" class="hud-value current-score">0</span>
+                                </div>
+                                <div class="hud-stat-box combo-box" id="combo-display" style="opacity: 0;">
+                                    <span class="hud-label" data-i18n="combo_text">KOMBO</span>
+                                    <span id="combo-val" class="hud-value combo-val">x1</span>
+                                </div>
+                                <div class="hud-stat-box high-score-badge">
+                                    <span class="hud-label" data-i18n="high_score_text">En Yüksek</span>
+                                    <span id="high-score" class="hud-value">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="canvas-wrapper">
+                            <!-- HUD Hedef Köşeleri (Sci-Fi Target Brackets) -->
+                            <div class="hud-bracket top-left"></div>
+                            <div class="hud-bracket top-right"></div>
+                            <div class="hud-bracket bottom-left"></div>
+                            <div class="hud-bracket bottom-right"></div>
+                            
+                            <!-- CRT / Scanline Efekti -->
+                            <div class="crt-scanlines" aria-hidden="true"></div>
+
+                            <canvas id="gameCanvas" width="400" height="400"></canvas>
+
                             <!-- HARİTA SEÇİM (MENU) EKRANI -->
-                            <div id="menu-overlay" class="game-overlay" style="display: none; background: rgba(11, 17, 32, 0.95); z-index: 20;">
-                                <h3 data-i18n="select_world" style="color: #f8fafc; font-size: 22px; font-family: 'Poppins', sans-serif;">Harita Seçimi</h3>
+                            <div id="menu-overlay" class="game-overlay" style="display: none;">
+                                <div class="overlay-badge">SNAKE.EXE</div>
+                                <h3 data-i18n="select_world">Harita Seçimi</h3>
                                 <div class="world-selector" id="world-selector">
                                     <button class="w-btn" data-size="300" data-i18n="world_small">Küçük</button>
                                     <button class="w-btn active" data-size="400" data-i18n="world_medium">Orta</button>
                                     <button class="w-btn" data-size="500" data-i18n="world_large">Büyük</button>
                                 </div>
-                                <button id="confirm-start-btn" class="btn" style="margin-top: 15px;"><span data-i18n="start_game">Oyuna Başla ➔</span></button>
+                                <div class="controls-hint">
+                                    <span>⌨️ [W,A,S,D] / [Ok Tuşları]</span>
+                                    <span>⏸️ [Boşluk] Duraklat</span>
+                                    <span>📱 Dokunmatik Kaydır</span>
+                                </div>
+                                <button id="confirm-start-btn" class="btn btn-cyber-start" style="margin-top: 15px;">
+                                    <span data-i18n="start_game">Oyuna Başla ➔</span>
+                                </button>
                             </div>
-                        <div id="game-overlay" class="game-overlay" style="display: none;">
-                            <h3 id="game-over-text" class="glitch-text" data-text="Sistem Çöktü!" data-i18n="game_over">Sistem Çöktü!</h3>
-                            <button id="restart-game-btn" class="btn btn-outline" style="border-style: dashed; background: rgba(15, 23, 42, 0.9);">
-                                <span>Sistemi Yeniden Başlat ↻</span>
-                            </button>
-                            <button id="change-map-btn" class="btn btn-outline" style="margin-top: 10px; border-style: dashed; background: transparent; border-color: rgba(255,255,255,0.2); color: #cbd5e1; font-size: 13px; padding: 8px 20px;">
-                                <span data-i18n="change_map">Harita Değiştir 🗺️</span>
-                            </button>
+
+                            <!-- DURAKLATMA (PAUSE) EKRANI -->
+                            <div id="pause-overlay" class="game-overlay" style="display: none;">
+                                <div class="pause-icon">⏸️</div>
+                                <h3 data-i18n="game_paused">SİSTEM DONDURULDU // PAUSED</h3>
+                                <p data-i18n="press_space_resume">Devam etmek için BOŞLUK tuşuna basın</p>
+                            </div>
+
+                            <!-- OYUN BİTİŞ (MISSION DEBRIEF / GAME OVER) EKRANI -->
+                            <div id="game-overlay" class="game-overlay" style="display: none;">
+                                <div class="game-over-badge" data-i18n="mission_report_title">// GÖREV DEBRİFİNGİ //</div>
+                                <h3 id="game-over-text" class="glitch-text" data-text="Sistem Çöktü!" data-i18n="game_over">Sistem Çöktü!</h3>
+                                
+                                <div class="debrief-stats">
+                                    <div class="stat-pill">
+                                        <span class="stat-name" data-i18n="stat_final_score">Toplam Skor</span>
+                                        <span class="stat-num" id="debrief-score">0</span>
+                                    </div>
+                                    <div class="stat-pill">
+                                        <span class="stat-name" data-i18n="stat_food_eaten">Toplanan Çekirdek</span>
+                                        <span class="stat-num" id="debrief-food">0</span>
+                                    </div>
+                                    <div class="stat-pill">
+                                        <span class="stat-name" data-i18n="stat_max_combo">Maksimum Kombo</span>
+                                        <span class="stat-num" id="debrief-combo">x0</span>
+                                    </div>
+                                </div>
+
+                                <div class="game-over-buttons">
+                                    <button id="restart-game-btn" class="btn btn-cyber-reboot">
+                                        <span data-i18n="restart_game">Sistemi Yeniden Başlat ↻</span>
+                                    </button>
+                                    <button id="change-map-btn" class="btn btn-cyber-change">
+                                        <span data-i18n="change_map">Harita Değiştir 🗺️</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mobile-controls">
-                        <button class="m-btn btn-up"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-                        <button class="m-btn btn-left"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                        <button class="m-btn btn-down"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-                        <button class="m-btn btn-right"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                    </div>
+
+                        <!-- MOBİL KONTROLLER -->
+                        <div class="mobile-controls">
+                            <button class="m-btn btn-up" aria-label="Yukarı"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+                            <button class="m-btn btn-left" aria-label="Sol"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                            <button class="m-btn btn-down" aria-label="Aşağı"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                            <button class="m-btn btn-right" aria-label="Sağ"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <a href="/" class="btn" data-i18n="back_home">Ana Sayfaya Dön</a>
+            <a href="index.html" class="btn btn-back-home" data-i18n="back_home">
+                <span>Ana Sayfaya Dön</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- BÖLÜM GEÇİŞİ: 404 -> FOOTER -->
+    <div class="section-divider-wrap" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- MODERN HIGH-END DEVELOPER FOOTER -->
     <footer class="modern-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">Samet <span>Çolak.</span></a>
-                <p data-i18n="footer_desc">Modern ve kullanıcı dostu web deneyimleri tasarlıyorum.</p>
+        <div class="footer-inner-container">
+            <!-- Ana 3-Sütunlu Izgara (3-Column Modern Grid) -->
+            <div class="footer-main-grid">
+                <!-- Sütun 1: Marka & Biyografi & Yetenek Rozetleri -->
+                <div class="footer-col footer-col-brand">
+                    <a href="index.html#home" class="footer-logo">Samet <span>Çolak.</span></a>
+                    <p class="footer-brand-p" data-i18n="footer_brand_desc">Tuzla MTAL Bilişim Teknolojileri öğrencisi. Modern web teknolojileri, temiz kod ve kullanıcı deneyimi odaklı dijital çözümler üretiyorum.</p>
+                    
+                    <div class="footer-tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">C#</span>
+                        <span class="tech-pill">Three.js</span>
+                    </div>
+                </div>
+
+                <!-- Sütun 2: Gezinti / Navigation -->
+                <div class="footer-col">
+                    <h4 class="footer-heading" data-i18n="footer_nav_heading">Navigasyon</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="index.html#home"><span class="link-arrow">›</span> <span data-i18n="home">Ana Sayfa</span></a></li>
+                        <li><a href="index.html#about"><span class="link-arrow">›</span> <span data-i18n="about">Hakkımda</span></a></li>
+                        <li><a href="index.html#projects"><span class="link-arrow">›</span> <span data-i18n="projects">Projeler</span></a></li>
+                        <li><a href="index.html#certificates"><span class="link-arrow">›</span> <span data-i18n="certificates">Sertifikalar</span></a></li>
+                        <li><a href="index.html#contact"><span class="link-arrow">›</span> <span data-i18n="contact">İletişim</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Sütun 3: Ağ & Bağlantılar -->
+                <div class="footer-col">
+                    <h4 class="footer-heading" data-i18n="footer_social_heading">Ağ & Bağlantı</h4>
+                    <div class="footer-social-grid">
+                        <a href="https://github.com/samet-colak" target="_blank" rel="noopener noreferrer" class="footer-social-card" title="GitHub Profilim" data-i18n-title="contact_title_github">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title">GitHub</span>
+                                <span class="social-card-sub">@samet-colak</span>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-card" title="LinkedIn Profilim" data-i18n-title="contact_title_linkedin">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title">LinkedIn</span>
+                                <span class="social-card-sub">Samet Çolak</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:smttr.cccc@gmail.com" class="footer-social-card" title="E-Posta Gönder" data-i18n-title="contact_title_email">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title" data-i18n="email_label">E-Posta</span>
+                                <span class="social-card-sub">smttr.cccc@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4 data-i18n="footer_quick_links">Hızlı Bağlantılar</h4>
-                <ul>
-                    <li><a href="/" data-i18n="home">Ana Sayfa</a></li>
-                    <li><a href="/pages/about" data-i18n="about">Hakkımda</a></li>
-                    <li><a href="/pages/projects" data-i18n="projects">Projeler</a></li>
-                    <li><a href="/pages/certificates" data-i18n="certificates">Sertifikalar</a></li>
-                    <li><a href="/pages/contact" data-i18n="contact">İletişim</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h4 data-i18n="footer_social">Sosyal Medya</h4>
-                <div class="social-icons">
-                    <a href="https://github.com/samet-colak" target="_blank" class="social-link" title="GitHub">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="mailto:smttr.cccc@gmail.com" class="social-link" title="Email">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>E-Posta Gönder</span>
+
+            <!-- 3. Alt Telif ve Başa Dönme Barı (Bottom Bar) -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p data-i18n="footer_text">© 2026 Tüm Hakları Saklıdır.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#" class="scroll-top-btn" title="Sayfanın Başına Dön" data-i18n-title="footer_scroll_top_title">
+                        <span data-i18n="scroll_top">Yukarı Çık</span>
+                        <div class="scroll-top-arrow-box">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p data-i18n="footer_text">© 2026 Tüm Hakları Saklıdır.</p>
-            <a href="#" class="scroll-top"><span data-i18n="scroll_top">Yukarı Çık</span> <span class="arrow">&uarr;</span></a>
-        </div>
     </footer>
 
-    <script src="/js/script.js?v=4.3"></script>
-    <script src="/js/404.js?v=4.3"></script>
+    <script src="js/script.js?v=6.0"></script>
+    <script src="js/404.js?v=6.0"></script>
 </body>
 </html>

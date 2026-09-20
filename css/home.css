@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
+    background: transparent !important;
     padding: 120px 10% 80px;
     position: relative;
     overflow: hidden;
@@ -160,6 +160,7 @@
     align-items: center;
     position: relative;
     perspective: 1000px;
+    padding-right: 70px; /* HUD Waypoints 'Ana Sayfa' etiketi ile çakışmayı önleyen güvenli pay */
 }
 
 @media (max-width: 900px) {
@@ -174,6 +175,10 @@
     .hero-image-box { 
         justify-content: center;
         margin-top: 40px;
+        padding-right: 0;
+    }
+    .terminal-glow {
+        left: 50% !important;
     }
 }
 
@@ -183,7 +188,7 @@
 .terminal-glow {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: calc(50% - 35px);
     transform: translate(-50%, -50%);
     width: 120%;
     height: 120%;
@@ -200,38 +205,61 @@
     100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 }
 
-/* --- TERMINAL / KOD PENCERESİ (ANA SAYFA SAĞ KISIM) --- */
+/* --- TERMINAL / KOD PENCERESİ (PRO IDE EDITION) --- */
 .terminal-window {
     width: 100%;
-    max-width: 480px;
-    background: rgba(15, 23, 42, 0.7);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 210, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    max-width: 485px;
+    background: rgba(13, 17, 23, 0.82);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 35px rgba(0, 210, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     overflow: hidden;
-    animation: floatTerminal 6s ease-in-out infinite;
-    transition: max-width 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    animation: floatTerminal 6.5s ease-in-out infinite;
+    transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+/* Üst Bevel Işık Yansıması */
+.terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.35) 25%, rgba(255, 255, 255, 0.65) 50%, rgba(168, 85, 247, 0.35) 75%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
 }
 
 @keyframes floatTerminal {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-14px); }
 }
 
 .terminal-header {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px 15px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 10px 14px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     position: relative;
+    user-select: none;
+    cursor: grab;
 }
 
+.terminal-header:active {
+    cursor: grabbing;
+}
+
+/* macOS Trafik Işıkları (Glossy & Tactile) */
 .terminal-buttons {
     display: flex;
-    gap: 8px;
+    align-items: center;
+    gap: 7px;
 }
 
 .terminal-buttons span {
@@ -239,12 +267,65 @@
     height: 12px;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .terminal-buttons span:hover {
-    transform: scale(1.2);
-    filter: brightness(1.2);
+    transform: scale(1.18);
+    filter: brightness(1.15);
+}
+
+.terminal-buttons .close-btn { 
+    background: #ff5f56; 
+    border: 1px solid #e0443e; 
+}
+.terminal-buttons .minimize-btn { 
+    background: #ffbd2e; 
+    border: 1px solid #dea123; 
+}
+.terminal-buttons .maximize-btn { 
+    background: #27c93f; 
+    border: 1px solid #1aab29; 
+}
+
+/* macOS Buton İkonları (Hover Durumunda Belirir) */
+.terminal-buttons .close-btn::after {
+    content: "✕";
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #4a0002;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    line-height: 1;
+}
+
+.terminal-buttons .minimize-btn::after {
+    content: "—";
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #583c00;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    line-height: 1;
+}
+
+.terminal-buttons .maximize-btn::after {
+    content: "＋";
+    font-size: 7.5px;
+    font-weight: 800;
+    color: #02380a;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    line-height: 1;
+}
+
+.terminal-buttons:hover span::after {
+    opacity: 0.85;
 }
 
 /* Sarı Buton (Minimize) Durumu */
@@ -256,12 +337,12 @@
 .terminal-window.terminal-maximized {
     max-width: 550px;
     transform: scale(1.05) translateY(-10px) !important;
-    animation: none; /* Büyütüldüğünde süzülmeyi durdurur */
-    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 210, 255, 0.3);
+    animation: none;
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(0, 210, 255, 0.25);
     z-index: 20;
 }
 
-/* Kırmızı Buton (Close / Restart) Durumu (Eski TV Kapanma Efekti) */
+/* Kırmızı Buton (Close / Restart) Durumu (Retro TV Kapanma) */
 .terminal-window.terminal-shutting-down {
     animation: tv-shut-down 0.6s cubic-bezier(0.4, 0, 1, 1) forwards !important;
     pointer-events: none;
@@ -285,83 +366,115 @@
     100% { transform: scale(1, 1); opacity: 1; filter: brightness(1); }
 }
 
-.terminal-buttons .close-btn { background: #ff5f56; }
-.terminal-buttons .minimize-btn { background: #ffbd2e; }
-.terminal-buttons .maximize-btn { background: #27c93f; }
-
+/* Orta Başlık & IDE Sekmesi (IDE Tab) */
 .terminal-title {
     flex: 1;
-    text-align: center;
-    color: #94a3b8;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
-    padding-left: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 7px;
 }
 
 .code-nav {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: #94a3b8;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
     cursor: pointer;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     user-select: none;
 }
 
 .code-nav:hover {
-    background: rgba(0, 210, 255, 0.2);
+    background: rgba(0, 210, 255, 0.15);
+    border-color: rgba(0, 210, 255, 0.35);
     color: #fff;
+    transform: scale(1.06);
 }
 
-.terminal-actions {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
+.terminal-tab {
+    display: inline-flex;
+    align-items: center;
     gap: 8px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #f1f5f9;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.file-icon-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sağ Aksiyonlar (Run & Copy Butonları) */
+.terminal-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .copy-btn, .run-btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #94a3b8;
-    padding: 6px;
+    height: 26px;
+    padding: 0 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
     cursor: pointer;
-    opacity: 0.4;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .run-btn {
-    background: rgba(39, 201, 63, 0.1);
-    border-color: rgba(39, 201, 63, 0.2);
-    color: #27c93f;
-}
-
-.terminal-window:hover .copy-btn, .terminal-window:hover .run-btn {
-    opacity: 1;
-}
-
-.copy-btn:hover {
-    background: rgba(0, 210, 255, 0.2);
-    color: #fff;
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.28);
+    color: #4ade80;
 }
 
 .run-btn:hover {
-    background: rgba(39, 201, 63, 0.3);
+    background: rgba(34, 197, 94, 0.25);
+    border-color: rgba(34, 197, 94, 0.45);
     color: #fff;
-    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.35);
+    transform: translateY(-1px);
 }
 
 .run-btn:active {
-    transform: scale(0.95);
+    transform: translateY(0) scale(0.96);
+}
+
+.run-btn.is-running {
+    animation: runPulse 1s infinite alternate;
+}
+
+@keyframes runPulse {
+    0% { box-shadow: 0 0 4px rgba(34, 197, 94, 0.4); }
+    100% { box-shadow: 0 0 15px rgba(34, 197, 94, 0.8); }
+}
+
+.copy-btn:hover {
+    background: rgba(0, 210, 255, 0.15);
+    border-color: rgba(0, 210, 255, 0.35);
+    color: #fff;
+    transform: translateY(-1px);
 }
 
 .icon-check {
@@ -369,10 +482,10 @@
 }
 
 .copy-btn.copied {
-    background-color: rgba(39, 201, 63, 0.15) !important;
-    border-color: rgba(39, 201, 63, 0.4) !important;
-    transform: scale(1.1) !important;
-    color: #27c93f !important;
+    background-color: rgba(34, 197, 94, 0.18) !important;
+    border-color: rgba(34, 197, 94, 0.45) !important;
+    transform: scale(1.08) !important;
+    color: #4ade80 !important;
 }
 
 .copy-btn.copied .icon-copy {
@@ -389,66 +502,170 @@
     100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
+/* Terminal Gövdesi (Kod Editörü) */
 .terminal-body {
-    padding: 25px;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #e2e8f0;
+    padding: 18px 20px 20px;
+    background: rgba(10, 14, 23, 0.55);
     overflow-x: auto;
     transition: opacity 0.3s ease;
 }
 
-.term-comment { color: #7f848e; font-style: italic; }
-.term-keyword { color: #c678dd; }
-.term-variable { color: #e5c07b; }
-.term-property { color: #61afef; }
-.term-string { color: #98c379; }
-.term-operator { color: #56b6c2; }
-.term-cursor { animation: blink 1s step-end infinite; color: var(--primary-color); font-weight: bold; border-left: 2px solid var(--primary-color); margin-left: 2px;}
+.terminal-code-wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.72;
+}
+
+/* Kod Satır Numaraları (Gutter) */
+.code-gutter {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    user-select: none;
+    color: rgba(148, 163, 184, 0.32);
+    font-size: 12.5px;
+    line-height: 1.72;
+    padding-right: 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    min-width: 24px;
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.2s ease;
+}
+
+.code-gutter span {
+    display: block;
+}
+
+.code-pre {
+    margin: 0;
+    flex: 1;
+    overflow-x: auto;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.code-pre code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: pre;
+    color: #e2e8f0;
+}
+
+/* Modern Sentaks Vurguları (Syntax Highlighting) */
+.term-comment { 
+    color: #64748b; 
+    font-style: italic; 
+}
+.term-keyword { 
+    color: #c084fc; 
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.2); 
+}
+.term-variable { 
+    color: #38bdf8; 
+}
+.term-property { 
+    color: #f1f5f9; 
+    font-weight: 500;
+}
+.term-string { 
+    color: #4ade80; 
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.15); 
+}
+.term-operator { 
+    color: #38bdf8; 
+    font-weight: 600; 
+}
+.term-cursor { 
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    vertical-align: -2px;
+    margin-left: 3px;
+    background: var(--primary-color);
+    box-shadow: 0 0 8px var(--primary-color);
+    animation: caretBlink 1.05s infinite;
+    border-radius: 1px;
+}
+
+@keyframes caretBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
 /* --- TERMINAL CLI & CONSOLE OUTPUT --- */
+.terminal-console-wrap {
+    margin-top: 14px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.09);
+    padding-top: 12px;
+}
+
 .cli-output {
-    margin-top: 15px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    padding-top: 15px;
     color: #a3be8c;
-    font-size: 13px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.6;
     display: none;
     flex-direction: column;
-    gap: 5px;
-    max-height: 150px;
+    gap: 4px;
+    max-height: 140px;
     overflow-y: auto;
+    padding-bottom: 8px;
 }
 
 .cli-output.active { display: flex; }
-.cli-output span.error { color: #e06c75; }
-.cli-output span.info { color: #61afef; }
+.cli-output span.error { color: #f87171; font-weight: 500; }
+.cli-output span.info { color: #38bdf8; font-weight: 500; }
 .cli-output::-webkit-scrollbar { width: 4px; }
-.cli-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+.cli-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
 
 .terminal-cli {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 14px;
+    gap: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
 }
 
-.cli-prompt { color: #e5c07b; font-weight: bold; }
+/* Starship / ZSH Tarzı Prompt Tasarımı */
+.cli-prompt { 
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 12px;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.prompt-user { color: #38bdf8; }
+.prompt-at { color: #64748b; }
+.prompt-host { color: #00d2ff; }
+.prompt-sep { color: #475569; }
+.prompt-path { color: #c084fc; font-weight: 600; }
+.prompt-sym { color: #22c55e; margin-left: 2px; font-weight: 700; }
 
 #cli-input {
     flex: 1;
     background: transparent;
     border: none;
+    outline: none;
     color: #f8fafc;
     font-family: 'Roboto Mono', monospace;
-    font-size: 14px;
-    outline: none;
+    font-size: 13px;
+    caret-color: #22c55e;
 }
 
-.terminal-header { cursor: grab; }
-.terminal-header:active { cursor: grabbing; }
+#cli-input::placeholder {
+    color: rgba(148, 163, 184, 0.45);
+    font-size: 12px;
+}
+
+
 
 @media (max-width: 900px) {
     .copy-btn {

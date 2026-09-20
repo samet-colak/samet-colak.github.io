@@ -1,218 +1,446 @@
-/* --- HAKKIMDA SAYFASI TASARIMI --- */
+/* --- HAKKIMDA & YETKİNLİKLERİM (BENTO GLASS EDITION) --- */
+
 .about-container {
-    display: flex;
-    gap: 50px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
     align-items: stretch;
 }
 
-.about-text {
-    flex: 1.2;
-    min-width: 300px;
-    background: rgba(30, 41, 59, 0.4);
-    backdrop-filter: blur(12px);
-    padding: 50px 40px;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
+/* Glassmorphism Kart Temeli */
+.about-card {
+    background: rgba(13, 19, 33, 0.72);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    padding: 38px 34px;
     position: relative;
     overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.about-text::before {
+/* Üst Bevel Kristal Yansıması */
+.about-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
-    opacity: 0.7;
-}
-
-.about-text::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 210, 255, 0.08), transparent 40%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.35) 25%, rgba(255, 255, 255, 0.65) 50%, rgba(168, 85, 247, 0.35) 75%, transparent 100%);
+    z-index: 2;
     pointer-events: none;
-    z-index: 0;
 }
 
-.about-text:hover::after {
-    opacity: 1;
-}
-
-.about-text > * {
-    position: relative;
+/* Kursor Takip Eden Yumuşak Işık (Mouse Spotlight) */
+.about-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 210, 255, 0.07), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
     z-index: 1;
 }
 
-.about-text:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(0, 210, 255, 0.15);
-    border-color: rgba(0, 210, 255, 0.2);
+.about-card:hover::after {
+    opacity: 1;
 }
 
-.about-text h3, .about-skills h3 {
-    font-size: 28px;
-    margin-bottom: 30px;
+.about-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.25);
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 210, 255, 0.08);
+}
+
+.about-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Kart Başlıkları */
+.about-card-header {
+    margin-bottom: 20px;
+}
+
+.about-card h3 {
+    font-size: 26px;
     font-weight: 700;
-    background: linear-gradient(to right, #f8fafc, var(--primary-color));
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, var(--primary-color) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
+    line-height: 1.25;
 }
 
-.about-text p {
+.skills-subdesc {
+    color: #94a3b8;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* Biyografi Metinleri */
+.about-bio p {
     color: #cbd5e1;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 16px;
+    font-size: 15px;
 }
 
+/* 3 Temel Mühendislik Sütunu (Pillars) */
+.about-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.about-pillar {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-pillar:hover {
+    background: rgba(0, 210, 255, 0.05);
+    border-color: rgba(0, 210, 255, 0.22);
+    transform: translateX(4px);
+}
+
+.pillar-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: #38bdf8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.pillar-content h4 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 2px;
+}
+
+.pillar-content p {
+    font-size: 12.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hızlı Bilgiler Izgarası (Personal Info Grid) */
 .personal-info {
-    margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    background: rgba(0, 210, 255, 0.03);
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    transition: all 0.3s ease;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.25s ease;
 }
 
 .info-item:hover {
-    background: rgba(0, 210, 255, 0.08);
-    transform: translateY(-3px);
-    border-color: rgba(0, 210, 255, 0.3);
+    background: rgba(0, 210, 255, 0.06);
+    border-color: rgba(0, 210, 255, 0.25);
+    transform: translateY(-2px);
 }
 
 .info-title {
-    font-size: 12px;
+    font-size: 10.5px;
     color: #64748b;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .info-value {
-    font-size: 16px;
+    font-size: 13px;
     color: #f8fafc;
     font-weight: 600;
 }
 
-.about-skills {
-    flex: 1;
-    min-width: 300px;
-    padding: 20px 0;
+.info-highlight {
+    color: #38bdf8;
+}
+
+/* Sağ Taraf: Yetenek Kartları Izgarası (Skills Grid) */
+.skills-grid {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-.skill-box {
-    margin-bottom: 25px;
+.skill-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 13px 16px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.skill-info {
+.skill-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.07), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.skill-card:hover::after {
+    opacity: 1;
+}
+
+.skill-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.skill-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Teknolojilere Özel Marka Vurguları */
+.skill-card[data-tech="html-css"]:hover {
+    border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(249, 115, 22, 0.15);
+}
+.skill-card[data-tech="javascript"]:hover {
+    border-color: rgba(250, 204, 21, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(250, 204, 21, 0.15);
+}
+.skill-card[data-tech="python"]:hover {
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.15);
+}
+.skill-card[data-tech="csharp"]:hover {
+    border-color: rgba(192, 132, 252, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(192, 132, 252, 0.15);
+}
+.skill-card[data-tech="threejs"]:hover {
+    border-color: rgba(0, 210, 255, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(0, 210, 255, 0.15);
+}
+.skill-card[data-tech="ai"]:hover {
+    border-color: rgba(34, 197, 94, 0.35);
+    box-shadow: 0 8px 24px -6px rgba(34, 197, 94, 0.15);
+}
+
+.skill-card-top {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 9px;
 }
 
-.skill-name {
-    font-size: 15px;
+.skill-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.08);
+}
+
+.icon-html { background: rgba(249, 115, 22, 0.12); color: #fb923c; }
+.icon-js { background: rgba(250, 204, 21, 0.12); color: #facc15; }
+.icon-python { background: rgba(56, 189, 248, 0.12); color: #38bdf8; }
+.icon-cs { background: rgba(192, 132, 252, 0.12); color: #c084fc; }
+.icon-three { background: rgba(0, 210, 255, 0.12); color: #00d2ff; }
+.icon-ai { background: rgba(34, 197, 94, 0.12); color: #4ade80; }
+
+.skill-meta {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-title {
+    font-size: 13.5px;
     font-weight: 600;
     color: #f8fafc;
-    letter-spacing: 0.5px;
 }
 
-.skill-percent {
-    font-size: 14px;
+.skill-tag {
+    font-size: 11.5px;
+    color: #94a3b8;
+    font-family: 'Roboto Mono', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skill-level-chip {
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 10px;
     font-weight: 600;
-    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Roboto Mono', monospace;
+    white-space: nowrap;
 }
 
-.skill-bar {
+.chip-advanced {
+    background: rgba(0, 210, 255, 0.1);
+    color: #38bdf8;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+}
+
+.chip-proficient {
+    background: rgba(192, 132, 252, 0.1);
+    color: #c084fc;
+    border: 1px solid rgba(192, 132, 252, 0.25);
+}
+
+.chip-intermediate {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+/* İlerleme Çizgisi & Akışkan Işık */
+.skill-bar-wrap {
     width: 100%;
-    height: 6px;
+}
+
+.skill-bar-track {
+    width: 100%;
+    height: 5px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    border-radius: 10px;
+    overflow: hidden;
     position: relative;
 }
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-    transform-origin: left;
-    transform: scaleX(0);
-    overflow: hidden;
-    transition: transform 1.5s cubic-bezier(0.1, 0.5, 0.1, 1);
+    width: 0%;
+    border-radius: 10px;
+    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
 }
 
-/* JavaScript tarafından tetiklenecek olan dolum sınıfı */
 .skill-progress.filled {
-    transform: scaleX(1);
+    width: var(--target-width);
 }
 
+.bar-html { 
+    background: linear-gradient(90deg, #ea580c, #fb923c); 
+    box-shadow: 0 0 10px rgba(251, 146, 60, 0.45); 
+}
+.bar-js { 
+    background: linear-gradient(90deg, #ca8a04, #facc15); 
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.45); 
+}
+.bar-python { 
+    background: linear-gradient(90deg, #0284c7, #38bdf8); 
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.45); 
+}
+.bar-cs { 
+    background: linear-gradient(90deg, #9333ea, #c084fc); 
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.45); 
+}
+.bar-three { 
+    background: linear-gradient(90deg, #0891b2, #00d2ff); 
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.45); 
+}
+.bar-ai { 
+    background: linear-gradient(90deg, #16a34a, #4ade80); 
+    box-shadow: 0 0 10px rgba(74, 222, 128, 0.45); 
+}
+
+/* İlerleme Çubuğunun Üzerinden Kayan Parlak Parıltı */
 .skill-progress::after {
     content: '';
     position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background-color: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #fff, 0 0 15px var(--primary-color);
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: barShine 2.8s infinite ease-in-out;
 }
 
-.skill-progress::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-20deg);
-    animation: skill-shine 2.5s infinite linear;
-    animation-delay: 1.5s;
-}
-
-@keyframes skill-shine {
+@keyframes barShine {
     0% { left: -100%; }
-    100% { left: 200%; }
+    50%, 100% { left: 160%; }
 }
 
-/* --- MOBİL UYUM (RESPONSIVE) --- */
-@media (max-width: 768px) {
-    .about-container { gap: 30px; flex-direction: column; }
-    .about-text { padding: 30px 20px; min-width: 0; width: 100%; }
-    .about-skills { min-width: 0; width: 100%; padding: 0; }
-    .about-text h3, .about-skills h3 { font-size: 22px; margin-bottom: 20px; }
-    .about-text p { font-size: 14px; line-height: 1.6; }
-    .personal-info { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .skill-name { font-size: 13px; }
-    .skill-percent { font-size: 12px; }
+/* --- MOBİL & TABLET UYUMLULUĞU (RESPONSIVE) --- */
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .about-card {
+        padding: 30px 24px;
+    }
+    .personal-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
-@media (max-width: 480px) {
-    .personal-info { grid-template-columns: 1fr; }
-    .about-text { padding: 25px 15px; border-radius: 16px; }
-    .about-text h3, .about-skills h3 { font-size: 20px; }
-    .about-text p { font-size: 13px; }
-    .skill-name { font-size: 13px; }
+
+@media (max-width: 580px) {
+    .about-card {
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+    .about-card h3 {
+        font-size: 22px;
+    }
+    .about-bio p {
+        font-size: 14px;
+    }
+    .personal-info {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .skill-card-top {
+        flex-wrap: wrap;
+    }
+    .skill-level-chip {
+        display: none; /* Mobilde yer kazanmak için chip gizlenir, başlık ve tag yeterli */
+    }
 }

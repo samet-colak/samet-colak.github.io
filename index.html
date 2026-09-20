@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samet Çolak'ın kişisel web portfolyosu. Modern web teknolojileri (HTML, CSS, JS), Python ve C# ile geliştirdiğim kullanıcı odaklı ve yenilikçi projelerimi keşfedin.">
-    <meta property="og:title" content="Samet Çolak | Dijital Portfolyo & Yazılım Geliştirici">
-    <meta property="og:description" content="Samet Çolak'ın kişisel web portfolyosu. Modern web teknolojileri (HTML, CSS, JS), Python ve C# ile geliştirdiğim kullanıcı odaklı ve yenilikçi projelerimi keşfedin.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://sametcolak.github.io/">
+    <meta name="description" content="Samet Çolak kişisel portfolyo web sitesi. Modern web teknolojileri, temiz kod ve kullanıcı odaklı dijital çözümler.">
+    <meta name="keywords" content="Samet Çolak, Yazılım Geliştirici, Web Tasarım, Portfolyo, Python, C#, Frontend, Three.js">
+    <meta name="author" content="Samet Çolak">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta name="msapplication-TileColor" content="#0a0f1d">
+    <link rel="canonical" href="https://sametcolak.com.tr/">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <title>Samet Çolak | Dijital Portfolyo & Yazılım Geliştirici</title>
-    <link rel="icon" href="https://sametcolak.com.tr/assets/favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="apple-touch-icon" href="https://sametcolak.com.tr/assets/favicon.svg">
-    <link rel="stylesheet" href="css/style.css?v=1.1">
-    <link rel="stylesheet" href="css/home.css?v=1.1">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <meta property="og:url" content="https://sametcolak.com.tr/">
+    <meta property="og:title" content="Samet Çolak — Portfolyo">
+    <meta property="og:description" content="Samet Çolak kişisel portfolyo web sitesi. Modern web teknolojileri, temiz kod ve kullanıcı odaklı dijital çözümler.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Samet Çolak — Portfolyo">
+    <meta name="twitter:description" content="Samet Çolak kişisel portfolyo web sitesi. Modern web teknolojileri, temiz kod ve kullanıcı odaklı dijital çözümler.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <title>Samet Çolak — Portfolyo</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+    <!-- CSS Stilleri -->
+    <link rel="stylesheet" href="css/style.css?v=4.2">
+    <link rel="stylesheet" href="css/home.css?v=4.2">
+    <link rel="stylesheet" href="css/about.css?v=4.2">
+    <link rel="stylesheet" href="css/projects.css?v=4.4">
+    <link rel="stylesheet" href="css/certificates.css?v=4.0">
+    <link rel="stylesheet" href="css/contact.css?v=4.2">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWQ31H4YTW"></script>
@@ -26,6 +46,9 @@
     </script>
 </head>
 <body>
+
+    <!-- 3D THREE.JS WEBGL KANVAS -->
+    <canvas id="webgl-canvas"></canvas>
 
     <!-- PRELOADER (SAYFA GEÇİŞ EKRANI) -->
     <div id="preloader">
@@ -45,38 +68,78 @@
         }
     </script>
 
-    <!-- Navigasyon Menüsü -->
-    <nav>
-        <a href="/" class="logo">Samet <span>Çolak.</span></a>
-        <ul class="nav-links">
-            <li><a href="/" data-i18n="home">Ana Sayfa</a></li>
-            <li><a href="/pages/about" data-i18n="about">Hakkımda</a></li>
-            <li><a href="/pages/projects" data-i18n="projects">Projeler</a></li>
-            <li><a href="/pages/certificates" data-i18n="certificates">Sertifikalar</a></li>
-            <li><a href="/pages/contact" data-i18n="contact">İletişim</a></li>
-        </ul>
-        <div class="nav-actions">
-            <button id="lang-btn" class="lang-switch">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                <span id="lang-text">EN</span>
-            </button>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+    <!-- 3D SCROLL HUD WAYPOINTS (SAĞ TARAF GEZİNTİ İNDİKATÖRÜ) -->
+    <aside class="hud-waypoints" aria-label="3D Navigasyon">
+        <div class="hud-line"><div class="hud-line-progress"></div></div>
+        <a href="#home" class="hud-point active" data-section="home" title="Ana Sayfa" data-i18n-title="home">
+            <span class="hud-label" data-i18n="home">Ana Sayfa</span>
+            <span class="hud-num">01</span>
+        </a>
+        <a href="#about" class="hud-point" data-section="about" title="Hakkımda" data-i18n-title="about">
+            <span class="hud-label" data-i18n="about">Hakkımda</span>
+            <span class="hud-num">02</span>
+        </a>
+        <a href="#projects" class="hud-point" data-section="projects" title="Projeler" data-i18n-title="projects">
+            <span class="hud-label" data-i18n="projects">Projeler</span>
+            <span class="hud-num">03</span>
+        </a>
+        <a href="#certificates" class="hud-point" data-section="certificates" title="Sertifikalar" data-i18n-title="certificates">
+            <span class="hud-label" data-i18n="certificates">Sertifikalar</span>
+            <span class="hud-num">04</span>
+        </a>
+        <a href="#contact" class="hud-point" data-section="contact" title="İletişim" data-i18n-title="contact">
+            <span class="hud-label" data-i18n="contact">İletişim</span>
+            <span class="hud-num">05</span>
+        </a>
+    </aside>
 
-    <!-- Ana Sayfa (Hero) Bölümü -->
-    <section id="home" class="hero">
-        <!-- Arka Plan Dekoratif Elementleri -->
-        <div class="hero-bg-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-        
+    <!-- YÜZEN MODERN ADA NAVBAR (DYNAMIC ISLAND NAVBAR) -->
+    <header class="nav-wrapper">
+        <nav class="floating-nav">
+            <!-- Sol: Logo -->
+            <div class="nav-left">
+                <a href="#home" class="logo">Samet <span>Çolak.</span></a>
+            </div>
+
+            <!-- Orta: Hızlı Komut Paleti Tetikleyicisi (Ctrl+K) -->
+            <button class="nav-cmd-trigger" id="nav-cmd-btn" title="Komut Paletini Aç (Ctrl+K)" data-i18n-title="nav_cmd_title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span data-i18n="nav_search_text">Hızlı Arama...</span>
+                <kbd class="cmd-shortcut">⌘K</kbd>
+            </button>
+
+            <!-- Sağ: CTA Butonu, Dil Seçici ve Mobil Hamburger -->
+            <div class="nav-actions">
+                <a href="#contact" class="nav-cta-btn">
+                    <span data-i18n="nav_cta">Bana Ulaşın</span>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+
+                <button id="lang-btn" class="lang-switch" title="Dili Değiştir / Switch Language" data-i18n-title="nav_lang_title">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="globe-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <div class="hamburger" title="Menüyü Aç" data-i18n-title="nav_menu_title">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+
+            <!-- Mobil Menü Çekmecesi (Yalnızca mobilde hamburger açıldığında gösterilir) -->
+            <ul class="nav-links mobile-only-drawer">
+                <li><a href="#home" data-i18n="home">Ana Sayfa</a></li>
+                <li><a href="#about" data-i18n="about">Hakkımda</a></li>
+                <li><a href="#projects" data-i18n="projects">Projeler</a></li>
+                <li><a href="#certificates" data-i18n="certificates">Sertifikalar</a></li>
+                <li><a href="#contact" data-i18n="contact">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BÖLÜM 1: ANA SAYFA (HERO) -->
+    <section id="home" class="hero section-padding">
         <div class="hero-container">
             <div class="hero-content">
                 <p class="greeting" data-i18n="hero_greeting_small">Merhaba, benim adım</p>
@@ -85,8 +148,8 @@
                 <p class="hero-desc" data-i18n="hero_desc">Yazılım dünyasına tutkuyla bağlı, modern web teknolojileri ve yapay zeka araçlarını harmanlayarak yenilikçi çözümler üreten bir geliştiriciyim. <span class="color-html">HTML</span>, <span class="color-css">CSS</span>, <span class="color-python">Python</span> ve <span class="color-cs">C#</span> alanlarındaki yetkinliklerimi sürekli ileriye taşıyor; kullanıcı deneyimini merkeze alan, ölçeklenebilir ve estetik projeler inşa ediyorum.</p>
                 
                 <div class="hero-buttons">
-                    <a href="/pages/projects" class="btn" data-i18n="hero_btn">Projelerimi Gör</a>
-                    <a href="/pages/contact" class="btn btn-outline" data-i18n="hero_btn_contact">İletişime Geç</a>
+                    <a href="#projects" class="btn" data-i18n="hero_btn">Projelerimi Gör</a>
+                    <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">İletişime Geç</a>
                 </div>
 
                 <div class="social-links">
@@ -96,44 +159,56 @@
             </div>
             
             <div class="hero-image-box">
-                <!-- Terminal Arkası Aydınlatma (Ambient Glow) -->
                 <div class="terminal-glow"></div>
 
+                <!-- İnteraktif ve Sürüklenebilir Kod Terminali (Pro IDE Edition) -->
                 <div class="terminal-window hero-3d-card" id="terminal-window">
                     <div class="terminal-header" id="terminal-header">
                         <div class="terminal-buttons">
-                            <span class="close-btn"></span>
-                            <span class="minimize-btn"></span>
-                            <span class="maximize-btn"></span>
+                            <span class="close-btn" title="Yeniden Başlat" data-i18n-title="term_btn_restart"></span>
+                            <span class="minimize-btn" title="Küçült" data-i18n-title="term_btn_minimize"></span>
+                            <span class="maximize-btn" title="Büyüt" data-i18n-title="term_btn_maximize"></span>
                         </div>
-                    <div class="terminal-title">
-                        <span class="code-nav" id="prev-code" title="Önceki Dil">&#10094;</span>
-                        <span id="current-file-name">developer.py</span>
-                        <span class="code-nav" id="next-code" title="Sonraki Dil">&#10095;</span>
-                    </div>
-                    <div class="terminal-actions">
-                        <button class="run-btn" id="run-btn" title="Kodu Çalıştır">
-                            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        </button>
-                        <button class="copy-btn" id="copy-btn" title="Kodu Kopyala">
-                            <svg class="icon-copy" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            <svg class="icon-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#27c93f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </button>
-                    </div>
+                        <div class="terminal-title">
+                            <button class="code-nav" id="prev-code" title="Önceki Dil" data-i18n-title="term_btn_prev_lang" aria-label="Önceki Dil">&#10094;</button>
+                            <div class="terminal-tab" title="Aktif Dosya">
+                                <span class="file-icon-dot" id="file-icon-dot"></span>
+                                <span id="current-file-name">developer.py</span>
+                            </div>
+                            <button class="code-nav" id="next-code" title="Sonraki Dil" data-i18n-title="term_btn_next_lang" aria-label="Sonraki Dil">&#10095;</button>
+                        </div>
+                        <div class="terminal-actions">
+                            <button class="run-btn" id="run-btn" title="Kodu Çalıştır" data-i18n-title="term_btn_run">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </button>
+                            <button class="copy-btn" id="copy-btn" title="Kodu Kopyala" data-i18n-title="term_btn_copy">
+                                <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                <svg class="icon-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </button>
+                        </div>
                     </div>
                     <div class="terminal-body" id="terminal-body">
-<pre><code id="code-to-copy"><span class="term-comment"># Samet Çolak - Profil</span>
+                        <div class="terminal-code-wrapper">
+                            <div class="code-gutter" id="code-gutter" aria-hidden="true">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                            </div>
+                            <pre class="code-pre"><code id="code-to-copy"><span class="term-comment"># Samet Çolak - Profil</span>
 <span class="term-keyword">class</span> <span class="term-variable">Developer</span>:
     <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):
         <span class="term-variable">self</span>.<span class="term-property">name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>
         <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>
         <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>]
         <span class="term-variable">self</span>.<span class="term-property">ai</span> <span class="term-operator">=</span> <span class="term-keyword">True</span><span class="term-cursor">_</span></code></pre>
-                    <div id="cli-output" class="cli-output"></div>
-                    <div class="terminal-cli">
-                        <span class="cli-prompt">samet@portfolio:~$</span>
-                        <input type="text" id="cli-input" autocomplete="off" spellcheck="false" maxlength="50" placeholder="Bir komut girin ('help')">
-                    </div>
+                        </div>
+                        <div class="terminal-console-wrap">
+                            <div id="cli-output" class="cli-output"></div>
+                            <div class="terminal-cli">
+                                <span class="cli-prompt">
+                                    <span class="prompt-user">samet</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span class="prompt-sep">:</span><span class="prompt-path">~</span><span class="prompt-sym">$</span>
+                                </span>
+                                <input type="text" id="cli-input" autocomplete="off" spellcheck="false" maxlength="50" placeholder="Bir komut girin ('help')" data-i18n-placeholder="cli_placeholder">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,56 +216,609 @@
 
         <!-- Aşağı Kaydır İndikatörü -->
         <div class="scroll-indicator">
-            <div class="scroll-arrow">
+            <a href="#about" class="scroll-arrow" aria-label="Aşağı Kaydır" data-i18n-aria-label="aria_scroll_down">
                 <span class="mouse">
                     <span class="wheel"></span>
                 </span>
                 <span class="arrow-down"></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- BÖLÜM GEÇİŞİ: 01 -> 02 -->
+    <div class="section-divider-wrap fade-in" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- BÖLÜM 2: HAKKIMDA (ABOUT) & TEKNİK YETENEKLER -->
+    <section id="about" class="section-padding">
+        <div class="section-container">
+            <div class="section-header-block fade-in">
+                <h2 class="section-main-heading" data-i18n="section_title_about">Hakkımda & Yetkinliklerim</h2>
+                <div class="section-accent-line" aria-hidden="true"><span class="accent-beam-left"></span><span class="accent-diamond">✦</span><span class="accent-beam-right"></span></div>
+                <p class="section-lead-desc" data-i18n="section_desc_about">Bilişim teknolojileri, modern arayüz mimarileri ve yapay zeka alanlarındaki vizyonumu, becerilerimi keşfedin.</p>
+            </div>
+            
+            <div class="about-container fade-in fade-delay-1">
+                <!-- Sol Kart: Profil & Odak Alanları -->
+                <div class="about-card about-profile-card">
+                    <div class="about-card-header">
+                        <h3 data-i18n="about_heading">Tutkulu Bir Genç Geliştirici</h3>
+                    </div>
+                    
+                    <div class="about-bio">
+                        <p data-i18n="about_p1">Merhaba, ben Samet Çolak. Tuzla Mesleki ve Teknik Anadolu Lisesi Bilişim Teknolojileri bölümü 12. sınıf öğrencisiyim. Yazılım dünyasına olan merakım beni sürekli yeni şeyler öğrenmeye ve üretmeye itiyor.</p>
+                        <p data-i18n="about_p2">Sadece teorik bilgilerle yetinmiyor, modern web teknolojileri ve yapay zeka (AI) araçlarını birleştirerek kullanıcı dostu arayüzler tasarlıyorum. Hedefim, staj sürecimde vizyoner bir ekibin parçası olarak gerçek projelere değer katmak.</p>
+                    </div>
+
+                    <!-- 3 Temel Mühendislik Odak Alanı -->
+                    <div class="about-pillars">
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <div class="pillar-content">
+                                <h4 data-i18n="about_pillar1_title">Modern Web Mimarisi</h4>
+                                <p data-i18n="about_pillar1_desc">Semantik HTML, modern CSS ve Three.js ile akıcı, kullanıcı odaklı arayüzler.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            </div>
+                            <div class="pillar-content">
+                                <h4 data-i18n="about_pillar2_title">Algoritma & Programlama</h4>
+                                <p data-i18n="about_pillar2_desc">Python ve C# ile nesne yönelimli, temiz ve sürdürülebilir yazılım geliştirme.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-pillar">
+                            <div class="pillar-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"></path></svg>
+                            </div>
+                            <div class="pillar-content">
+                                <h4 data-i18n="about_pillar3_title">Yapay Zeka Entegrasyonu</h4>
+                                <p data-i18n="about_pillar3_desc">Modern AI araçlarını tasarım ve kodlama süreçlerine entegre etme.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hızlı Bilgiler Izgarası -->
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <span class="info-title" data-i18n="info_age">Yaş:</span> 
+                            <span class="info-value" id="my-age">17</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-title" data-i18n="info_school">Okul:</span> 
+                            <span class="info-value">Tuzla MTAL</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-title" data-i18n="info_location">Şehir:</span> 
+                            <span class="info-value" data-i18n="info_location_val">İstanbul, TR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ Kart: Teknik Yetenek Matrisi -->
+                <div class="about-card about-skills-card">
+                    <div class="about-card-header">
+                        <h3 data-i18n="skills_heading">Teknik Yeteneklerim</h3>
+                        <p class="skills-subdesc" data-i18n="skills_subdesc">Projelerimde aktif olarak kullandığım temel diller, teknolojiler ve araçlar.</p>
+                    </div>
+
+                    <div class="skills-grid">
+                        <!-- HTML5 & CSS3 -->
+                        <div class="skill-card" data-tech="html-css">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-html">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title">HTML5 & CSS3</span>
+                                    <span class="skill-tag">Modern Web & Responsive</span>
+                                </div>
+                                <span class="skill-level-chip chip-advanced" data-i18n="skill_level_advanced">İleri Düzey</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-html" data-width="90%" style="--target-width: 90%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="skill-card" data-tech="javascript">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-js">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"></path><path d="M8 6l-6 6 6 6"></path></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title">JavaScript (ES6+)</span>
+                                    <span class="skill-tag">DOM, Async & Web API</span>
+                                </div>
+                                <span class="skill-level-chip chip-proficient" data-i18n="skill_level_proficient">Yetkin</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-js" data-width="78%" style="--target-width: 78%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="skill-card" data-tech="python">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-python">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c5.523 0 10 4.477 10 10a10 10 0 0 1-10 10c-5.523 0-10-4.477-10-10A10 10 0 0 1 12 2z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title">Python</span>
+                                    <span class="skill-tag">Algoritma & Otomasyon</span>
+                                </div>
+                                <span class="skill-level-chip chip-advanced" data-i18n="skill_level_advanced">İleri Düzey</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-python" data-width="82%" style="--target-width: 82%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- C# -->
+                        <div class="skill-card" data-tech="csharp">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-cs">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title">C# & .NET</span>
+                                    <span class="skill-tag">OOP & Masaüstü Mimarisi</span>
+                                </div>
+                                <span class="skill-level-chip chip-proficient" data-i18n="skill_level_proficient">Yetkin</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-cs" data-width="72%" style="--target-width: 72%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Three.js & WebGL -->
+                        <div class="skill-card" data-tech="threejs">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-three">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title">Three.js & WebGL</span>
+                                    <span class="skill-tag">3D İnteraktif Sahneler</span>
+                                </div>
+                                <span class="skill-level-chip chip-intermediate" data-i18n="skill_level_intermediate">Aktif</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-three" data-width="70%" style="--target-width: 70%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Yapay Zeka Araçları -->
+                        <div class="skill-card" data-tech="ai">
+                            <div class="skill-card-top">
+                                <div class="skill-icon icon-ai">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3m0 12v3M3 12h3m12 0h3"></path><circle cx="12" cy="12" r="4"></circle><path d="m4.93 4.93 2.12 2.12m9.9 9.9 2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9 2.12-2.12"></path></svg>
+                                </div>
+                                <div class="skill-meta">
+                                    <span class="skill-title" data-i18n="skill_ai">Yapay Zeka Araçları</span>
+                                    <span class="skill-tag">İş Akışı & Prompt Mühendisliği</span>
+                                </div>
+                                <span class="skill-level-chip chip-advanced" data-i18n="skill_level_advanced">İleri Düzey</span>
+                            </div>
+                            <div class="skill-bar-wrap">
+                                <div class="skill-bar-track">
+                                    <div class="skill-progress bar-ai" data-width="86%" style="--target-width: 86%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
- <footer class="modern-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="/" class="logo">Samet <span>Çolak.</span></a>
-                <p data-i18n="footer_desc">Modern ve kullanıcı dostu web deneyimleri tasarlıyorum.</p>
+    <!-- BÖLÜM GEÇİŞİ: 02 -> 03 -->
+    <div class="section-divider-wrap fade-in" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- BÖLÜM 3: PROJELER (PROJECTS) -->
+    <section id="projects" class="section-padding">
+        <div class="section-container">
+            <div class="section-header-block fade-in">
+                <h2 class="section-main-heading" data-i18n="section_title_projects">Öne Çıkan Projelerim</h2>
+                <div class="section-accent-line" aria-hidden="true"><span class="accent-beam-left"></span><span class="accent-diamond">✦</span><span class="accent-beam-right"></span></div>
+                <p class="section-lead-desc" data-i18n="section_desc_projects">Kullanıcı deneyimini, performansı ve estetik kod mimarisini harmanlayarak geliştirdiğim dijital ürünler.</p>
             </div>
-            <div class="footer-links">
-                <h4 data-i18n="footer_quick_links">Hızlı Bağlantılar</h4>
-                <ul>
-                    <li><a href="/" data-i18n="home">Ana Sayfa</a></li>
-                    <li><a href="/pages/about" data-i18n="about">Hakkımda</a></li>
-                    <li><a href="/pages/projects" data-i18n="projects">Projeler</a></li>
-                    <li><a href="/pages/certificates" data-i18n="certificates">Sertifikalar</a></li>
-                    <li><a href="/pages/contact" data-i18n="contact">İletişim</a></li>
-                </ul>
+            
+            <!-- Sıralama Paneli -->
+            <div class="projects-header-actions fade-in fade-delay-1">
+                <div class="project-sort">
+                    <button id="sort-toggle-btn" class="sort-toggle-btn" data-sort="newest">
+                        <span data-i18n="sort_newest">En Yeni</span>
+                        <svg class="sort-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                    </button>
+                </div>
             </div>
-            <div class="footer-social">
-                <h4 data-i18n="footer_social">Sosyal Medya</h4>
-                <div class="social-icons">
-                    <a href="https://github.com/samet-colak" target="_blank" class="social-link" title="GitHub">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>GitHub</span>
+
+            <div class="projects-grid fade-in fade-delay-2">
+                <!-- Berber Sitesi Projesi -->
+                <div class="project-card" data-date="2026-06-09" data-i18n-extra="project_barber_extra">
+                    <div class="project-img-wrapper">
+                        <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80');"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title" style="display: flex; align-items: center; gap: 8px; cursor: default;">
+                            <span class="barber-pole-icon" style="font-size: 22px;">💈</span>
+                            <span data-i18n="project_barber_title">Berber Sitesi</span>
+                        </h3>
+                        <p data-i18n="project_barber_desc">Müşteri deneyimini merkeze alan, premium hissi veren modern arayüzü ve akıcı animasyonlarıyla öne çıkan tam duyarlı (responsive) berber salonu web platformu.</p>
+                        
+                        <ul class="project-features">
+                            <li><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-i18n="feat_ui_ux">UI/UX Tasarım</span></li>
+                            <li><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg> <span data-i18n="feat_responsive">Tam Mobil Uyum</span></li>
+                            <li><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg> <span data-i18n="feat_performance">Yüksek Performans</span></li>
+                        </ul>
+
+                        <div class="project-tech">
+                            <span class="tech-tag tech-html"><i class="tech-dot" aria-hidden="true"></i>HTML5</span>
+                            <span class="tech-tag tech-css"><i class="tech-dot" aria-hidden="true"></i>CSS3</span>
+                            <span class="tech-tag tech-js"><i class="tech-dot" aria-hidden="true"></i>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/samet-colak/berber-sitesi" target="_blank" class="btn btn-outline">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                <span data-i18n="btn_github">GitHub Kodu</span>
+                            </a>
+                            <a href="https://sametcolak.com.tr/berber-sitesi" target="_blank" class="btn">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span data-i18n="btn_live_view">Canlı İzle</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJE DETAY MODALI (POP-UP) -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-backdrop-glow" aria-hidden="true"></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modal-close-btn" aria-label="Kapat" title="Kapat (Esc)" data-i18n-title="modal_close_title">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-img-container">
+                    <img id="modal-img" src="" alt="Proje Görseli" loading="lazy">
+                    <div class="modal-img-overlay" aria-hidden="true"></div>
+                </div>
+                <div class="modal-info">
+                    <div class="modal-header-meta">
+                        <span class="modal-meta-category" data-i18n="modal_meta_category">Web Geliştirme • UI/UX</span>
+                    </div>
+                    <h3 id="modal-title" class="modal-project-title"></h3>
+                    <p id="modal-desc" class="modal-project-desc"></p>
+                    <div class="modal-extra-box">
+                        <div class="extra-box-header">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="extra-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                            <span class="extra-box-title" data-i18n="modal_extra_title">Proje Detayları & Mimari</span>
+                        </div>
+                        <p id="modal-extra"></p>
+                    </div>
+                    <div class="modal-tech-wrapper">
+                        <span class="modal-section-label" data-i18n="modal_tech_label">Kullanılan Teknolojiler</span>
+                        <div class="modal-tech" id="modal-tech"></div>
+                    </div>
+                    <div class="modal-links-wrapper">
+                        <div class="modal-links" id="modal-links"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BÖLÜM GEÇİŞİ: 03 -> 04 -->
+    <div class="section-divider-wrap fade-in" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- BÖLÜM 4: SERTİFİKALAR (CERTIFICATES) -->
+    <section id="certificates" class="section-padding">
+        <div class="section-container">
+            <div class="section-header-block fade-in">
+                <h2 class="section-main-heading" data-i18n="section_title_certs">Sertifikalar & Başarılar</h2>
+                <div class="section-accent-line" aria-hidden="true"><span class="accent-beam-left"></span><span class="accent-diamond">✦</span><span class="accent-beam-right"></span></div>
+                <p class="section-lead-desc" data-i18n="section_desc_certs">Sürekli gelişim ilkem doğrultusunda tamamladığım eğitimler ve kazandığım uluslararası yetkinlikler.</p>
+            </div>
+            
+            <div class="pro-empty-state fade-in fade-delay-1">
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <div class="cert-icon">★</div>
+                </div>
+                <h3 data-i18n="certs_empty_title">Sertifikalar Yükleniyor</h3>
+                <p data-i18n="certs_empty_desc">Eğitim süreçlerim ve katıldığım kurslar sonucunda almaya hak kazanacağım uluslararası geçerliliğe sahip sertifikalar yakında bu alanda listelenecektir.</p>
+                <a href="#contact" class="btn" data-i18n="hero_btn_contact">İletişime Geç</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM GEÇİŞİ: 04 -> 05 -->
+    <div class="section-divider-wrap fade-in" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- BÖLÜM 5: İLETİŞİM (CONTACT) & BENTO GRID -->
+    <section id="contact" class="section-padding">
+        <div class="section-container">
+            <div class="section-header-block fade-in">
+                <h2 class="section-main-heading" data-i18n="section_title_contact">Fikirleri Gerçeğe Dönüştürelim</h2>
+                <div class="section-accent-line" aria-hidden="true"><span class="accent-beam-left"></span><span class="accent-diamond">✦</span><span class="accent-beam-right"></span></div>
+                <p class="section-lead-desc" data-i18n="section_desc_contact">Kariyer hedeflerim doğrultusundaki staj fırsatları, profesyonel iş birlikleri veya yenilikçi projeler için benimle iletişime geçebilirsiniz.</p>
+            </div>
+
+            <!-- Ultra Modern 2 Sütunlu İletişim Vitrini (Showcase Grid) -->
+            <div class="contact-showcase-grid fade-in fade-delay-1">
+                <!-- Sol Sütun: Doğrudan İletişim, Canlı Saat & Durum -->
+                <div class="contact-info-col">
+                    <!-- Durum & Canlı Bölge Kartı -->
+                    <div class="contact-status-card">
+                        <h3 class="contact-card-headline" data-i18n="contact_card_headline">Yeni Fırsatları Birlikte Konuşalım.</h3>
+                        <p class="contact-card-subtext" data-i18n="contact_card_subtext">Staj programları, modern web ve yazılım projeleri veya merak ettiğiniz her konuda bana dilediğiniz zaman ulaşabilirsiniz.</p>
+
+                        <!-- Konum ve Canlı Saat Barı -->
+                        <div class="contact-quick-telemetry">
+                            <div class="telemetry-item">
+                                <span class="telemetry-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </span>
+                                <span data-i18n="location_desc">İstanbul, Türkiye</span>
+                            </div>
+                            <div class="telemetry-separator">•</div>
+                            <div class="telemetry-item">
+                                <span class="telemetry-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </span>
+                                <span id="live-time" class="live-clock-digits">00:00:00</span>
+                                <span class="tz-badge" data-i18n="timezone_label">GMT+3 (TSİ)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Doğrudan E-Posta Kartı (Tıklanabilir & Kopyalanabilir) -->
+                    <a href="mailto:smttr.cccc@gmail.com" class="contact-channel-card email-channel" title="E-Posta Gönder" data-i18n-title="contact_title_email">
+                        <div class="channel-icon-box">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="channel-details">
+                            <span class="channel-label" data-i18n="email_label">Doğrudan E-Posta</span>
+                            <span class="channel-value">smttr.cccc@gmail.com</span>
+                        </div>
+                        <div class="channel-action-arrow">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </div>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="mailto:smttr.cccc@gmail.com" class="social-link" title="Email">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>E-Posta Gönder</span>
+
+                    <!-- Sosyal Ağ Kanalları (2'li Kompakt Izgara) -->
+                    <div class="contact-social-row">
+                        <!-- GitHub Kartı -->
+                        <a href="https://github.com/samet-colak" target="_blank" class="contact-channel-card mini-channel" title="GitHub Profilim" data-i18n-title="contact_title_github">
+                            <div class="channel-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <div class="channel-details">
+                                <span class="channel-label">GitHub</span>
+                                <span class="channel-value">@samet-colak</span>
+                            </div>
+                            <div class="channel-action-arrow">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn Kartı -->
+                        <a href="https://linkedin.com" target="_blank" class="contact-channel-card mini-channel" title="LinkedIn Profilim" data-i18n-title="contact_title_linkedin">
+                            <div class="channel-icon-box">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </div>
+                            <div class="channel-details">
+                                <span class="channel-label">LinkedIn</span>
+                                <span class="channel-value">Samet Çolak</span>
+                            </div>
+                            <div class="channel-action-arrow">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sağ Sütun: Modern Cam E-Posta Formu (Formspree AJAX) -->
+                <div class="contact-form-col">
+                    <div class="contact-glass-form-card">
+                        <div class="form-card-header">
+                            <div class="form-header-badge">
+                                <span class="dot-beacon"></span>
+                                <span data-i18n="form_heading">Bana Mesaj Gönderin</span>
+                            </div>
+                            <p class="form-header-sub" data-i18n="contact_form_sub">Formu doldurup gönderdiğinizde mesajınız anında e-posta kutuma ulaşır.</p>
+                        </div>
+
+                        <form id="contact-form" class="studio-form" action="https://formspree.io/f/meewrory" method="POST">
+                            <div class="form-fields-grid">
+                                <!-- Ad Soyad -->
+                                <div class="form-field-group">
+                                    <label for="user_name" class="field-label">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                        <span data-i18n="contact_label_name">Adınız Soyadınız</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="user_name" name="user_name" required placeholder="Adınız Soyadınız" data-i18n-placeholder="form_name_placeholder" autocomplete="name">
+                                    </div>
+                                </div>
+
+                                <!-- E-Posta -->
+                                <div class="form-field-group">
+                                    <label for="user_email" class="field-label">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                        <span data-i18n="contact_label_email">E-Posta Adresiniz</span>
+                                    </label>
+                                    <div class="input-wrapper relative-wrapper">
+                                        <input type="email" id="user_email" name="user_email" required placeholder="ornek@alanadi.com" data-i18n-placeholder="form_email_placeholder" autocomplete="email">
+                                        <ul id="email-suggestions" class="email-suggestions-list"></ul>
+                                    </div>
+                                </div>
+
+                                <!-- Mesaj Alanı -->
+                                <div class="form-field-group full-width-field">
+                                    <label for="message" class="field-label">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                        <span data-i18n="contact_label_message">Mesajınız</span>
+                                    </label>
+                                    <div class="input-wrapper">
+                                        <textarea id="message" name="message" rows="5" required placeholder="Projenizden veya fikrinizden bahsedin..." data-i18n-placeholder="form_message_placeholder"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Buton & Toast Alanı -->
+                            <div class="form-action-bar">
+                                <button type="submit" class="btn submit-btn studio-submit-btn" id="submit-btn">
+                                    <span class="btn-text" data-i18n="form_send_btn">Mesajı Gönder</span>
+                                    <span class="btn-icon">
+                                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                    </span>
+                                    <div class="spinner"></div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BÖLÜM GEÇİŞİ: 05 -> FOOTER -->
+    <div class="section-divider-wrap fade-in" aria-hidden="true">
+        <div class="section-divider-line"></div>
+        <div class="section-divider-node">✦</div>
+        <div class="section-divider-line"></div>
+    </div>
+
+    <!-- MODERN HIGH-END DEVELOPER FOOTER -->
+    <footer class="modern-footer">
+        <div class="footer-inner-container fade-in">
+            <!-- Ana 3-Sütunlu Izgara (3-Column Modern Grid) -->
+            <div class="footer-main-grid">
+                <!-- Sütun 1: Marka & Biyografi & Yetenek Rozetleri -->
+                <div class="footer-col footer-col-brand">
+                    <a href="#home" class="footer-logo">Samet <span>Çolak.</span></a>
+                    <p class="footer-brand-p" data-i18n="footer_brand_desc">Tuzla MTAL Bilişim Teknolojileri öğrencisi. Modern web teknolojileri, temiz kod ve kullanıcı deneyimi odaklı dijital çözümler üretiyorum.</p>
+                    
+                    <div class="footer-tech-stack">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">C#</span>
+                        <span class="tech-pill">Three.js</span>
+                    </div>
+                </div>
+
+                <!-- Sütun 2: Gezinti / Navigation -->
+                <div class="footer-col">
+                    <h4 class="footer-heading" data-i18n="footer_nav_heading">Navigasyon</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#home"><span class="link-arrow">›</span> <span data-i18n="home">Ana Sayfa</span></a></li>
+                        <li><a href="#about"><span class="link-arrow">›</span> <span data-i18n="about">Hakkımda</span></a></li>
+                        <li><a href="#projects"><span class="link-arrow">›</span> <span data-i18n="projects">Projeler</span></a></li>
+                        <li><a href="#certificates"><span class="link-arrow">›</span> <span data-i18n="certificates">Sertifikalar</span></a></li>
+                        <li><a href="#contact"><span class="link-arrow">›</span> <span data-i18n="contact">İletişim</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Sütun 3: Ağ & Bağlantılar -->
+                <div class="footer-col">
+                    <h4 class="footer-heading" data-i18n="footer_social_heading">Ağ & Bağlantı</h4>
+                    <div class="footer-social-grid">
+                        <a href="https://github.com/samet-colak" target="_blank" class="footer-social-card" title="GitHub Profilim" data-i18n-title="contact_title_github">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title">GitHub</span>
+                                <span class="social-card-sub">@samet-colak</span>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com" target="_blank" class="footer-social-card" title="LinkedIn Profilim" data-i18n-title="contact_title_linkedin">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title">LinkedIn</span>
+                                <span class="social-card-sub">Samet Çolak</span>
+                            </div>
+                        </a>
+
+                        <a href="mailto:smttr.cccc@gmail.com" class="footer-social-card" title="E-Posta Gönder" data-i18n-title="contact_title_email">
+                            <div class="social-card-icon">
+                                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div class="social-card-info">
+                                <span class="social-card-title" data-i18n="email_label">E-Posta</span>
+                                <span class="social-card-sub">smttr.cccc@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Alt Telif ve Başa Dönme Barı (Bottom Bar) -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p data-i18n="footer_text">© 2026 Tüm Hakları Saklıdır.</p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a href="#home" class="scroll-top-btn" title="Sayfanın Başına Dön" data-i18n-title="footer_scroll_top_title">
+                        <span data-i18n="scroll_top">Yukarı Çık</span>
+                        <div class="scroll-top-arrow-box">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                        </div>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p data-i18n="footer_text">© 2026 Tüm Hakları Saklıdır.</p>
-            <a href="#" class="scroll-top"><span data-i18n="scroll_top">Yukarı Çık</span> <span class="arrow">&uarr;</span></a>
-        </div>
     </footer>
 
-    <script src="js/script.js?v=1.1"></script>
-    <script src="js/home.js?v=1.1"></script>
+    <!-- JS SCRIPTLERİ -->
+    <script src="js/three.min.js"></script>
+    <script src="js/three-scene.js?v=4.0"></script>
+    <script src="js/script.js?v=4.5"></script>
+    <script src="js/home.js?v=4.2"></script>
+    <script src="js/about.js?v=4.2"></script>
+    <script src="js/projects.js?v=4.0"></script>
+    <script src="js/contact.js?v=4.0"></script>
 </body>
 </html>

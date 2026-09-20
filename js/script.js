@@ -17,6 +17,9 @@ const translations = {
         projects: "Projeler",
         certificates: "Sertifikalar",
         contact: "İletişim",
+        nav_status: "Staj & İş Birliklerine Açık",
+        nav_search_text: "Hızlı Arama...",
+        nav_cta: "Bana Ulaşın",
         hero_greeting_small: "Merhaba, benim adım",
         hero_im: "Ben bir",
         hero_desc: "Yazılım dünyasına tutkuyla bağlı, modern web teknolojileri ve yapay zeka araçlarını harmanlayarak yenilikçi çözümler üreten bir geliştiriciyim. <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span> ve <span class='color-cs'>C#</span> alanlarındaki yetkinliklerimi sürekli ileriye taşıyor; kullanıcı deneyimini merkeze alan, ölçeklenebilir ve estetik projeler inşa ediyorum.",
@@ -24,12 +27,24 @@ const translations = {
         hero_btn: "Projelerimi Gör",
         hero_btn_contact: "İletişime Geç",
         about_heading: "Tutkulu Bir Genç Geliştirici",
-        about_p1: "Merhaba, ben Samet Çolak. Tuzla Mesleki ve Teknik Anadolu Lisesi Bilişim Teknolojileri bölümü 11. sınıf öğrencisiyim. Yazılım dünyasına olan merakım beni sürekli yeni şeyler öğrenmeye ve üretmeye itiyor.",
+        about_p1: "Merhaba, ben Samet Çolak. Tuzla Mesleki ve Teknik Anadolu Lisesi Bilişim Teknolojileri bölümü 12. sınıf öğrencisiyim. Yazılım dünyasına olan merakım beni sürekli yeni şeyler öğrenmeye ve üretmeye itiyor.",
         about_p2: "Sadece teorik bilgilerle yetinmiyor, modern web teknolojileri ve yapay zeka (AI) araçlarını birleştirerek kullanıcı dostu arayüzler tasarlıyorum. Hedefim, staj sürecimde vizyoner bir ekibin parçası olarak gerçek projelere değer katmak.",
+        about_pillar1_title: "Modern Web Mimarisi",
+        about_pillar1_desc: "Semantik HTML, modern CSS ve Three.js ile akıcı, kullanıcı odaklı arayüzler.",
+        about_pillar2_title: "Algoritma & Programlama",
+        about_pillar2_desc: "Python ve C# ile nesne yönelimli, temiz ve sürdürülebilir yazılım geliştirme.",
+        about_pillar3_title: "Yapay Zeka Entegrasyonu",
+        about_pillar3_desc: "Modern AI araçlarını tasarım ve kodlama süreçlerine entegre etme.",
         info_age: "Yaş:",
         info_school: "Okul:",
         info_location: "Şehir:",
+        info_status: "Durum:",
+        info_status_val: "Staj & Projeler",
         skills_heading: "Teknik Yeteneklerim",
+        skills_subdesc: "Projelerimde aktif olarak kullandığım temel diller, teknolojiler ve araçlar.",
+        skill_level_advanced: "İleri Düzey",
+        skill_level_proficient: "Yetkin",
+        skill_level_intermediate: "Aktif",
         skill_ai: "Yapay Zeka Araçları",
         projects_empty_title: "Projeler Hazırlanıyor",
         projects_empty_desc: "Staj ve kariyer hedeflerim doğrultusunda geliştirmekte olduğum modern web ve yapay zeka entegreli projelerim, son optimizasyonların ardından çok yakında bu alanda sergilenecektir.",
@@ -37,6 +52,12 @@ const translations = {
         project_barber_desc: "Müşteri deneyimini merkeze alan, premium hissi veren modern arayüzü ve akıcı animasyonlarıyla öne çıkan tam duyarlı (responsive) berber salonu web platformu.",
         project_barber_extra: "Bir berber veya kuaför salonunun sunduğu kaliteli hizmeti dijital dünyaya taşıyan bu proje, müşterilerinizin sitenizde keyifle vakit geçirmesi için tasarlandı. Göz yormayan şık tasarımı, kolay kullanımı ve hızlı yapısıyla ziyaretçilerinize güven veren, birinci sınıf bir deneyim sunuyor.",
         modal_extra_empty: "Bu proje hakkında ekstra bir bilgi bulunmuyor.",
+        modal_badge_featured: "Öne Çıkan Proje",
+        modal_meta_category: "Web Geliştirme • UI/UX",
+        modal_meta_status: "Canlıda",
+        modal_extra_title: "Proje Detayları & Mimari",
+        modal_tech_label: "Kullanılan Teknolojiler",
+        modal_close_title: "Kapat (Esc)",
         btn_live_view: "Canlı İzle",
         btn_github: "GitHub Kodu",
         certs_empty_title: "Sertifikalar Yükleniyor",
@@ -49,7 +70,7 @@ const translations = {
         phone_label: "Telefon",
         email_label: "E-Posta",
         social_label: "Sosyal Medya",
-        contact_status: "Yeni Fırsatlara Açık",
+        contact_status: "Görüşmelere & Projelere Açık",
         email_action: "Bana Yazın ➔",
         connect_action: "Bağlantı Kur ➔",
         follow_action: "Takip Et ➔",
@@ -74,13 +95,32 @@ const translations = {
         form_email_placeholder: "E-Posta Adresiniz",
         form_message_placeholder: "Projenizden veya fikrinizden bahsedin...",
         form_send_btn: "Mesajı Gönder",
-        form_success: "Mesajınız başarıyla iletildi! 🚀",
+        form_success: "Mesajınız başarıyla iletildi!",
+        form_success_title: "Mesajınız Başarıyla İletildi!",
+        form_success_desc: "Mesajınız doğrudan gelen kutuma ulaştı. En kısa sürede sizinle iletişime geçeceğim.",
+        form_success_pill: "İletildi ✓",
         form_error: "Gönderilemedi. Lütfen tekrar deneyin.",
+        form_error_title: "Gönderim Başarısız Oldu",
+        form_error_desc: "Lütfen bilgilerinizi kontrol edip tekrar deneyin veya doğrudan e-posta gönderin.",
+        form_error_pill: "Hata",
+        form_btn_sent: "İletildi ✓",
         ctx_home: "Ana Sayfaya Dön",
         ctx_contact: "Bana Ulaşın",
         sel_copy: "Kopyala",
         sel_copied: "Kopyalandı!",
         play_snake: "Terminal: Snake.exe Başlat",
+        sound_toggle_title: "Sesi Aç / Kapat",
+        pause_hint: "[BOŞLUK] Duraklat",
+        game_paused: "SİSTEM DONDURULDU // PAUSED",
+        press_space_resume: "Devam etmek için BOŞLUK tuşuna basın",
+        stat_food_eaten: "Toplanan Çekirdek",
+        stat_max_combo: "Maksimum Kombo",
+        stat_final_score: "Toplam Skor",
+        golden_core_text: "Kuantum Çekirdeği! +25",
+        combo_text: "KOMBO",
+        sound_on: "SES: AÇIK",
+        sound_off: "SES: KAPALI",
+        mission_report_title: "// GÖREV DEBRİFİNGİ //",
         game_over: "Sistem Çöktü!",
         score_text: "Skor",
         high_score_text: "En Yüksek",
@@ -89,7 +129,65 @@ const translations = {
         world_large: "Büyük",
         select_world: "Harita Seçimi",
         start_game: "Oyuna Başla ➔",
-        change_map: "Harita Değiştir 🗺️"
+        change_map: "Harita Değiştir 🗺️",
+        restart_game: "Sistemi Yeniden Başlat ↻",
+        term_btn_close: "Kapat",
+        section_tag_about: "// 02. BÖLÜM: BİYOGRAFİ & YETENEKLER",
+        section_title_about: "Hakkımda & Yetkinliklerim",
+        section_desc_about: "Bilişim teknolojileri, modern arayüz mimarileri ve yapay zeka alanlarındaki vizyonumu, becerilerimi keşfedin.",
+        section_tag_projects: "// 03. BÖLÜM: SEÇKİN ÇALIŞMALAR",
+        section_title_projects: "Öne Çıkan Projelerim",
+        section_desc_projects: "Kullanıcı deneyimini, performansı ve estetik kod mimarisini harmanlayarak geliştirdiğim dijital ürünler.",
+        section_tag_certs: "// 04. BÖLÜM: KAZANIMLAR & BELGELER",
+        section_title_certs: "Sertifikalar & Başarılar",
+        section_desc_certs: "Sürekli gelişim ilkem doğrultusunda tamamladığım eğitimler ve kazandığım uluslararası yetkinlikler.",
+        section_tag_contact: "// 05. BÖLÜM: İLETİŞİM & BAĞLANTI",
+        section_title_contact: "Fikirleri Gerçeğe Dönüştürelim",
+        section_desc_contact: "Kariyer hedeflerim doğrultusundaki staj fırsatları, profesyonel iş birlikleri veya yenilikçi projeler için benimle iletişime geçebilirsiniz.",
+        footer_cta_tag: "HAYDİ BAŞLAYALIM",
+        footer_cta_title: "Birlikte harika bir proje geliştirelim.",
+        footer_cta_desc: "Staj imkanları, web geliştirme veya yenilikçi yazılım projeleri için her zaman bir mesaj uzağınızdayım.",
+        footer_cta_btn: "İletişime Geç",
+        footer_copy_email: "E-Postayı Kopyala",
+        footer_copied_email: "Kopyalandı! ✓",
+        footer_brand_desc: "Tuzla MTAL Bilişim Teknolojileri öğrencisi. Modern web teknolojileri, temiz kod ve kullanıcı deneyimi odaklı dijital çözümler üretiyorum.",
+        footer_nav_heading: "Navigasyon",
+        footer_social_heading: "Ağ & Bağlantı",
+        footer_system_heading: "Sistem & Canlı Durum",
+        footer_system_status: "Tüm Sistemler Aktif",
+        footer_system_tech: "Three.js WebGL & JS",
+        footer_made_with: "İstanbul'dan tutku ve temiz kod ile geliştirildi.",
+        contact_card_headline: "Yeni Fırsatları Birlikte Konuşalım.",
+        contact_card_subtext: "Staj programları, modern web ve yazılım projeleri veya merak ettiğiniz her konuda bana dilediğiniz zaman ulaşabilirsiniz.",
+        contact_form_sub: "Formu doldurup gönderdiğinizde mesajınız anında e-posta kutuma ulaşır.",
+        contact_label_name: "Adınız Soyadınız",
+        contact_label_email: "E-Posta Adresiniz",
+        contact_label_message: "Mesajınız",
+        contact_title_email: "E-Posta Gönder",
+        contact_title_github: "GitHub Profilim",
+        contact_title_linkedin: "LinkedIn Profilim",
+        info_location_val: "İstanbul, TR",
+        cmd_placeholder: "Ne arıyorsunuz? (Örn: Projeler, İletişim...)",
+        cmd_group_nav: "Navigasyon",
+        cmd_group_contact: "İletişim & Sosyal",
+        cmd_github: "GitHub Profilim",
+        nav_cmd_title: "Komut Paletini Aç (Ctrl+K)",
+        nav_lang_title: "Dili Değiştir / Switch Language",
+        nav_menu_title: "Menüyü Aç",
+        footer_scroll_top_title: "Sayfanın Başına Dön",
+        aria_scroll_down: "Aşağı Kaydır",
+        term_btn_restart: "Yeniden Başlat",
+        term_btn_minimize: "Küçült",
+        term_btn_maximize: "Büyüt",
+        term_btn_prev_lang: "Önceki Dil",
+        term_btn_next_lang: "Sonraki Dil",
+        term_btn_run: "Kodu Çalıştır",
+        term_btn_copy: "Kodu Kopyala",
+        cli_placeholder: "Bir komut girin ('help')",
+        term_status_ready: "Hazır",
+        feat_ui_ux: "UI/UX Tasarım",
+        feat_responsive: "Tam Mobil Uyum",
+        feat_performance: "Yüksek Performans"
     },
     en: {
         home: "Home",
@@ -97,6 +195,9 @@ const translations = {
         projects: "Projects",
         certificates: "Certificates",
         contact: "Contact",
+        nav_status: "Open to Work & Internship",
+        nav_search_text: "Quick Search...",
+        nav_cta: "Get in Touch",
         hero_greeting_small: "Hello, my name is",
         hero_im: "I am a",
         hero_desc: "A passionate developer crafting innovative solutions by blending modern web technologies with AI tools. I continuously advance my proficiency in <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span>, and <span class='color-cs'>C#</span>, building scalable, aesthetic, and user-centric projects.",
@@ -104,12 +205,24 @@ const translations = {
         hero_btn: "View My Projects",
         hero_btn_contact: "Contact Me",
         about_heading: "A Passionate Young Developer",
-        about_p1: "Hello, I am Samet Çolak. I am an 11th-grade Information Technologies student at Tuzla Vocational and Technical Anatolian High School. My curiosity for the software world constantly drives me to learn and create.",
+        about_p1: "Hello, I am Samet Çolak. I am a 12th-grade Information Technologies student at Tuzla Vocational and Technical Anatolian High School. My curiosity for the software world constantly drives me to learn and create.",
         about_p2: "I don't just settle for theoretical knowledge; I combine modern web technologies and AI tools to design user-friendly interfaces. My goal is to add value to real-world projects as part of a visionary team during my internship.",
+        about_pillar1_title: "Modern Web Architecture",
+        about_pillar1_desc: "Semantic HTML, modern CSS, and fluid interactive interfaces with Three.js.",
+        about_pillar2_title: "Algorithms & Programming",
+        about_pillar2_desc: "Clean, maintainable, object-oriented software development with Python & C#.",
+        about_pillar3_title: "AI Tools & Workflow",
+        about_pillar3_desc: "Integrating cutting-edge AI tools into development and design workflows.",
         info_age: "Age:",
         info_school: "School:",
         info_location: "Location:",
+        info_status: "Status:",
+        info_status_val: "Internship & Projects",
         skills_heading: "Technical Skills",
+        skills_subdesc: "Core languages, technologies, and libraries I actively leverage in projects.",
+        skill_level_advanced: "Advanced",
+        skill_level_proficient: "Proficient",
+        skill_level_intermediate: "Active",
         skill_ai: "AI Tools",
         projects_empty_title: "Projects in Progress",
         projects_empty_desc: "The modern web and AI-integrated projects I am developing in line with my internship and career goals will be showcased here very soon after final optimizations.",
@@ -117,6 +230,12 @@ const translations = {
         project_barber_desc: "A fully responsive premium barber salon web platform, standing out with its customer-centric approach, modern interface, and fluid animations.",
         project_barber_extra: "Bringing the high-quality service of a barber or hair salon into the digital world, this project is designed for your customers to easily navigate and enjoy your site. With its elegant and modern design, user-friendly structure, and fast performance, it offers visitors a premium and trustworthy experience.",
         modal_extra_empty: "There is no extra information about this project.",
+        modal_badge_featured: "Featured Project",
+        modal_meta_category: "Web Development • UI/UX",
+        modal_meta_status: "Live",
+        modal_extra_title: "Project Details & Architecture",
+        modal_tech_label: "Technologies Used",
+        modal_close_title: "Close (Esc)",
         btn_live_view: "Live View",
         btn_github: "GitHub Code",
         certs_empty_title: "Certificates Loading",
@@ -154,13 +273,32 @@ const translations = {
         form_email_placeholder: "Your Email Address",
         form_message_placeholder: "Tell me about your project or idea...",
         form_send_btn: "Send Message",
-        form_success: "Your message has been sent successfully! 🚀",
+        form_success: "Your message has been sent successfully!",
+        form_success_title: "Message Sent Successfully!",
+        form_success_desc: "Your message has reached my inbox. I will get back to you shortly.",
+        form_success_pill: "Delivered ✓",
         form_error: "Failed to send. Please try again.",
+        form_error_title: "Submission Failed",
+        form_error_desc: "Please check your information and try again or reach out directly via email.",
+        form_error_pill: "Failed",
+        form_btn_sent: "Sent ✓",
         ctx_home: "Back to Home",
         ctx_contact: "Contact Me",
         sel_copy: "Copy",
         sel_copied: "Copied!",
         play_snake: "Terminal: Run Snake.exe",
+        sound_toggle_title: "Toggle Sound FX",
+        pause_hint: "[SPACE] Pause",
+        game_paused: "SYSTEM FROZEN // PAUSED",
+        press_space_resume: "Press SPACE to Resume",
+        stat_food_eaten: "Cores Consumed",
+        stat_max_combo: "Max Combo",
+        stat_final_score: "Final Score",
+        golden_core_text: "Quantum Core! +25",
+        combo_text: "COMBO",
+        sound_on: "AUDIO: ON",
+        sound_off: "AUDIO: OFF",
+        mission_report_title: "// MISSION DEBRIEF //",
         game_over: "System Failure!",
         score_text: "Score",
         high_score_text: "Best",
@@ -169,7 +307,65 @@ const translations = {
         world_large: "Large",
         select_world: "Select Map",
         start_game: "Start Game ➔",
-        change_map: "Change Map 🗺️"
+        change_map: "Change Map 🗺️",
+        restart_game: "Restart System ↻",
+        term_btn_close: "Close",
+        section_tag_about: "// SECTION 02: BIOGRAPHY & SKILLS",
+        section_title_about: "About Me & Core Competencies",
+        section_desc_about: "Explore my background in information technologies, frontend development, and modern AI tool integrations.",
+        section_tag_projects: "// SECTION 03: FEATURED WORKS",
+        section_title_projects: "Featured Projects",
+        section_desc_projects: "Digital products crafted with a focus on seamless user experience, high performance, and clean code.",
+        section_tag_certs: "// SECTION 04: CREDENTIALS & ACHIEVEMENTS",
+        section_title_certs: "Certificates & Achievements",
+        section_desc_certs: "International credentials and coursework completed as part of my continuous learning journey.",
+        section_tag_contact: "// SECTION 05: GET IN TOUCH",
+        section_title_contact: "Let's Build Something Great",
+        section_desc_contact: "Feel free to reach out for internship opportunities, professional collaborations, or innovative web development projects.",
+        footer_cta_tag: "LET'S COLLABORATE",
+        footer_cta_title: "Let's build something extraordinary together.",
+        footer_cta_desc: "Always a message away for internship opportunities, web engineering, or creative software projects.",
+        footer_cta_btn: "Get in Touch",
+        footer_copy_email: "Copy Email",
+        footer_copied_email: "Copied! ✓",
+        footer_brand_desc: "Information Technologies student at Tuzla MTAL. Building user-centric web applications with clean code and modern AI workflows.",
+        footer_nav_heading: "Navigation",
+        footer_social_heading: "Connect & Social",
+        footer_system_heading: "System & Telemetry",
+        footer_system_status: "All Systems Operational",
+        footer_system_tech: "Three.js WebGL & JS",
+        footer_made_with: "Crafted with passion and clean code in Istanbul.",
+        contact_card_headline: "Let's Discuss New Opportunities Together.",
+        contact_card_subtext: "Feel free to reach out anytime for internship programs, modern web & software projects, or any questions.",
+        contact_form_sub: "Fill out the form and your message will reach my inbox instantly.",
+        contact_label_name: "Your Full Name",
+        contact_label_email: "Your Email Address",
+        contact_label_message: "Your Message",
+        contact_title_email: "Send Email",
+        contact_title_github: "My GitHub Profile",
+        contact_title_linkedin: "My LinkedIn Profile",
+        info_location_val: "Istanbul, TR",
+        cmd_placeholder: "What are you looking for? (e.g. Projects, Contact...)",
+        cmd_group_nav: "Navigation",
+        cmd_group_contact: "Contact & Social",
+        cmd_github: "My GitHub Profile",
+        nav_cmd_title: "Open Command Palette (Ctrl+K)",
+        nav_lang_title: "Switch Language / Dili Değiştir",
+        nav_menu_title: "Open Menu",
+        footer_scroll_top_title: "Back to Top",
+        aria_scroll_down: "Scroll Down",
+        term_btn_restart: "Restart",
+        term_btn_minimize: "Minimize",
+        term_btn_maximize: "Maximize",
+        term_btn_prev_lang: "Previous Language",
+        term_btn_next_lang: "Next Language",
+        term_btn_run: "Run Code",
+        term_btn_copy: "Copy Code",
+        cli_placeholder: "Enter a command ('help')",
+        term_status_ready: "Ready",
+        feat_ui_ux: "UI/UX Design",
+        feat_responsive: "Fully Responsive",
+        feat_performance: "High Performance"
     }
 };
 
@@ -178,22 +374,78 @@ const langBtn = document.getElementById('lang-btn');
 let originalTitle = document.title;
 
 function updateLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    
+    // 1. data-i18n (Metin ve HTML içerikler)
     const elementsToTranslate = document.querySelectorAll('[data-i18n]');
-    const langText = document.getElementById('lang-text');
-    if (langText) langText.textContent = lang === 'tr' ? 'EN' : 'TR';
     elementsToTranslate.forEach(element => {
         const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
+        if (translations[lang] && translations[lang][key] !== undefined) {
             element.innerHTML = translations[lang][key];
         }
     });
+
+    // 2. data-i18n-placeholder (Form ve Arama Placeholder'ları)
+    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholderElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+            element.setAttribute('placeholder', translations[lang][key]);
+            element.placeholder = translations[lang][key];
+        }
+    });
+
+    // 3. data-i18n-title (Tooltip ve Title etiketleri)
+    const titleElements = document.querySelectorAll('[data-i18n-title]');
+    titleElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-title');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+            element.setAttribute('title', translations[lang][key]);
+            element.title = translations[lang][key];
+        }
+    });
+
+    // 4. data-i18n-aria-label (Erişilebilirlik etiketleri)
+    const ariaElements = document.querySelectorAll('[data-i18n-aria-label]');
+    ariaElements.forEach(element => {
+        const key = element.getAttribute('data-i18n-aria-label');
+        if (translations[lang] && translations[lang][key] !== undefined) {
+            element.setAttribute('aria-label', translations[lang][key]);
+        }
+    });
     
-    // Sayfa başlığını (Title) dile göre güncelleme
-    const pageSection = document.querySelector('section');
-    if (pageSection && pageSection.id && translations[lang][pageSection.id]) {
-        document.title = translations[lang][pageSection.id] + " | Samet Çolak";
-        if (!document.hidden) {
-            originalTitle = document.title;
+    // 5. Dil Buton Metni
+    const langText = document.getElementById('lang-text');
+    if (langText) langText.textContent = lang === 'tr' ? 'EN' : 'TR';
+    
+    // 6. Sayfa Başlığı (Title) ve Meta Açıklaması
+    const is404 = window.location.pathname.includes('404') || document.querySelector('.error-hero') !== null;
+    if (is404) {
+        document.title = lang === 'tr'
+            ? "Sayfa Bulunamadı | Samet Çolak"
+            : "Page Not Found | Samet Çolak";
+    } else {
+        document.title = lang === 'tr' 
+            ? "Samet Çolak — Portfolyo"
+            : "Samet Çolak — Portfolio";
+    }
+    if (!document.hidden) {
+        originalTitle = document.title;
+    }
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        if (is404) {
+            metaDesc.setAttribute('content', lang === 'tr'
+                ? "Aradığınız sayfa bulunamadı. Samet Çolak portfolyosuna geri dönün."
+                : "The page you are looking for could not be found. Return to Samet Çolak's portfolio."
+            );
+        } else {
+            metaDesc.setAttribute('content', lang === 'tr'
+                ? "Samet Çolak kişisel portfolyo web sitesi. Modern web teknolojileri, temiz kod ve kullanıcı odaklı dijital çözümler."
+                : "Samet Çolak personal portfolio website. Modern web technologies, clean code, and user-centric digital solutions."
+            );
         }
     }
 }
@@ -213,7 +465,16 @@ langBtn.addEventListener('click', () => {
 document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
         originalTitle = document.title; // Kullanıcı sekmeyi terk ettiğinde güncel başlığı sakla
-        document.title = currentLang === 'tr' ? "Seni özledik... ✨" : "We missed you... ✨";
+        const is404 = window.location.pathname.includes('404') || document.querySelector('.error-hero') !== null;
+        if (is404) {
+            document.title = currentLang === 'tr' 
+                ? "Geri Dön | Samet Çolak" 
+                : "Return | Samet Çolak";
+        } else {
+            document.title = currentLang === 'tr' 
+                ? "Keşfetmeye Devam Edin | Samet Çolak" 
+                : "Continue Exploring | Samet Çolak";
+        }
     } else {
         document.title = originalTitle; // Geri döndüğünde orijinal başlığı geri yükle
     }
@@ -319,15 +580,19 @@ if (window.matchMedia("(pointer: fine)").matches) {
             cursorDot.classList.remove('cursor-hover');
         });
     });
-
-// --- URL'DEN .HTML UZANTISINI GİZLEME (CLEAN URL) ---
-if (window.location.pathname.endsWith('.html')) {
-    // Eğer sayfa index.html ise ana dizine (/) çevir, değilse sadece .html kısmını sil
-    let cleanPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
-    if (cleanPath === '') cleanPath = '/';
-    const cleanUrl = cleanPath + window.location.search + window.location.hash;
-    window.history.replaceState(null, '', cleanUrl);
 }
+
+// --- URL'DEN INDEX.HTML UZANTISINI GİZLEME (CLEAN URL) ---
+if (window.location.protocol !== 'file:') {
+    const pName = window.location.pathname;
+    // 404 sayfasındayken URL'i asla /404 yapma (F5 atınca sunucu 404 hatası verir)
+    if (!pName.includes('404')) {
+        if (pName.endsWith('/index.html') || pName === '/index.html' || pName === 'index.html') {
+            const cleanPath = pName.replace(/\/index\.html$/, '/') || '/';
+            const cleanUrl = cleanPath + window.location.search + window.location.hash;
+            window.history.replaceState(null, '', cleanUrl);
+        }
+    }
 }
 
 // --- PROJE MODAL (POP-UP) SİSTEMİ ---
@@ -335,7 +600,7 @@ const projectModal = document.getElementById('project-modal');
 const projectCards = document.querySelectorAll('.project-card');
 
 if (projectModal && projectCards.length > 0) {
-    const modalClose = projectModal.querySelector('.modal-close');
+    const modalCloseBtn = projectModal.querySelector('#modal-close-btn, .modal-close, .modal-close-btn');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
@@ -343,49 +608,80 @@ if (projectModal && projectCards.length > 0) {
     const modalTech = document.getElementById('modal-tech');
     const modalLinks = document.getElementById('modal-links');
 
+    const openModal = () => {
+        // Windows kaydırma çubuğu genişliğini hesaplayıp sıçramayı (layout shift) engelle
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+        document.body.style.overflow = 'hidden';
+        projectModal.classList.add('active');
+        if (modalCloseBtn) modalCloseBtn.focus();
+    };
+
+    const closeModal = () => {
+        projectModal.classList.remove('active');
+        // Kapanış animasyonu (300ms) bittikten sonra body stilini geri al
+        setTimeout(() => {
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        }, 320);
+    };
+
     projectCards.forEach(card => {
         card.addEventListener('click', (e) => {
             // Eğer GitHub veya Canlı İzle butonuna tıklandıysa pop-up'ı AÇMA (orijinal linke gitsin)
-            if (e.target.closest('.project-links')) return;
+            if (e.target.closest('.project-links') || e.target.closest('a')) return;
 
             // Karttan mevcut verileri çek
-            modalTitle.innerHTML = card.querySelector('.project-title').innerHTML;
+            if (modalTitle) modalTitle.innerHTML = card.querySelector('.project-title').innerHTML;
             
             const descElement = card.querySelector('p[data-i18n]');
-            modalDesc.setAttribute('data-i18n', descElement.getAttribute('data-i18n'));
-            modalDesc.innerHTML = descElement.innerHTML;
+            if (modalDesc && descElement) {
+                modalDesc.setAttribute('data-i18n', descElement.getAttribute('data-i18n'));
+                modalDesc.innerHTML = descElement.innerHTML;
+            }
             
-            modalTech.innerHTML = card.querySelector('.project-tech').innerHTML;
-            modalLinks.innerHTML = card.querySelector('.project-links').innerHTML;
+            if (modalTech) modalTech.innerHTML = card.querySelector('.project-tech').innerHTML;
+            if (modalLinks) modalLinks.innerHTML = card.querySelector('.project-links').innerHTML;
             
             // Arka plan resmini al
-            const bgImage = window.getComputedStyle(card.querySelector('.project-img')).backgroundImage;
-            modalImg.src = bgImage.replace(/(url\(|\)|"|')/g, '') !== 'none' ? bgImage.replace(/(url\(|\)|"|')/g, '') : '';
+            const imgElem = card.querySelector('.project-img');
+            if (imgElem && modalImg) {
+                const bgImage = window.getComputedStyle(imgElem).backgroundImage;
+                const cleanUrl = bgImage.replace(/(url\(|\)|"|')/g, '');
+                modalImg.src = cleanUrl !== 'none' ? cleanUrl : '';
+            }
             
             // Ekstra metni dil sistemine entegre ederek al
             const extraKey = card.getAttribute('data-i18n-extra');
-            if (extraKey && translations[currentLang][extraKey]) {
-                modalExtra.setAttribute('data-i18n', extraKey);
-                modalExtra.innerHTML = translations[currentLang][extraKey];
-            } else {
-                modalExtra.setAttribute('data-i18n', 'modal_extra_empty');
-                modalExtra.innerHTML = translations[currentLang]['modal_extra_empty'];
+            if (modalExtra) {
+                if (extraKey && translations[currentLang] && translations[currentLang][extraKey]) {
+                    modalExtra.setAttribute('data-i18n', extraKey);
+                    modalExtra.innerHTML = translations[currentLang][extraKey];
+                } else {
+                    modalExtra.setAttribute('data-i18n', 'modal_extra_empty');
+                    modalExtra.innerHTML = translations[currentLang]?.modal_extra_empty || '';
+                }
             }
 
-            // Modalı göster ve arka plan kaymasını engelle
-            projectModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; 
+            openModal();
         });
     });
 
-    // Modalı Kapatma
-    const closeModal = () => { projectModal.classList.remove('active'); document.body.style.overflow = 'auto'; };
-    modalClose.addEventListener('click', closeModal);
-    projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeModal(); });
+    // Modalı Kapatma Olayları
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    projectModal.addEventListener('click', (e) => {
+        if (e.target === projectModal || e.target.classList.contains('modal-backdrop-glow')) {
+            closeModal();
+        }
+    });
 
     // Esc tuşu ile kapatma
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && projectModal.classList.contains('active')) closeModal();
+        if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+            closeModal();
+        }
     });
 }
 
@@ -434,8 +730,8 @@ window.addEventListener('scroll', () => {
 // --- AŞAĞI KAYDIRDIKÇA BELİRME (SCROLL FADE-IN) EFEKTİ ---
 const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.15
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.08
 };
 
 const fadeObserver = new IntersectionObserver((entries, observer) => {
@@ -452,8 +748,76 @@ document.addEventListener('DOMContentLoaded', () => {
     elementsToFade.forEach(el => fadeObserver.observe(el));
 });
 
+// --- YUMUŞAK VE ANİMASYONLU SCROLL MOTORU (SMOOTH MOMENTUM SCROLL) ---
+(function initSmoothScroll() {
+    // Mobil veya dokunmatik ekranlı cihazlarda yerel dokunma momentumunu koru
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+    let targetY = window.scrollY;
+    let currentY = window.scrollY;
+    let isRunning = false;
+    const ease = 0.08; // Akıcı ve pürüzsüz süzülme katsayısı
+
+    window.addEventListener('wheel', (e) => {
+        // Modal, komut paleti açıkken veya Ctrl/Alt basılıyken varsayılan davranışı koru
+        if (document.body.style.overflow === 'hidden' || e.ctrlKey || e.altKey) return;
+
+        // İçerisinde bağımsız kaydırma çubuğu olan öğeler (kod kutusu, textarea vb.)
+        if (e.target.closest('.modal, .cmd-palette-container, textarea, #cli-output')) return;
+
+        e.preventDefault();
+
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        targetY = Math.min(Math.max(0, targetY + e.deltaY * 1.05), maxScroll);
+
+        if (!isRunning) {
+            isRunning = true;
+            requestAnimationFrame(renderScroll);
+        }
+    }, { passive: false });
+
+    function renderScroll() {
+        const diff = targetY - currentY;
+        currentY += diff * ease;
+
+        if (Math.abs(diff) > 0.6) {
+            window.scrollTo({ top: Math.round(currentY), behavior: 'instant' });
+            requestAnimationFrame(renderScroll);
+        } else {
+            currentY = targetY;
+            window.scrollTo({ top: targetY, behavior: 'instant' });
+            isRunning = false;
+        }
+    }
+
+    // Harici scroll hareketlerinde (scrollbar sürükleme, klavye vb.) hedefi senkronize et
+    window.addEventListener('scroll', () => {
+        if (!isRunning) {
+            targetY = window.scrollY;
+            currentY = window.scrollY;
+        }
+    }, { passive: true });
+
+    // Sayfa içi anchor (#) bağlantılarına tıklandığında hedefi senkronize et
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+            setTimeout(() => {
+                targetY = window.scrollY;
+                currentY = window.scrollY;
+                isRunning = false;
+            }, 80);
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        targetY = Math.min(targetY, maxScroll);
+        currentY = Math.min(currentY, maxScroll);
+    });
+})();
+
 // --- YUKARI ÇIK (SCROLL TO TOP) BUTONU ---
-document.querySelectorAll('.scroll-top').forEach(btn => {
+document.querySelectorAll('.scroll-top, .scroll-top-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         // Her tarayıcıda çalışan, bug'sız ve animasyonlu Yukarı Çık motoru
@@ -477,25 +841,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const codeDisplay = document.getElementById('code-to-copy');
 
     if (prevBtn && nextBtn && fileNameDisplay && codeDisplay) {
+        const codeGutter = document.getElementById('code-gutter');
+        const fileIconDot = document.getElementById('file-icon-dot');
+        const termStatusLang = document.getElementById('term-status-lang');
+        const termGlow = document.querySelector('.terminal-glow');
+
         const codeSnippets = [
             {
                 file: "developer.py",
+                lang: "Python",
+                color: "#38bdf8",
+                glow: "rgba(0, 210, 255, 0.18)",
                 code: `<span class="term-comment"># Samet Çolak - Profil</span>\n<span class="term-keyword">class</span> <span class="term-variable">Developer</span>:\n    <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):\n        <span class="term-variable">self</span>.<span class="term-property">name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>\n        <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>\n        <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>]\n        <span class="term-variable">self</span>.<span class="term-property">ai</span> <span class="term-operator">=</span> <span class="term-keyword">True</span><span class="term-cursor">_</span>`
             },
             {
                 file: "developer.js",
+                lang: "JavaScript",
+                color: "#facc15",
+                glow: "rgba(250, 204, 21, 0.15)",
                 code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">const</span> <span class="term-variable">developer</span> <span class="term-operator">=</span> {\n    <span class="term-property">name</span>: <span class="term-string">"Samet Çolak"</span>,\n    <span class="term-property">role</span>: <span class="term-string">"Software Developer"</span>,\n    <span class="term-property">skills</span>: [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>],\n    <span class="term-property">learningAI</span>: <span class="term-keyword">true</span>\n};<span class="term-cursor">_</span>`
             },
             {
                 file: "developer.cs",
+                lang: "C#",
+                color: "#c084fc",
+                glow: "rgba(192, 132, 252, 0.16)",
                 code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">public class</span> <span class="term-variable">Developer</span> {\n    <span class="term-keyword">public string</span> <span class="term-property">Name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-keyword">public string</span> <span class="term-property">Role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>;\n    <span class="term-keyword">public string[]</span> <span class="term-property">Skills</span> <span class="term-operator">=</span> {<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>};\n    <span class="term-keyword">public bool</span> <span class="term-property">LearningAI</span> <span class="term-operator">=</span> <span class="term-keyword">true</span>;\n}<span class="term-cursor">_</span>`
             },
             {
                 file: "developer.html",
+                lang: "HTML5",
+                color: "#fb923c",
+                glow: "rgba(251, 146, 60, 0.15)",
                 code: `<span class="term-comment">&lt;!-- Samet Çolak - Profil --&gt;</span>\n<span class="term-keyword">&lt;div</span> <span class="term-property">class=</span><span class="term-string">"developer"</span><span class="term-keyword">&gt;</span>\n    <span class="term-keyword">&lt;h1&gt;</span>Samet Çolak<span class="term-keyword">&lt;/h1&gt;</span>\n    <span class="term-keyword">&lt;p&gt;</span>Software Developer<span class="term-keyword">&lt;/p&gt;</span>\n    <span class="term-keyword">&lt;ul</span> <span class="term-property">class=</span><span class="term-string">"skills"</span><span class="term-keyword">&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>HTML &amp; CSS<span class="term-keyword">&lt;/li&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>Python &amp; C#<span class="term-keyword">&lt;/li&gt;</span>\n    <span class="term-keyword">&lt;/ul&gt;</span>\n<span class="term-keyword">&lt;/div&gt;</span><span class="term-cursor">_</span>`
             },
             {
                 file: "developer.css",
+                lang: "CSS3",
+                color: "#60a5fa",
+                glow: "rgba(96, 165, 250, 0.15)",
                 code: `<span class="term-comment">/* Samet Çolak - Profil */</span>\n<span class="term-keyword">.developer</span> {\n    <span class="term-property">--name</span>: <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-property">--role</span>: <span class="term-string">"Software Developer"</span>;\n    <span class="term-property">--skills</span>: <span class="term-string">"HTML, CSS, Python, C#"</span>;\n    <span class="term-property">display</span>: <span class="term-variable">flex</span>;\n    <span class="term-property">learning-ai</span>: <span class="term-variable">true</span>;\n}<span class="term-cursor">_</span>`
             }
         ];
@@ -505,13 +889,35 @@ document.addEventListener("DOMContentLoaded", () => {
         function updateTerminal(index) {
             codeDisplay.style.opacity = 0;
             fileNameDisplay.style.opacity = 0;
+            if (codeGutter) codeGutter.style.opacity = 0;
             
             setTimeout(() => {
-                fileNameDisplay.textContent = codeSnippets[index].file;
-                codeDisplay.innerHTML = codeSnippets[index].code;
+                const target = codeSnippets[index];
+                fileNameDisplay.textContent = target.file;
+                codeDisplay.innerHTML = target.code;
+
+                // Satır numaralarını senkronize et
+                if (codeGutter) {
+                    const lineCount = target.code.split('\n').length;
+                    codeGutter.innerHTML = Array.from({length: lineCount}, (_, i) => `<span>${i + 1}</span>`).join('');
+                    codeGutter.style.opacity = 1;
+                }
+
+                // Dil rozeti ve dosya ikon noktası
+                if (termStatusLang) termStatusLang.textContent = target.lang;
+                if (fileIconDot) {
+                    fileIconDot.style.backgroundColor = target.color;
+                    fileIconDot.style.boxShadow = `0 0 10px ${target.color}`;
+                }
+
+                // Ambiyans ışığını dil rengine hafifçe tonla
+                if (termGlow) {
+                    termGlow.style.background = `radial-gradient(circle at center, ${target.glow} 0%, transparent 60%)`;
+                }
+
                 codeDisplay.style.opacity = 1;
                 fileNameDisplay.style.opacity = 1;
-            }, 200);
+            }, 180);
         }
 
         prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + codeSnippets.length) % codeSnippets.length; updateTerminal(currentIndex); });
@@ -519,6 +925,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         codeDisplay.style.transition = "opacity 0.2s ease";
         fileNameDisplay.style.transition = "opacity 0.2s ease";
+        if (codeGutter) codeGutter.style.transition = "opacity 0.2s ease";
     }
 });
 
@@ -570,43 +977,45 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Menü HTML'ini sayfaya gizlice enjekte et
     if (!document.getElementById('cmd-palette')) {
+        const isHome = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || !window.location.pathname || window.location.pathname.endsWith('/');
+        const pathPrefix = isHome ? '' : 'index.html';
         const cmdMenuHTML = `
             <div id="cmd-palette" class="cmd-palette-overlay">
                 <div class="cmd-palette-container">
                     <div class="cmd-header">
                         <svg class="cmd-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        <input type="text" id="cmd-input" placeholder="Ne arıyorsunuz? (Örn: Projeler, İletişim...)">
+                        <input type="text" id="cmd-input" placeholder="Ne arıyorsunuz? (Örn: Projeler, İletişim...)" data-i18n-placeholder="cmd_placeholder">
                         <span class="cmd-esc">ESC</span>
                     </div>
                     <div class="cmd-body">
                         <div class="cmd-group" data-group="Navigasyon">
-                            <div class="cmd-group-title">Navigasyon</div>
-                            <a href="/" class="cmd-item active" data-keywords="ana sayfa home index">
+                            <div class="cmd-group-title" data-i18n="cmd_group_nav">Navigasyon</div>
+                            <a href="${pathPrefix}#home" class="cmd-item active" data-keywords="ana sayfa home index">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                                <span>Ana Sayfa</span>
+                                <span data-i18n="home">Ana Sayfa</span>
                             </a>
-                            <a href="/pages/about" class="cmd-item" data-keywords="hakkımda about me kimdir yetenekler">
+                            <a href="${pathPrefix}#about" class="cmd-item" data-keywords="hakkımda about me kimdir yetenekler">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                                <span>Hakkımda</span>
+                                <span data-i18n="about">Hakkımda</span>
                             </a>
-                            <a href="/pages/projects" class="cmd-item" data-keywords="projeler projects işler portfolyo">
+                            <a href="${pathPrefix}#projects" class="cmd-item" data-keywords="projeler projects işler portfolyo">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                                <span>Projeler</span>
+                                <span data-i18n="projects">Projeler</span>
                             </a>
-                            <a href="/pages/certificates" class="cmd-item" data-keywords="sertifikalar certificates belgeler">
+                            <a href="${pathPrefix}#certificates" class="cmd-item" data-keywords="sertifikalar certificates belgeler">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                                <span>Sertifikalar</span>
+                                <span data-i18n="certificates">Sertifikalar</span>
                             </a>
                         </div>
                         <div class="cmd-group" data-group="İletişim & Sosyal">
-                            <div class="cmd-group-title">İletişim & Sosyal</div>
-                            <a href="/pages/contact" class="cmd-item" data-keywords="iletişim contact ulaş mesaj mail e-posta">
+                            <div class="cmd-group-title" data-i18n="cmd_group_contact">İletişim & Sosyal</div>
+                            <a href="${pathPrefix}#contact" class="cmd-item" data-keywords="iletişim contact ulaş mesaj mail e-posta">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                                <span>İletişime Geç</span>
+                                <span data-i18n="hero_btn_contact">İletişime Geç</span>
                             </a>
                             <a href="https://github.com/samet-colak" target="_blank" class="cmd-item" data-keywords="github kod kaynak repo">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                                <span>GitHub Profilim</span>
+                                <span data-i18n="cmd_github">GitHub Profilim</span>
                             </a>
                         </div>
                     </div>
@@ -614,6 +1023,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', cmdMenuHTML);
+        updateLanguage(currentLang);
     }
 
     // 2. Etkileşimler ve Mantık
@@ -632,6 +1042,15 @@ document.addEventListener('DOMContentLoaded', () => {
             input.blur();
         }
     };
+
+    items.forEach(item => {
+        item.addEventListener('click', () => toggleMenu(false));
+    });
+
+    const navCmdBtn = document.getElementById('nav-cmd-btn');
+    if (navCmdBtn) {
+        navCmdBtn.addEventListener('click', () => toggleMenu(true));
+    }
 
     // Klavye Kısayolları (Ctrl+K / Mac için Cmd+K, Yön tuşları ve Enter)
     document.addEventListener('keydown', (e) => {
@@ -747,26 +1166,64 @@ if (contactForm) {
         e.preventDefault();
         
         const submitBtn = document.getElementById('submit-btn');
-        const statusMsg = document.getElementById('form-status');
+        if (!submitBtn) return;
+
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnIcon = submitBtn.querySelector('.btn-icon');
+        const originalBtnText = btnText ? btnText.textContent : 'Mesajı Gönder';
+        const sendIconSvg = `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
+        const checkIconSvg = `<svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
         
         submitBtn.classList.add('loading');
         submitBtn.style.pointerEvents = 'none';
-        statusMsg.classList.remove('show', 'success', 'error');
 
         // Form verilerini topla
         const formData = new FormData(this);
         const actionUrl = this.getAttribute('action');
 
+        function handleFormResult(isSuccess) {
+            submitBtn.classList.remove('loading');
+
+            if (isSuccess) {
+                contactForm.reset();
+                submitBtn.classList.add('sent-success');
+                if (btnText) {
+                    btnText.textContent = (currentLang === 'en' ? 'Sent ✓' : 'İletildi ✓');
+                }
+                if (btnIcon) {
+                    btnIcon.innerHTML = checkIconSvg;
+                }
+
+                setTimeout(() => {
+                    submitBtn.classList.remove('sent-success');
+                    if (btnText) {
+                        btnText.textContent = (translations[currentLang] && translations[currentLang].form_send_btn) || originalBtnText;
+                    }
+                    if (btnIcon) {
+                        btnIcon.innerHTML = sendIconSvg;
+                    }
+                    submitBtn.style.pointerEvents = 'auto';
+                }, 4000);
+            } else {
+                submitBtn.classList.add('sent-error');
+                if (btnText) {
+                    btnText.textContent = (currentLang === 'en' ? 'Failed' : 'Gönderilemedi');
+                }
+                setTimeout(() => {
+                    submitBtn.classList.remove('sent-error');
+                    if (btnText) {
+                        btnText.textContent = (translations[currentLang] && translations[currentLang].form_send_btn) || originalBtnText;
+                    }
+                    submitBtn.style.pointerEvents = 'auto';
+                }, 3000);
+            }
+        }
+
         // Eğer Formspree ID henüz girilmemişse, deneme (mock) animasyonu göster
         if (!actionUrl || actionUrl.includes('YOUR_FORM_ID')) {
              setTimeout(() => {
-                 submitBtn.classList.remove('loading');
-                 submitBtn.style.pointerEvents = 'auto';
-                 statusMsg.textContent = translations[currentLang]['form_success'];
-                 statusMsg.classList.add('show', 'success');
-                 contactForm.reset();
-                 setTimeout(() => { statusMsg.classList.remove('show'); }, 5000);
-             }, 1500);
+                 handleFormResult(true);
+             }, 800);
              return;
         }
 
@@ -777,20 +1234,12 @@ if (contactForm) {
             headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
-                submitBtn.classList.remove('loading');
-                submitBtn.style.pointerEvents = 'auto';
-                statusMsg.textContent = translations[currentLang]['form_success'];
-                statusMsg.classList.add('show', 'success');
-                contactForm.reset();
-                setTimeout(() => { statusMsg.classList.remove('show'); }, 5000);
+                handleFormResult(true);
             } else {
                 throw new Error('Gönderim hatası');
             }
         }).catch(error => {
-            submitBtn.classList.remove('loading');
-            submitBtn.style.pointerEvents = 'auto';
-            statusMsg.textContent = translations[currentLang]['form_error'];
-            statusMsg.classList.add('show', 'error');
+            handleFormResult(false);
         });
     });
 }
@@ -890,12 +1339,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. HTML Yapılarını Enjekte Et
     const ctxHTML = `
         <div id="custom-ctx-menu" class="custom-context-menu">
-            <a href="/" class="ctx-item">
+            <a href="#home" class="ctx-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                <span data-i18n="ctx_home">Ana Sayfaya Dön</span>
+                <span data-i18n="ctx_home">Ana Sayfa</span>
             </a>
             <div class="ctx-divider"></div>
-            <a href="/pages/contact" class="ctx-item">
+            <a href="#contact" class="ctx-item">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 <span data-i18n="ctx_contact">Bana Ulaşın</span>
             </a>
@@ -967,4 +1416,28 @@ document.addEventListener('DOMContentLoaded', () => {
         span.textContent = translations[currentLang]['sel_copied'];
         setTimeout(() => span.textContent = oldText, 2000);
     });
+});
+
+// --- FOOTER E-POSTA KOPYALAMA BUTONU ---
+document.addEventListener('DOMContentLoaded', () => {
+    const footerCopyBtn = document.getElementById('footer-copy-email');
+    if (footerCopyBtn) {
+        footerCopyBtn.addEventListener('click', () => {
+            const email = footerCopyBtn.getAttribute('data-email') || 'smttr.cccc@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const copyTextEl = document.getElementById('footer-copy-text');
+                if (copyTextEl) {
+                    const original = copyTextEl.innerHTML;
+                    copyTextEl.textContent = translations[currentLang]?.footer_copied_email || 'Kopyalandı! ✓';
+                    footerCopyBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyTextEl.innerHTML = original;
+                        footerCopyBtn.classList.remove('copied');
+                    }, 2200);
+                }
+            }).catch(err => {
+                console.error('Clipboard copy error:', err);
+            });
+        });
+    }
 });
