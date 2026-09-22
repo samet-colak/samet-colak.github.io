@@ -628,48 +628,40 @@ const navLinksContainer = document.querySelector('.nav-links');
 const navLinksItems = document.querySelectorAll('.nav-links li a');
 
 if (hamburger && navLinksContainer) {
-    hamburger.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('nav-active');
-        hamburger.classList.toggle('toggle');
-        // Menü açıkken arkaplan kaymasını engelle
-        document.body.style.overflow = navLinksContainer.classList.contains('nav-active') ? 'hidden' : 'auto';
+    const closeDrawer = () => {
+        navLinksContainer.classList.remove('nav-active');
+        hamburger.classList.remove('toggle');
+        document.body.style.overflow = '';
+    };
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinksContainer.classList.toggle('nav-active');
+        hamburger.classList.toggle('toggle', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     // Bir linke tıklandığında menüyü otomatik kapat
     navLinksItems.forEach(link => {
         link.addEventListener('click', () => {
-            navLinksContainer.classList.remove('nav-active');
-            hamburger.classList.remove('toggle');
-            document.body.style.overflow = 'auto';
+            closeDrawer();
         });
     });
+
+    // Menü dışına tıklandığında veya dokunulduğunda menüyü kapat
+    document.addEventListener('click', (e) => {
+        if (navLinksContainer.classList.contains('nav-active') && !navLinksContainer.contains(e.target) && !hamburger.contains(e.target)) {
+            closeDrawer();
+        }
+    });
+
+    // Escape tuşuyla kapat
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinksContainer.classList.contains('nav-active')) {
+            closeDrawer();
+        }
+    });
 }
-
-// --- MOBİL CİHAZ UYARI EKRANI ---
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.innerWidth <= 768 && !sessionStorage.getItem('mobileWarningSeen')) {
-        const warningDiv = document.createElement('div');
-        warningDiv.id = "mobile-warning";
-        warningDiv.innerHTML = `
-            <div class="mobile-warning-content">
-                <div class="warning-icon-wrapper">
-                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-color);"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </div>
-                <h3 data-i18n="mobile_warn_title">Daha İyi Bir Deneyim İçin</h3>
-                <p data-i18n="mobile_warn_desc">Bu portfolyoda yer alan özel animasyonları ve ince tasarım detaylarını tam anlamıyla deneyimleyebilmek için bilgisayar veya tablet üzerinden ziyaret etmenizi tavsiye ederim.</p>
-                <button id="close-warning" class="btn mobile-warning-btn" data-i18n="mobile_warn_btn">Yine de Devam Et</button>
-            </div>
-        `;
-        document.body.appendChild(warningDiv);
-        updateLanguage(currentLang);
-
-        document.getElementById('close-warning').addEventListener('click', () => {
-            warningDiv.style.opacity = '0';
-            sessionStorage.setItem('mobileWarningSeen', 'true');
-            setTimeout(() => warningDiv.remove(), 500);
-        });
-    }
-});
 
 // --- ÖZEL İMLEÇ (CUSTOM CURSOR) ---
 if (window.matchMedia("(pointer: fine)").matches) {

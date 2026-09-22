@@ -46,8 +46,13 @@
         alpha: true,
         powerPreference: 'high-performance'
     });
+    const getTargetDPR = () => {
+        const isSmallScreen = window.innerWidth <= 1024;
+        return Math.min(window.devicePixelRatio || 1, isSmallScreen ? 1.5 : 2);
+    };
+
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(getTargetDPR());
 
     // --- 2. KOZMİK IŞIKLAR ---
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -67,7 +72,8 @@
 
     // --- 3. BÜTÜN VE DERİN 3D PARÇACIK BULUTU (STARFIELD) ---
     const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 1600 : 3000;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1024;
+    const particleCount = isMobile ? 1000 : (isTablet ? 1800 : 3000);
 
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
@@ -903,11 +909,16 @@
 
     animate();
 
-    // --- 12. PENCERE BOYUTLANDIRMA (RESIZE) ---
-    window.addEventListener('resize', () => {
+    // --- 12. PENCERE BOYUTLANDIRMA & ORİENTASYON DEĞİŞİMİ (RESIZE & ORIENTATION) ---
+    const handleResize = () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
+        renderer.setPixelRatio(getTargetDPR());
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', () => {
+        setTimeout(handleResize, 150);
+    }, { passive: true });
 })();

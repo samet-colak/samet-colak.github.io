@@ -2,12 +2,12 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Aradığınız sayfa bulunamadı. Samet Çolak dijital portfolyosuna geri dönün.">
     <meta name="robots" content="noindex, follow">
     <title>Sayfa Bulunamadı | Samet Çolak</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="apple-touch-icon" href="assets/favicon.svg">
+    <link rel="icon" href="assets/favicon.svg?v=2.0" type="image/svg+xml" sizes="any">
+    <link rel="apple-touch-icon" href="assets/favicon.svg?v=2.0">
     
     <script>
         // file://, localhost alt klasörleri veya derin 404 URL'lerinde doğru kök dizini çözer
@@ -27,17 +27,18 @@
             document.head.appendChild(base);
         })();
     </script>
+    <!-- Anti-Flash Tema Başlatıcı (FOUC Önleyici) -->
     <script>
         (function() {
-            var theme = localStorage.getItem('portfolio_theme');
-            if (theme === 'light') {
+            var savedTheme = localStorage.getItem('portfolio_theme');
+            if (savedTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
+            } else if (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
             }
         })();
     </script>
-    <link rel="stylesheet" href="css/style.css?v=5.1">
+    <link rel="stylesheet" href="css/style.css?v=6.0">
     <link rel="stylesheet" href="css/404.css?v=6.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -406,7 +407,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=6.3"></script>
+    <script src="js/script.js?v=7.0"></script>
     <script src="js/404.js?v=6.0"></script>
 </body>
 </html>

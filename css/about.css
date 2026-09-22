@@ -432,24 +432,35 @@
 
 @media (max-width: 580px) {
     .about-card {
-        padding: 24px 18px;
+        padding: 22px 16px;
         border-radius: 18px;
     }
     .about-card h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
     .about-bio p {
         font-size: 14px;
+        line-height: 1.65;
     }
     .personal-info {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 10px;
+    }
+    .info-item {
+        padding: 10px 12px;
     }
     .skill-card-top {
         flex-wrap: wrap;
+        gap: 8px;
     }
     .skill-level-chip {
         display: none; /* Mobilde yer kazanmak için chip gizlenir, başlık ve tag yeterli */
+    }
+}
+
+@media (max-width: 400px) {
+    .personal-info {
+        grid-template-columns: 1fr;
     }
 }
 

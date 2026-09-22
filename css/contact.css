@@ -558,6 +558,22 @@
     }
 }
 
+@media (max-width: 768px) {
+    .studio-input,
+    .studio-textarea {
+        font-size: 16px !important; /* iOS Safari auto-zoom koruması */
+    }
+    .email-suggest-pill {
+        padding: 8px 14px;
+        font-size: 13.5px;
+        min-height: 38px;
+    }
+    .studio-submit-btn {
+        min-height: 50px;
+        font-size: 15px;
+    }
+}
+
 @media (max-width: 600px) {
     .form-fields-grid {
         grid-template-columns: 1fr;
