@@ -27,7 +27,7 @@
             document.head.appendChild(base);
         })();
     </script>
-    <link rel="stylesheet" href="css/style.css?v=6.0">
+    <link rel="stylesheet" href="css/style.css?v=6.1">
     <link rel="stylesheet" href="css/404.css?v=6.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -42,9 +42,34 @@
 </head>
 <body>
 
-    <!-- PRELOADER (SAYFA GEÇİŞ EKRANI) -->
-    <div id="preloader">
-        <div class="preloader-logo">Samet <span>Çolak.</span></div>
+    <!-- PRELOADER (SİNEMATİK AÇILIŞ EKRANI) -->
+    <div id="preloader" aria-hidden="true">
+        <div class="preloader-backdrop-glow"></div>
+        <div class="preloader-content">
+
+            <!-- Ana İsim Başlığı -->
+            <div class="preloader-title-wrap">
+                <h1 class="preloader-title">
+                    <span class="p-word p-samet">Samet</span>
+                    <span class="p-word p-colak">Çolak<span class="p-dot">.</span></span>
+                </h1>
+                <div class="preloader-light-glare"></div>
+            </div>
+
+            <!-- Alt Başlık / Rol -->
+            <p class="preloader-subtitle">SOFTWARE DEVELOPER &bull; PORTFOLIO</p>
+
+            <!-- İlerleme Çubuğu & Canlı Sayaç -->
+            <div class="preloader-bar-wrap">
+                <div class="preloader-bar-track">
+                    <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+                </div>
+                <div class="preloader-meta-row">
+                    <span class="preloader-loading-label">YÜKLENİYOR</span>
+                    <span class="preloader-counter" id="preloader-counter">0%</span>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var isReload = false;
@@ -345,7 +370,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=6.0"></script>
+    <script src="js/script.js?v=6.1"></script>
     <script src="js/404.js?v=6.0"></script>
 </body>
 </html>

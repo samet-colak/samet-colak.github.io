@@ -2,13 +2,13 @@
  * js/about.js
  * Hakkımda & Yetkinlikler Bölümü İnteraktif Davranışları
  * - Bento Glass Mouse Spotlight (Kursor Işığı)
- * - IntersectionObserver İlerleme Çubukları (Skill Bars)
+ * - IntersectionObserver İlerleme Çubukları & Akıcı Sayaç Animasyonu (Skill Bars & Counters)
  * - Dinamik Yaş Hesaplama
  */
 
 // --- 1. SPOTLIGHT ETKİLEŞİMİ (MOUSE IŞIĞI) ---
 function initAboutSpotlight() {
-    const interactiveCards = document.querySelectorAll('.about-card, .skill-card');
+    const interactiveCards = document.querySelectorAll('.about-card');
     if (!interactiveCards.length) return;
 
     interactiveCards.forEach(card => {
@@ -22,7 +22,24 @@ function initAboutSpotlight() {
     });
 }
 
-// --- 2. YETENEK BARLARI (SKILL BARS) KAYDIRMA ANİMASYONU ---
+// --- 2. AKICI SAYAÇ ANİMASYONU ---
+function animatePercentCounter(el, target, duration = 1200) {
+    const startTime = performance.now();
+    function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Cubic ease-out
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(target * ease);
+        el.textContent = `${current}%`;
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+    requestAnimationFrame(update);
+}
+
+// --- 3. YETENEK BARLARI (SKILL BARS) KAYDIRMA ANİMASYONU ---
 function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-progress');
     if (!skillBars.length) return;
@@ -35,6 +52,17 @@ function initSkillBars() {
                     const targetWidth = bar.getAttribute('data-width') || '80%';
                     bar.style.setProperty('--target-width', targetWidth);
                     bar.classList.add('filled');
+
+                    // İlgili yüzdelik sayacı bulup 0'dan hedefe pürüzsüz saydır
+                    const row = bar.closest('.skill-row, .skill-card');
+                    if (row) {
+                        const percentEl = row.querySelector('.skill-percent');
+                        if (percentEl) {
+                            const targetVal = parseInt(percentEl.getAttribute('data-target') || '80', 10);
+                            animatePercentCounter(percentEl, targetVal);
+                        }
+                    }
+
                     observer.unobserve(bar);
                 }
             });
@@ -52,11 +80,18 @@ function initSkillBars() {
             const targetWidth = bar.getAttribute('data-width') || '80%';
             bar.style.setProperty('--target-width', targetWidth);
             bar.classList.add('filled');
+            const row = bar.closest('.skill-row, .skill-card');
+            if (row) {
+                const percentEl = row.querySelector('.skill-percent');
+                if (percentEl) {
+                    percentEl.textContent = `${percentEl.getAttribute('data-target') || '80'}%`;
+                }
+            }
         });
     }
 }
 
-// --- 3. OTOMATİK YAŞ HESAPLAMA ---
+// --- 4. OTOMATİK YAŞ HESAPLAMA ---
 function updateAge() {
     const ageElement = document.getElementById('my-age');
     if (ageElement) {

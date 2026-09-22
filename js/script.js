@@ -42,10 +42,28 @@ const translations = {
         info_status_val: "Staj & Projeler",
         skills_heading: "Teknik Yeteneklerim",
         skills_subdesc: "Projelerimde aktif olarak kullandığım temel diller, teknolojiler ve araçlar.",
+        skills_badge: "6 Temel Teknoloji",
+        skills_ecosystem_heading: "Geliştirme Araçları & Ekosistem",
+        skills_meta_focus: "Çalışma Alanı:",
+        skills_meta_focus_val: "Frontend & AI",
+        skills_meta_code: "Kod Standartı:",
+        skills_meta_code_val: "Clean & Modern",
+        skills_meta_status: "Staj Hedefi:",
+        skills_meta_status_val: "Gelişime Açık",
+        filter_all: "Tümü",
+        filter_web: "Frontend & Web",
+        filter_core: "Yazılım & Çekirdek",
+        filter_emerging: "3D & AI",
         skill_level_advanced: "İleri Düzey",
         skill_level_proficient: "Yetkin",
         skill_level_intermediate: "Aktif",
         skill_ai: "Yapay Zeka Araçları",
+        skill_html_tag: "Modern Web & Responsive Mimari",
+        skill_js_tag: "DOM, Async & Web API",
+        skill_python_tag: "Algoritma, Otomasyon & Veri İşleme",
+        skill_cs_tag: "OOP & Masaüstü Mimarisi",
+        skill_three_tag: "3D İnteraktif Sahneler & Parçacık Fiziği",
+        skill_ai_tag: "İş Akışı & Prompt Mühendisliği",
         projects_empty_title: "Projeler Hazırlanıyor",
         projects_empty_desc: "Staj ve kariyer hedeflerim doğrultusunda geliştirmekte olduğum modern web ve yapay zeka entegreli projelerim, son optimizasyonların ardından çok yakında bu alanda sergilenecektir.",
         project_barber_title: "Modern Berber & Kuaför Sitesi",
@@ -57,9 +75,27 @@ const translations = {
         modal_meta_status: "Canlıda",
         modal_extra_title: "Proje Detayları & Mimari",
         modal_tech_label: "Kullanılan Teknolojiler",
+        modal_badge_category: "Öne Çıkan Proje • Web & UI/UX",
+        modal_showcase_badge: "Web Vitrini • 2026",
+        modal_vision_title: "Proje Vizyonu & Mimarisi",
+        modal_chip_year: "2026",
+        modal_chip_completed: "Tamamlandı",
+        modal_chip_live: "Canlıda",
         modal_close_title: "Kapat (Esc)",
         btn_live_view: "Canlı İzle",
         btn_github: "GitHub Kodu",
+        sim_device_desktop: "Masaüstü",
+        sim_device_tablet: "Tablet",
+        sim_device_mobile: "Mobil",
+        modal_tab_about: "Hakkında",
+        modal_tab_live: "Canlı",
+        modal_tab_about_badge: "Proje Detayları",
+        modal_features_label: "Öne Çıkan Özellikler",
+        sim_open_external: "Yeni Sekmede Aç",
+        sim_reload: "Yeniden Yükle",
+        sim_loading: "Canlı Arayüz Yükleniyor...",
+        sim_live_active_hint: "Canlı İnteraktif Simülatör",
+        sim_live_scroll_hint: "Çerçeve içinde kaydırma yapabilir ve butonlara tıklayabilirsiniz.",
         certs_empty_title: "Sertifikalar Yükleniyor",
         certs_empty_desc: "Eğitim süreçlerim ve katıldığım kurslar sonucunda almaya hak kazanacağım uluslararası geçerliliğe sahip sertifikalar yakında bu alanda listelenecektir.",
         sort_newest: "En Yeni",
@@ -220,10 +256,28 @@ const translations = {
         info_status_val: "Internship & Projects",
         skills_heading: "Technical Skills",
         skills_subdesc: "Core languages, technologies, and libraries I actively leverage in projects.",
+        skills_badge: "6 Core Technologies",
+        skills_ecosystem_heading: "Dev Tools & Ecosystem",
+        skills_meta_focus: "Domain Focus:",
+        skills_meta_focus_val: "Frontend & AI",
+        skills_meta_code: "Code Standards:",
+        skills_meta_code_val: "Clean & Modern",
+        skills_meta_status: "Internship Goal:",
+        skills_meta_status_val: "Growth-Oriented",
+        filter_all: "All",
+        filter_web: "Frontend & Web",
+        filter_core: "Software & Core",
+        filter_emerging: "3D & AI",
         skill_level_advanced: "Advanced",
         skill_level_proficient: "Proficient",
         skill_level_intermediate: "Active",
         skill_ai: "AI Tools",
+        skill_html_tag: "Modern Web & Responsive Architecture",
+        skill_js_tag: "DOM, Async & Web API",
+        skill_python_tag: "Algorithms, Automation & Data Processing",
+        skill_cs_tag: "OOP & Desktop Architecture",
+        skill_three_tag: "3D Interactive Scenes & Particle Physics",
+        skill_ai_tag: "Workflow & Prompt Engineering",
         projects_empty_title: "Projects in Progress",
         projects_empty_desc: "The modern web and AI-integrated projects I am developing in line with my internship and career goals will be showcased here very soon after final optimizations.",
         project_barber_title: "Modern Barber & Salon Website",
@@ -235,9 +289,27 @@ const translations = {
         modal_meta_status: "Live",
         modal_extra_title: "Project Details & Architecture",
         modal_tech_label: "Technologies Used",
+        modal_badge_category: "Featured Project • Web & UI/UX",
+        modal_showcase_badge: "Web Showcase • 2026",
+        modal_vision_title: "Project Vision & Architecture",
+        modal_chip_year: "2026",
+        modal_chip_completed: "Completed",
+        modal_chip_live: "Live",
         modal_close_title: "Close (Esc)",
         btn_live_view: "Live View",
         btn_github: "GitHub Code",
+        sim_device_desktop: "Desktop",
+        sim_device_tablet: "Tablet",
+        sim_device_mobile: "Mobile",
+        modal_tab_about: "About",
+        modal_tab_live: "Live",
+        modal_tab_about_badge: "Project Details",
+        modal_features_label: "Key Features",
+        sim_open_external: "Open in New Tab",
+        sim_reload: "Reload",
+        sim_loading: "Loading Live Interface...",
+        sim_live_active_hint: "Live Interactive Simulator",
+        sim_live_scroll_hint: "You can freely scroll and click inside the frame.",
         certs_empty_title: "Certificates Loading",
         certs_empty_desc: "The internationally recognized certificates I will earn as a result of my education and courses will be listed in this area very soon.",
         sort_newest: "Newest",
@@ -595,18 +667,203 @@ if (window.location.protocol !== 'file:') {
     }
 }
 
-// --- PROJE MODAL (POP-UP) SİSTEMİ ---
+// --- PROJE MODAL & CANLI CİHAZ SİMÜLATÖRÜ SİSTEMİ ---
 const projectModal = document.getElementById('project-modal');
 const projectCards = document.querySelectorAll('.project-card');
 
 if (projectModal && projectCards.length > 0) {
-    const modalCloseBtn = projectModal.querySelector('#modal-close-btn, .modal-close, .modal-close-btn');
+    const modalContent = projectModal.querySelector('.modal-content');
+    const modalCloseBtn = projectModal.querySelector('#modal-close-btn');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
     const modalExtra = document.getElementById('modal-extra');
     const modalTech = document.getElementById('modal-tech');
     const modalLinks = document.getElementById('modal-links');
+    const modalLinksLive = document.getElementById('modal-links-live');
+    const modalFeaturesList = document.getElementById('modal-features-list');
+
+    // Cihaz Simülatörü ve Panel Elemanları
+    const panelAbout = document.getElementById('panel-about');
+    const panelLive = document.getElementById('panel-live');
+    const viewToggleBtns = projectModal.querySelectorAll('.view-toggle-btn');
+    const deviceFrame = document.getElementById('device-frame');
+    const deviceIframe = document.getElementById('device-iframe');
+    const deviceUrlDisplay = document.getElementById('device-url-display');
+    const deviceResDisplay = document.getElementById('device-res-display');
+    const deviceExternalLink = document.getElementById('device-external-link');
+    const browserTabTitle = document.getElementById('browser-tab-title');
+    const deviceLoadingOverlay = document.getElementById('device-loading-overlay');
+    const deviceReloadBtn = document.getElementById('device-reload-btn');
+    const deviceScreenViewport = document.getElementById('device-screen-viewport');
+    const deviceTabs = projectModal.querySelectorAll('.device-tab');
+    const liveStatusText = document.getElementById('live-status-text');
+
+    let currentProjectLiveUrl = '';
+    let currentDevice = 'desktop';
+
+    const deviceResolutions = {
+        desktop: '1440 × 900',
+        tablet: '768 × 1024',
+        mobile: '390 × 844'
+    };
+
+    const deviceTargetSpecs = {
+        desktop: { width: 1440 },
+        tablet: { width: 768 },
+        mobile: { width: 390 }
+    };
+
+    const deviceLabels = {
+        desktop: '1440 × 900 • Canlı Önizleme',
+        tablet: '768 × 1024 • Tablet Görünümü',
+        mobile: '390 × 844 • Mobil Görünüm'
+    };
+
+    // Cihaz Görünüm Alanı Ölçekleme Fonksiyonu (1440p Desktop & Doğal Cihaz Çözünürlüğü)
+    const updateDeviceViewportScale = (targetDevice = currentDevice) => {
+        if (!deviceScreenViewport || !deviceIframe) return;
+        const vWidth = deviceScreenViewport.clientWidth;
+        const vHeight = deviceScreenViewport.clientHeight;
+        if (!vWidth || !vHeight) return;
+
+        const spec = deviceTargetSpecs[targetDevice] || deviceTargetSpecs.desktop;
+        const targetWidth = spec.width;
+        const scale = vWidth / targetWidth;
+        const iframeHeight = Math.round(vHeight / scale);
+
+        deviceIframe.style.width = `${targetWidth}px`;
+        deviceIframe.style.height = `${iframeHeight}px`;
+        deviceIframe.style.transform = `scale(${scale})`;
+        deviceIframe.style.transformOrigin = 'top left';
+    };
+
+    // Simülatör Adres Çubuğu Yenileme (↺ Reload) Butonu
+    if (deviceReloadBtn && deviceIframe) {
+        deviceReloadBtn.addEventListener('click', () => {
+            if (!currentProjectLiveUrl) return;
+
+            deviceReloadBtn.classList.add('spinning');
+            if (deviceLoadingOverlay) {
+                deviceLoadingOverlay.classList.add('active');
+            }
+
+            const reloadUrl = currentProjectLiveUrl;
+            deviceIframe.src = 'about:blank';
+            setTimeout(() => {
+                deviceIframe.src = reloadUrl;
+            }, 60);
+
+            setTimeout(() => {
+                deviceReloadBtn.classList.remove('spinning');
+                if (deviceLoadingOverlay) {
+                    deviceLoadingOverlay.classList.remove('active');
+                }
+            }, 1200);
+        });
+    }
+
+    // Görünüm Değiştirici: Hakkında <-> Canlı Simülatör
+    const setModalView = (targetView) => {
+        viewToggleBtns.forEach(btn => {
+            if (btn.getAttribute('data-view') === targetView) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        if (targetView === 'live') {
+            if (modalContent) modalContent.classList.add('live-active');
+            if (panelAbout) panelAbout.classList.remove('active');
+            if (panelLive) panelLive.classList.add('active');
+
+            // Canlı Web Sitesi Iframe'ini Başlat
+            if (deviceIframe && currentProjectLiveUrl) {
+                if (deviceIframe.src !== currentProjectLiveUrl) {
+                    if (deviceLoadingOverlay) deviceLoadingOverlay.classList.add('active');
+                    deviceIframe.src = currentProjectLiveUrl;
+                    deviceIframe.onload = () => {
+                        if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
+                        if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
+                        updateDeviceViewportScale(currentDevice);
+                    };
+                    setTimeout(() => {
+                        if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
+                        if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
+                    }, 4000);
+                }
+            }
+
+            // Canlı görünüme geçiş sonrası ölçeklemeyi viewport hazır olduğunda güncelle
+            setTimeout(() => {
+                updateDeviceViewportScale(currentDevice);
+            }, 60);
+            setTimeout(() => {
+                updateDeviceViewportScale(currentDevice);
+            }, 350);
+        } else {
+            // Hakkında Modu
+            if (modalContent) modalContent.classList.remove('live-active');
+            if (panelLive) panelLive.classList.remove('active');
+            if (panelAbout) panelAbout.classList.add('active');
+            if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
+            if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
+        }
+    };
+
+    viewToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const view = btn.getAttribute('data-view') || 'about';
+            setModalView(view);
+        });
+    });
+
+    // Cihaz Sekmelerini Dinle (Masaüstü, Tablet, Mobil)
+    deviceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetDevice = tab.getAttribute('data-device') || 'desktop';
+            currentDevice = targetDevice;
+            deviceTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Eğer kullanıcı Hakkında görünümündeyken bir cihaza tıklarsa doğrudan Canlı moda geçir
+            if (panelLive && !panelLive.classList.contains('active')) {
+                setModalView('live');
+            }
+
+            if (deviceFrame) {
+                deviceFrame.className = `device-frame frame-${targetDevice}`;
+            }
+            if (deviceResDisplay && deviceResolutions[targetDevice]) {
+                deviceResDisplay.textContent = deviceResolutions[targetDevice];
+            }
+            if (liveStatusText && deviceLabels[targetDevice]) {
+                liveStatusText.textContent = deviceLabels[targetDevice];
+            }
+
+            // Cihaz çerçeve geçişi (0.4s) boyunca ve tamamlandığında iframe ölçeklemesini hesapla
+            updateDeviceViewportScale(targetDevice);
+            setTimeout(() => updateDeviceViewportScale(targetDevice), 150);
+            setTimeout(() => updateDeviceViewportScale(targetDevice), 420);
+        });
+    });
+
+    // Pencere yeniden boyutlandırıldığında veya viewport değiştiğinde iframe ölçeklemesini yenile
+    window.addEventListener('resize', () => {
+        if (panelLive && panelLive.classList.contains('active')) {
+            updateDeviceViewportScale(currentDevice);
+        }
+    });
+
+    if (window.ResizeObserver && deviceScreenViewport) {
+        const resizeObserver = new ResizeObserver(() => {
+            if (panelLive && panelLive.classList.contains('active')) {
+                updateDeviceViewportScale(currentDevice);
+            }
+        });
+        resizeObserver.observe(deviceScreenViewport);
+    }
 
     const openModal = () => {
         // Windows kaydırma çubuğu genişliğini hesaplayıp sıçramayı (layout shift) engelle
@@ -621,10 +878,15 @@ if (projectModal && projectCards.length > 0) {
 
     const closeModal = () => {
         projectModal.classList.remove('active');
-        // Kapanış animasyonu (300ms) bittikten sonra body stilini geri al
+        // Kapanış animasyonu (300ms) bittikten sonra body stilini geri al ve simülatörü sıfırla
         setTimeout(() => {
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
+            currentDevice = 'desktop';
+            setModalView('about');
+            if (deviceIframe) deviceIframe.src = 'about:blank';
+            if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
+            if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
         }, 320);
     };
 
@@ -634,7 +896,8 @@ if (projectModal && projectCards.length > 0) {
             if (e.target.closest('.project-links') || e.target.closest('a')) return;
 
             // Karttan mevcut verileri çek
-            if (modalTitle) modalTitle.innerHTML = card.querySelector('.project-title').innerHTML;
+            const titleElem = card.querySelector('.project-title');
+            if (modalTitle && titleElem) modalTitle.innerHTML = titleElem.innerHTML;
             
             const descElement = card.querySelector('p[data-i18n]');
             if (modalDesc && descElement) {
@@ -643,7 +906,17 @@ if (projectModal && projectCards.length > 0) {
             }
             
             if (modalTech) modalTech.innerHTML = card.querySelector('.project-tech').innerHTML;
-            if (modalLinks) modalLinks.innerHTML = card.querySelector('.project-links').innerHTML;
+
+            // Butonları hem Hakkında hem de Canlı görünümüne aktar
+            const linksHtml = card.querySelector('.project-links').innerHTML;
+            if (modalLinks) modalLinks.innerHTML = linksHtml;
+            if (modalLinksLive) modalLinksLive.innerHTML = linksHtml;
+
+            // Öne çıkan özellikleri (Features) aktar
+            const featuresElem = card.querySelector('.project-features');
+            if (modalFeaturesList && featuresElem) {
+                modalFeaturesList.innerHTML = featuresElem.innerHTML;
+            }
             
             // Arka plan resmini al
             const imgElem = card.querySelector('.project-img');
@@ -652,6 +925,33 @@ if (projectModal && projectCards.length > 0) {
                 const cleanUrl = bgImage.replace(/(url\(|\)|"|')/g, '');
                 modalImg.src = cleanUrl !== 'none' ? cleanUrl : '';
             }
+
+            // Canlı linki tespit et
+            const liveAnchor = card.querySelector('.project-links a[href*="http"]:not([href*="github"])');
+            currentProjectLiveUrl = liveAnchor ? liveAnchor.getAttribute('href') : 'https://sametcolak.com.tr/berber-sitesi/';
+
+            // Simülatör adres çubuğunu ve sekmesini güncelle
+            if (deviceUrlDisplay) {
+                const cleanDisplay = currentProjectLiveUrl.replace(/^https?:\/\//, '');
+                deviceUrlDisplay.textContent = cleanDisplay;
+            }
+            if (deviceExternalLink) {
+                deviceExternalLink.href = currentProjectLiveUrl;
+            }
+            if (browserTabTitle && titleElem) {
+                browserTabTitle.textContent = `${titleElem.textContent.trim()} — Canlı Önizleme`;
+            }
+
+            // Varsayılan olarak masaüstü cihazı ve Hakkında moduna getir
+            currentDevice = 'desktop';
+            deviceTabs.forEach((t, idx) => {
+                if (idx === 0) t.classList.add('active');
+                else t.classList.remove('active');
+            });
+            if (deviceFrame) deviceFrame.className = 'device-frame frame-desktop';
+            if (deviceResDisplay) deviceResDisplay.textContent = deviceResolutions.desktop;
+            if (liveStatusText) liveStatusText.textContent = deviceLabels.desktop;
+            setModalView('about');
             
             // Ekstra metni dil sistemine entegre ederek al
             const extraKey = card.getAttribute('data-i18n-extra');
@@ -685,7 +985,7 @@ if (projectModal && projectCards.length > 0) {
     });
 }
 
-// --- GERÇEK YÜKLEME EKRANI (LOADING SCREEN) ---
+// --- SİNEMATİK AÇILIŞ & YÜKLEME EKRANI (CINEMATIC PRELOADER) ---
 const preloader = document.getElementById('preloader');
 if (preloader) {
     let isReload = false;
@@ -698,18 +998,74 @@ if (preloader) {
     }
 
     if (!sessionStorage.getItem('siteLoaded') || isReload) {
-        const hidePreloader = () => {
-            setTimeout(() => {
-                preloader.classList.add('loaded');
-                sessionStorage.setItem('siteLoaded', 'true');
-            }, 1200);
+        const barFill = document.getElementById('preloader-bar-fill');
+        const counterEl = document.getElementById('preloader-counter');
+
+        let currentPercent = 0;
+        let isDone = false;
+        let isPageLoaded = (document.readyState === 'complete');
+
+        const markPageLoaded = () => {
+            isPageLoaded = true;
         };
 
-        if (document.readyState === 'complete') {
-            hidePreloader();
-        } else {
-            window.addEventListener('load', hidePreloader);
+        if (!isPageLoaded) {
+            window.addEventListener('load', markPageLoaded);
         }
+
+        const startTime = performance.now();
+        const duration = 1350; // İdeal sinematik akış süresi
+
+        function updateProgress(now) {
+            if (isDone) return;
+            const elapsed = now - startTime;
+            let targetPercent = Math.min((elapsed / duration) * 100, 95);
+
+            if (isPageLoaded && elapsed > 950) {
+                targetPercent = 100;
+            }
+
+            currentPercent += (targetPercent - currentPercent) * 0.16;
+
+            if (targetPercent >= 100 && (100 - currentPercent) < 0.6) {
+                currentPercent = 100;
+            }
+
+            const rounded = Math.min(Math.round(currentPercent), 100);
+
+            if (barFill) barFill.style.width = `${rounded}%`;
+            if (counterEl) counterEl.textContent = `${rounded}%`;
+
+            if (rounded >= 100) {
+                isDone = true;
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                    sessionStorage.setItem('siteLoaded', 'true');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }, 200);
+                return;
+            }
+
+            requestAnimationFrame(updateProgress);
+        }
+
+        requestAnimationFrame(updateProgress);
+
+        // Güvenlik zaman aşımı (CDN vb. gecikmelerde kilitlenmeyi önler)
+        setTimeout(() => {
+            if (!isDone) {
+                isDone = true;
+                if (barFill) barFill.style.width = '100%';
+                if (counterEl) counterEl.textContent = '100%';
+                preloader.classList.add('loaded');
+                sessionStorage.setItem('siteLoaded', 'true');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800);
+            }
+        }, 2800);
     } else {
         preloader.style.display = 'none';
     }
@@ -726,6 +1082,147 @@ window.addEventListener('scroll', () => {
     const scrollPercent = (scrollTop / scrollHeight) * 100;
     scrollProgress.style.width = scrollPercent + '%';
 });
+
+// --- 3D SCROLL HUD WAYPOINTS (SAĞ TARAF GEZİNTİ İNDİKATÖRÜ VE SCROLL SPY) ---
+(function initHudWaypoints() {
+    const hudPoints = document.querySelectorAll('.hud-point');
+    const hudLineProgress = document.querySelector('.hud-line-progress');
+    if (!hudPoints.length) return;
+
+    function getDocTop(el) {
+        return el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
+    }
+
+    const sections = [];
+    hudPoints.forEach(point => {
+        const targetId = point.getAttribute('data-section') || point.getAttribute('href')?.replace('#', '');
+        const sectionEl = document.getElementById(targetId);
+        if (sectionEl) {
+            sections.push({
+                id: targetId,
+                el: sectionEl,
+                point: point
+            });
+        }
+    });
+
+    if (!sections.length) return;
+
+    let activeId = null;
+
+    function updateWaypoints() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+        const maxScroll = Math.max(1, docHeight - windowHeight);
+
+        // Sayfa en sonuna (İletişim / Footer) gelindiğinde son noktayı aktif yap
+        const isBottom = (windowHeight + scrollY) >= (docHeight - 100);
+
+        let activeIndex = 0;
+
+        if (isBottom) {
+            activeIndex = sections.length - 1;
+        } else {
+            // Kullanıcının baktığı üst odak çizgisi (viewport'un %35'i)
+            const focusLine = windowHeight * 0.35;
+            for (let i = 0; i < sections.length; i++) {
+                const rect = sections[i].el.getBoundingClientRect();
+                if (rect.top <= focusLine) {
+                    activeIndex = i;
+                }
+            }
+        }
+
+        const currentSec = sections[activeIndex];
+        if (currentSec && currentSec.id !== activeId) {
+            activeId = currentSec.id;
+            sections.forEach((item, idx) => {
+                if (idx === activeIndex) {
+                    item.point.classList.add('active');
+                } else {
+                    item.point.classList.remove('active');
+                }
+            });
+
+            // Varsa mobil çekmece menü linklerini de senkronize et
+            const mobileLinks = document.querySelectorAll('.nav-links li a');
+            mobileLinks.forEach(link => {
+                const href = link.getAttribute('href')?.replace('#', '');
+                if (href === currentSec.id) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Dikey neon çizginin ilerleme yüzdesini noktaların konumuna göre pürüzsüz hesapla
+        if (hudLineProgress && sections.length > 1) {
+            let totalProgress = 0;
+            if (isBottom || scrollY >= maxScroll - 10) {
+                totalProgress = 100;
+            } else {
+                let found = false;
+                for (let i = 0; i < sections.length - 1; i++) {
+                    const startY = i === 0 ? 0 : Math.max(0, getDocTop(sections[i].el) - 100);
+                    const endY = Math.max(startY + 50, getDocTop(sections[i + 1].el) - 100);
+
+                    if (scrollY >= startY && scrollY < endY) {
+                        const fraction = Math.min(1, Math.max(0, (scrollY - startY) / (endY - startY)));
+                        totalProgress = ((i + fraction) / (sections.length - 1)) * 100;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    const lastStartY = Math.max(0, getDocTop(sections[sections.length - 1].el) - 100);
+                    if (scrollY >= lastStartY) {
+                        totalProgress = 100;
+                    } else {
+                        totalProgress = 0;
+                    }
+                }
+            }
+            hudLineProgress.style.height = `${Math.min(100, Math.max(0, totalProgress))}%`;
+        }
+    }
+
+    // Tıklama etkileşimi: Noktaya tıklandığında ilgili bölüme pürüzsüz kaydır
+    sections.forEach((item) => {
+        item.point.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetTop = item.id === 'home' ? 0 : Math.max(0, getDocTop(item.el) - 85);
+            window.scrollTo({
+                top: targetTop,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Yüksek Performanslı Scroll ve Resize Dinleyicisi (rAF throttled)
+    let ticking = false;
+    function requestUpdate() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updateWaypoints();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+
+    // Sayfa açıldığında veya yenilendiğinde hemen hesapla
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updateWaypoints);
+    } else {
+        updateWaypoints();
+    }
+    window.addEventListener('load', updateWaypoints);
+})();
 
 // --- AŞAĞI KAYDIRDIKÇA BELİRME (SCROLL FADE-IN) EFEKTİ ---
 const observerOptions = {

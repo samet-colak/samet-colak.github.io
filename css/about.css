@@ -191,94 +191,70 @@
     color: #38bdf8;
 }
 
-/* Sağ Taraf: Yetenek Kartları Izgarası (Skills Grid) */
+/* Sağ Taraf: Yetenek Kartları (Yüksek Standartlı & Dengeli) */
+.skills-heading-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.skills-badge-pill {
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: #38bdf8;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.22);
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
 .skills-grid {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
+    gap: 8px;
+    margin-top: 12px;
 }
 
-.skill-card {
-    background: rgba(255, 255, 255, 0.025);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 13px 16px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.07), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.skill-card:hover::after {
-    opacity: 1;
-}
-
-.skill-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-.skill-card:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.04);
-}
-
-/* Teknolojilere Özel Marka Vurguları */
-.skill-card[data-tech="html-css"]:hover {
-    border-color: rgba(249, 115, 22, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(249, 115, 22, 0.15);
-}
-.skill-card[data-tech="javascript"]:hover {
-    border-color: rgba(250, 204, 21, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(250, 204, 21, 0.15);
-}
-.skill-card[data-tech="python"]:hover {
-    border-color: rgba(56, 189, 248, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.15);
-}
-.skill-card[data-tech="csharp"]:hover {
-    border-color: rgba(192, 132, 252, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(192, 132, 252, 0.15);
-}
-.skill-card[data-tech="threejs"]:hover {
-    border-color: rgba(0, 210, 255, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(0, 210, 255, 0.15);
-}
-.skill-card[data-tech="ai"]:hover {
-    border-color: rgba(34, 197, 94, 0.35);
-    box-shadow: 0 8px 24px -6px rgba(34, 197, 94, 0.15);
-}
-
-.skill-card-top {
+.skill-row {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 9px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 8px 12px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
+.skill-row:hover {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.skill-row[data-tech="html-css"]:hover { border-color: rgba(249, 115, 22, 0.35); }
+.skill-row[data-tech="javascript"]:hover { border-color: rgba(250, 204, 21, 0.35); }
+.skill-row[data-tech="python"]:hover { border-color: rgba(56, 189, 248, 0.35); }
+.skill-row[data-tech="csharp"]:hover { border-color: rgba(192, 132, 252, 0.35); }
+.skill-row[data-tech="threejs"]:hover { border-color: rgba(0, 210, 255, 0.35); }
+.skill-row[data-tech="ai"]:hover { border-color: rgba(34, 197, 94, 0.35); }
+
 .skill-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: transform 0.25s ease;
+    transition: transform 0.2s ease;
 }
 
-.skill-card:hover .skill-icon {
+.skill-row:hover .skill-icon {
     transform: scale(1.08);
 }
 
@@ -289,123 +265,155 @@
 .icon-three { background: rgba(0, 210, 255, 0.12); color: #00d2ff; }
 .icon-ai { background: rgba(34, 197, 94, 0.12); color: #4ade80; }
 
-.skill-meta {
+.skill-details {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
-.skill-title {
-    font-size: 13.5px;
+.skill-header-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-name {
+    font-size: 13px;
     font-weight: 600;
-    color: #f8fafc;
+    color: #f1f5f9;
 }
 
-.skill-tag {
-    font-size: 11.5px;
+.skill-level-pill {
+    font-size: 9.5px;
+    font-family: 'Roboto Mono', monospace;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #94a3b8;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+}
+
+.skill-row[data-tech="html-css"]:hover .skill-level-pill { color: #fb923c; border-color: rgba(249, 115, 22, 0.3); background: rgba(249, 115, 22, 0.08); }
+.skill-row[data-tech="javascript"]:hover .skill-level-pill { color: #facc15; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); }
+.skill-row[data-tech="python"]:hover .skill-level-pill { color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08); }
+.skill-row[data-tech="csharp"]:hover .skill-level-pill { color: #c084fc; border-color: rgba(192, 132, 252, 0.3); background: rgba(192, 132, 252, 0.08); }
+.skill-row[data-tech="threejs"]:hover .skill-level-pill { color: #00d2ff; border-color: rgba(0, 210, 255, 0.3); background: rgba(0, 210, 255, 0.08); }
+.skill-row[data-tech="ai"]:hover .skill-level-pill { color: #4ade80; border-color: rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.08); }
+
+.skill-percent {
+    font-size: 11.5px;
     font-family: 'Roboto Mono', monospace;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-weight: 700;
+    color: #94a3b8;
+    transition: color 0.2s ease;
 }
 
-.skill-level-chip {
-    padding: 3px 9px;
-    border-radius: 6px;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-family: 'Roboto Mono', monospace;
-    white-space: nowrap;
-}
-
-.chip-advanced {
-    background: rgba(0, 210, 255, 0.1);
-    color: #38bdf8;
-    border: 1px solid rgba(0, 210, 255, 0.25);
-}
-
-.chip-proficient {
-    background: rgba(192, 132, 252, 0.1);
-    color: #c084fc;
-    border: 1px solid rgba(192, 132, 252, 0.25);
-}
-
-.chip-intermediate {
-    background: rgba(34, 197, 94, 0.1);
-    color: #4ade80;
-    border: 1px solid rgba(34, 197, 94, 0.25);
-}
-
-/* İlerleme Çizgisi & Akışkan Işık */
-.skill-bar-wrap {
-    width: 100%;
+.skill-row:hover .skill-percent {
+    color: var(--primary-color);
 }
 
 .skill-bar-track {
     width: 100%;
-    height: 5px;
+    height: 4px;
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    border-radius: 4px;
     overflow: hidden;
-    position: relative;
 }
 
 .skill-progress {
     height: 100%;
     width: 0%;
-    border-radius: 10px;
-    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
+    border-radius: 4px;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
 }
 
 .skill-progress.filled {
     width: var(--target-width);
 }
 
-.bar-html { 
-    background: linear-gradient(90deg, #ea580c, #fb923c); 
-    box-shadow: 0 0 10px rgba(251, 146, 60, 0.45); 
-}
-.bar-js { 
-    background: linear-gradient(90deg, #ca8a04, #facc15); 
-    box-shadow: 0 0 10px rgba(250, 204, 21, 0.45); 
-}
-.bar-python { 
-    background: linear-gradient(90deg, #0284c7, #38bdf8); 
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.45); 
-}
-.bar-cs { 
-    background: linear-gradient(90deg, #9333ea, #c084fc); 
-    box-shadow: 0 0 10px rgba(192, 132, 252, 0.45); 
-}
-.bar-three { 
-    background: linear-gradient(90deg, #0891b2, #00d2ff); 
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.45); 
-}
-.bar-ai { 
-    background: linear-gradient(90deg, #16a34a, #4ade80); 
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.45); 
+.bar-html { background: linear-gradient(90deg, #ea580c, #fb923c); }
+.bar-js { background: linear-gradient(90deg, #ca8a04, #facc15); }
+.bar-python { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+.bar-cs { background: linear-gradient(90deg, #9333ea, #c084fc); }
+.bar-three { background: linear-gradient(90deg, #0891b2, #00d2ff); }
+.bar-ai { background: linear-gradient(90deg, #16a34a, #4ade80); }
+
+.skill-row[data-tech="html-css"]:hover .bar-html { filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.6)); }
+.skill-row[data-tech="javascript"]:hover .bar-js { filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.6)); }
+.skill-row[data-tech="python"]:hover .bar-python { filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6)); }
+.skill-row[data-tech="csharp"]:hover .bar-cs { filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.6)); }
+.skill-row[data-tech="threejs"]:hover .bar-three { filter: drop-shadow(0 0 6px rgba(0, 210, 255, 0.6)); }
+.skill-row[data-tech="ai"]:hover .bar-ai { filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.6)); }
+
+/* Araçlar & Geliştirici Ekosistemi */
+.skills-ecosystem {
+    margin-top: 14px;
+    padding-top: 13px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
 }
 
-/* İlerleme Çubuğunun Üzerinden Kayan Parlak Parıltı */
-.skill-progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-    animation: barShine 2.8s infinite ease-in-out;
+.ecosystem-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-bottom: 9px;
 }
 
-@keyframes barShine {
-    0% { left: -100%; }
-    50%, 100% { left: 160%; }
+.ecosystem-header svg {
+    color: var(--primary-color);
+}
+
+.ecosystem-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.eco-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 7px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eco-tag svg {
+    color: #64748b;
+    transition: color 0.25s ease;
+}
+
+.eco-tag:hover {
+    background: rgba(0, 210, 255, 0.08);
+    border-color: rgba(0, 210, 255, 0.25);
+    color: #f8fafc;
+    transform: translateY(-2px);
+}
+
+.eco-tag:hover svg {
+    color: var(--primary-color);
 }
 
 /* --- MOBİL & TABLET UYUMLULUĞU (RESPONSIVE) --- */
