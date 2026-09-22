@@ -27,7 +27,17 @@
             document.head.appendChild(base);
         })();
     </script>
-    <link rel="stylesheet" href="css/style.css?v=6.1">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('portfolio_theme');
+            if (theme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="css/style.css?v=5.1">
     <link rel="stylesheet" href="css/404.css?v=6.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -112,6 +122,26 @@
                     <span id="lang-text">EN</span>
                 </button>
 
+                <!-- Tema Değiştirici (Güneş / Ay Animasyonlu Buton) -->
+                <button id="theme-btn" class="theme-switch" title="Temayı Değiştir (Açık / Koyu)" aria-label="Temayı Değiştir" data-i18n-title="nav_theme_title">
+                    <div class="theme-icon-container">
+                        <svg class="theme-icon sun-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon moon-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </div>
+                </button>
+
                 <div class="hamburger" title="Menüyü Aç" data-i18n-title="nav_menu_title">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -126,6 +156,12 @@
                 <li><a href="index.html#projects" data-i18n="projects">Projeler</a></li>
                 <li><a href="index.html#certificates" data-i18n="certificates">Sertifikalar</a></li>
                 <li><a href="index.html#contact" data-i18n="contact">İletişim</a></li>
+                <li class="mobile-theme-item">
+                    <button type="button" id="mobile-theme-btn" class="mobile-theme-toggle">
+                        <span data-i18n="nav_theme_title">Temayı Değiştir</span>
+                        <span class="mobile-theme-badge" id="mobile-theme-badge">Koyu Mod</span>
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -370,7 +406,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js?v=6.1"></script>
+    <script src="js/script.js?v=6.3"></script>
     <script src="js/404.js?v=6.0"></script>
 </body>
 </html>

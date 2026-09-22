@@ -81,3 +81,25 @@
     .loader-container { width: 60px; height: 60px; margin-bottom: 20px; }
     .cert-icon { font-size: 20px; }
 }
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - SERTİFİKALAR
+   ========================================================================== */
+[data-theme="light"] .pro-empty-state {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .pro-empty-state h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .pro-empty-state p {
+    color: #475569;
+}
+
+[data-theme="light"] .spinner {
+    border-color: rgba(14, 165, 233, 0.15);
+    border-top-color: var(--primary-color);
+}

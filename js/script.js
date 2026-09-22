@@ -223,7 +223,12 @@ const translations = {
         term_status_ready: "Hazır",
         feat_ui_ux: "UI/UX Tasarım",
         feat_responsive: "Tam Mobil Uyum",
-        feat_performance: "Yüksek Performans"
+        feat_performance: "Yüksek Performans",
+        nav_theme_title: "Temayı Değiştir (Açık / Koyu)",
+        cmd_toggle_theme: "Temayı Değiştir (Açık / Koyu)",
+        cmd_group_theme: "Görünüm & Tema",
+        theme_light: "Açık Mod",
+        theme_dark: "Koyu Mod"
     },
     en: {
         home: "Home",
@@ -437,7 +442,12 @@ const translations = {
         term_status_ready: "Ready",
         feat_ui_ux: "UI/UX Design",
         feat_responsive: "Fully Responsive",
-        feat_performance: "High Performance"
+        feat_performance: "High Performance",
+        nav_theme_title: "Toggle Theme (Light / Dark)",
+        cmd_toggle_theme: "Toggle Theme (Light / Dark)",
+        cmd_group_theme: "Appearance & Theme",
+        theme_light: "Light Mode",
+        theme_dark: "Dark Mode"
     }
 };
 
@@ -520,6 +530,66 @@ function updateLanguage(lang) {
             );
         }
     }
+
+    // 7. Mobil Menüdeki Tema Rozeti
+    updateThemeUI(getCurrentTheme());
+}
+
+// --- AÇIK / KOYU TEMA YÖNETİMİ (LIGHT / DARK MODE) ---
+function getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+}
+
+function updateThemeUI(theme) {
+    const mobileBadge = document.getElementById('mobile-theme-badge');
+    if (mobileBadge) {
+        mobileBadge.textContent = theme === 'light' 
+            ? (translations[currentLang]?.theme_light || 'Açık Mod') 
+            : (translations[currentLang]?.theme_dark || 'Koyu Mod');
+    }
+}
+
+function setTheme(theme) {
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem('portfolio_theme', theme);
+    
+    if (window.setThreeTheme) {
+        window.setThreeTheme(theme);
+    }
+    
+    updateThemeUI(theme);
+    window.dispatchEvent(new CustomEvent('themeChanged', { detail: theme }));
+}
+
+function toggleTheme() {
+    const current = getCurrentTheme();
+    const nextTheme = current === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+}
+
+// Başlangıç tema senkronizasyonu
+const savedTheme = localStorage.getItem('portfolio_theme');
+if (savedTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    if (window.setThreeTheme) window.setThreeTheme('light');
+    updateThemeUI('light');
+} else {
+    updateThemeUI('dark');
+}
+
+// Tema butonları
+const themeBtn = document.getElementById('theme-btn');
+if (themeBtn) {
+    themeBtn.addEventListener('click', toggleTheme);
+}
+
+const mobileThemeBtn = document.getElementById('mobile-theme-btn');
+if (mobileThemeBtn) {
+    mobileThemeBtn.addEventListener('click', toggleTheme);
 }
 
 updateLanguage(currentLang); // Sayfa açılır açılmaz dili uygula
@@ -1317,16 +1387,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.scroll-top, .scroll-top-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
-        // Her tarayıcıda çalışan, bug'sız ve animasyonlu Yukarı Çık motoru
-        const scrollToTop = () => {
-            const c = document.documentElement.scrollTop || document.body.scrollTop;
-            if (c > 0) {
-                window.requestAnimationFrame(scrollToTop);
-                // Hızı yavaşlatmak için adımları küçülttük (Çok daha yavaş ve pürüzsüz süzülür)
-                window.scrollTo(0, c - Math.max(c / 25, 5)); 
-            }
-        };
-        scrollToTop();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 });
 
@@ -1515,6 +1579,13 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <span data-i18n="cmd_github">GitHub Profilim</span>
                             </a>
                         </div>
+                        <div class="cmd-group" data-group="Görünüm & Tema">
+                            <div class="cmd-group-title" data-i18n="cmd_group_theme">Görünüm & Tema</div>
+                            <button type="button" id="cmd-toggle-theme" class="cmd-item" data-keywords="tema theme light dark açık koyu mod mode">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                                <span data-i18n="cmd_toggle_theme">Temayı Değiştir (Açık / Koyu)</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1543,6 +1614,15 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(item => {
         item.addEventListener('click', () => toggleMenu(false));
     });
+
+    const cmdThemeBtn = document.getElementById('cmd-toggle-theme');
+    if (cmdThemeBtn) {
+        cmdThemeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleTheme();
+            toggleMenu(false);
+        });
+    }
 
     const navCmdBtn = document.getElementById('nav-cmd-btn');
     if (navCmdBtn) {

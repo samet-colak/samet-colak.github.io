@@ -1,11 +1,46 @@
-/* Genel Ayarlar ve Değişkenler */
+/* Genel Ayarlar ve Değişkenler (Koyu ve Açık Tema Tokenları) */
 :root {
     --primary-color: #00d2ff;
     --secondary-color: #3a7bd5;
     --bg-color: #0f172a;
     --bg-darker: #0b1120;
     --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-secondary: #cbd5e1;
+    --heading-color: #ffffff;
     --card-bg: #1e293b;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(14, 22, 42, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --nav-bg: rgba(14, 20, 36, 0.85);
+    --nav-border: rgba(255, 255, 255, 0.12);
+    --input-bg: rgba(15, 23, 42, 0.85);
+    --input-border: rgba(255, 255, 255, 0.12);
+    --accent-glow: rgba(0, 210, 255, 0.25);
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --color-scheme: dark;
+}
+
+[data-theme="light"] {
+    --primary-color: #0284c7;
+    --secondary-color: #2563eb;
+    --bg-color: #f8fafc;
+    --bg-darker: #f1f5f9;
+    --text-color: #0f172a;
+    --text-muted: #475569;
+    --text-secondary: #334155;
+    --heading-color: #090d16;
+    --card-bg: #ffffff;
+    --card-border: rgba(226, 232, 240, 0.9);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(203, 213, 225, 0.8);
+    --nav-bg: rgba(255, 255, 255, 0.88);
+    --nav-border: rgba(203, 213, 225, 0.8);
+    --input-bg: #ffffff;
+    --input-border: rgba(203, 213, 225, 0.9);
+    --accent-glow: rgba(2, 132, 199, 0.2);
+    --card-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+    --color-scheme: light;
 }
 
 * {
@@ -57,6 +92,30 @@ body::after {
     z-index: 9998; /* Preloader altında, her şeyin üstünde */
     opacity: 0.04; /* Göz yormayan, premium stüdyo seviyesine geri alındı */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- AÇIK TEMA (LIGHT MODE) BODY & ARKA PLAN --- */
+[data-theme="light"] body {
+    background-color: #f6f8fc;
+    background-image: 
+        radial-gradient(circle 600px at 15% 15%, rgba(2, 132, 199, 0.20), transparent 70%),
+        radial-gradient(circle 650px at 88% 25%, rgba(15, 23, 42, 0.12), transparent 65%),
+        radial-gradient(circle 700px at 50% 50%, rgba(14, 165, 233, 0.16), transparent 70%),
+        radial-gradient(circle 580px at 8% 75%, rgba(30, 58, 138, 0.15), transparent 65%),
+        radial-gradient(circle 750px at 85% 90%, rgba(2, 132, 199, 0.18), transparent 70%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-color);
+}
+
+[data-theme="light"] body::before {
+    background-image: 
+        linear-gradient(rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+}
+
+[data-theme="light"] body::after {
+    opacity: 0.025;
 }
 
 /* --- 3D THREE.JS WEBGL KANVAS --- */
@@ -368,6 +427,106 @@ section {
 
 .globe-icon {
     color: var(--primary-color);
+}
+
+/* --- TEMA DEĞİŞTİRİCİ BUTON (GÜNEŞ / AY MORF ANİMASYONU) --- */
+.theme-switch {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    color: #f8fafc;
+}
+
+.theme-switch:hover {
+    background: rgba(0, 210, 255, 0.1);
+    border-color: rgba(0, 210, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+}
+
+.theme-icon-container {
+    position: relative;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-icon {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Koyu modda (varsayılan): Güneş ikonu belirir */
+:root:not([data-theme="light"]) .theme-switch .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: #facc15;
+    filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.6));
+}
+
+:root:not([data-theme="light"]) .theme-switch .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.2);
+}
+
+/* Açık modda: Ay ikonu belirir */
+[data-theme="light"] .theme-switch .sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.2);
+}
+
+[data-theme="light"] .theme-switch .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: #2563eb;
+    filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.4));
+}
+
+/* Mobil Menü Tema Seçeneği */
+.mobile-theme-item {
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-theme-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 12px;
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-theme-badge {
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: rgba(0, 210, 255, 0.12);
+    color: #38bdf8;
+    border: 1px solid rgba(0, 210, 255, 0.25);
 }
 
 .hamburger {
@@ -1483,6 +1642,16 @@ section {
     text-decoration: none; border-radius: 10px; transition: all 0.2s ease; font-weight: 500; margin-bottom: 2px;
 }
 
+button.cmd-item {
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+}
+
 .cmd-item svg { color: #94a3b8; transition: color 0.2s ease; }
 .cmd-item:hover, .cmd-item.active { background: rgba(0, 210, 255, 0.1); color: #fff; }
 .cmd-item:hover svg, .cmd-item.active svg { color: var(--primary-color); }
@@ -2335,6 +2504,350 @@ section {
     .channel-value {
         font-size: 14px;
     }
+}
+
+/* ==========================================================================
+   AÇIK TEMA (PORCELAIN LIGHT MODE) KAPSAMLI TASARIM MOTORU
+   ========================================================================== */
+
+/* Genel Başlıklar, Tipografi ve Vurgular */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .logo {
+    color: #090d16;
+}
+
+[data-theme="light"] .section-main-heading {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0284c7 80%, #0369a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0f172a;
+    animation: none;
+    filter: none;
+}
+
+[data-theme="light"] .section-tag-badge {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    color: #0284c7;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="light"] p,
+[data-theme="light"] .section-lead-desc {
+    color: #475569;
+}
+
+[data-theme="light"] .section-header-block:hover .section-lead-desc {
+    color: #0f172a;
+}
+
+[data-theme="light"] .section-header-block:hover .section-tag-badge {
+    background: #ffffff;
+    border-color: #0284c7;
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.18);
+}
+
+[data-theme="light"] .section-title {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0284c7 80%, #0369a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0f172a;
+}
+
+[data-theme="light"] .section-accent-line .accent-beam-left,
+[data-theme="light"] .section-accent-line .accent-beam-right {
+    background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.5), transparent);
+}
+
+[data-theme="light"] .section-accent-line .accent-diamond,
+[data-theme="light"] .section-divider-node {
+    color: #0284c7;
+    filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.4));
+}
+
+[data-theme="light"] .section-divider-line {
+    background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.25), transparent);
+}
+
+/* Dinamik Ada Navbar */
+[data-theme="light"] .floating-nav {
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(203, 213, 225, 0.85);
+    box-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="light"] .nav-cmd-trigger {
+    background: rgba(241, 245, 249, 0.95);
+    border-color: rgba(203, 213, 225, 0.85);
+    color: #475569;
+}
+
+[data-theme="light"] .nav-cmd-trigger:hover {
+    background: #ffffff;
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+[data-theme="light"] .cmd-shortcut {
+    background: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+[data-theme="light"] #lang-btn,
+[data-theme="light"] .theme-switch,
+[data-theme="light"] .hamburger {
+    background: rgba(241, 245, 249, 0.95);
+    border-color: rgba(203, 213, 225, 0.85);
+    color: #0f172a;
+}
+
+[data-theme="light"] #lang-btn:hover,
+[data-theme="light"] .theme-switch:hover {
+    background: #ffffff;
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+[data-theme="light"] .hamburger .bar {
+    background-color: #0f172a;
+}
+
+[data-theme="light"] .nav-links.mobile-only-drawer {
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .nav-links.mobile-only-drawer a {
+    color: #0f172a;
+}
+
+[data-theme="light"] .mobile-theme-toggle {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+[data-theme="light"] .mobile-theme-badge {
+    background: rgba(2, 132, 199, 0.12);
+    color: #0284c7;
+    border-color: rgba(2, 132, 199, 0.3);
+}
+
+/* 3D Scroll HUD (Waypoints) */
+[data-theme="light"] .hud-line {
+    background: rgba(203, 213, 225, 0.7);
+}
+
+[data-theme="light"] .hud-point {
+    color: #64748b;
+}
+
+[data-theme="light"] .hud-point::after {
+    border: 2px solid #94a3b8;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .hud-point:hover::after {
+    border-color: #0284c7;
+    background: #e0f2fe;
+}
+
+[data-theme="light"] .hud-point .hud-num {
+    color: #475569;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+[data-theme="light"] .hud-point.active::after {
+    border-color: #0284c7;
+    background: #0284c7;
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.6);
+    transform: translateY(-50%) scale(1.25);
+}
+
+[data-theme="light"] .hud-point.active .hud-num {
+    color: #0284c7;
+    opacity: 1;
+    font-weight: 800;
+}
+
+[data-theme="light"] .hud-point .hud-label {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    color: #0f172a;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .hud-point.active .hud-label {
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+/* Komut Paleti (Ctrl+K) */
+[data-theme="light"] .cmd-palette-overlay {
+    background: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+[data-theme="light"] .cmd-palette-container {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(203, 213, 225, 0.95);
+    box-shadow: 0 30px 80px -15px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.8);
+    color: #0f172a;
+}
+
+[data-theme="light"] .cmd-header {
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .cmd-search-icon {
+    color: #0284c7;
+}
+
+[data-theme="light"] #cmd-input {
+    color: #0f172a;
+}
+
+[data-theme="light"] #cmd-input::placeholder {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .cmd-esc {
+    color: #64748b;
+    background: rgba(241, 245, 249, 0.9);
+    border: 1px solid rgba(203, 213, 225, 0.8);
+}
+
+[data-theme="light"] .cmd-group-title {
+    color: #64748b;
+}
+
+[data-theme="light"] .cmd-item {
+    color: #334155;
+    background: transparent;
+}
+
+[data-theme="light"] .cmd-item svg {
+    color: #64748b;
+}
+
+[data-theme="light"] .cmd-item:hover,
+[data-theme="light"] .cmd-item.active {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0284c7;
+}
+
+[data-theme="light"] .cmd-item:hover svg,
+[data-theme="light"] .cmd-item.active svg {
+    color: #0284c7;
+}
+
+/* Butonlar */
+[data-theme="light"] .btn-outline {
+    border-color: rgba(15, 23, 42, 0.2);
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="light"] .btn-outline:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
+}
+
+/* Footer (Modern Geliştirici Altbilgisi) */
+[data-theme="light"] footer,
+[data-theme="light"] .modern-footer {
+    background: linear-gradient(180deg, transparent 0%, rgba(241, 245, 249, 0.9) 100%);
+    border-top: 1px solid rgba(203, 213, 225, 0.7);
+}
+
+[data-theme="light"] .footer-logo {
+    color: #0f172a;
+}
+
+[data-theme="light"] .footer-brand-p {
+    color: #475569;
+}
+
+[data-theme="light"] .tech-pill {
+    background: rgba(241, 245, 249, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    color: #475569;
+}
+
+[data-theme="light"] .tech-pill:hover {
+    background: #ffffff;
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+[data-theme="light"] .footer-heading {
+    color: #0f172a;
+}
+
+[data-theme="light"] .footer-links-list li a {
+    color: #64748b;
+}
+
+[data-theme="light"] .footer-links-list li a:hover {
+    color: #0f172a;
+}
+
+[data-theme="light"] .footer-social-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .footer-social-card:hover {
+    background: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.15);
+}
+
+[data-theme="light"] .social-card-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .social-card-sub {
+    color: #64748b;
+}
+
+[data-theme="light"] .social-card-icon {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.25);
+    color: var(--primary-color);
+}
+
+[data-theme="light"] .footer-bottom-bar {
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .footer-bottom-left p {
+    color: #64748b;
+}
+
+[data-theme="light"] .scroll-top-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .scroll-top-btn:hover {
+    border-color: #0284c7;
+    color: #0284c7;
 }
 
 

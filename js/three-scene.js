@@ -76,13 +76,22 @@
     const colors = new Float32Array(particleCount * 3);
     const baseColors = new Float32Array(particleCount * 3);
 
-    const palette = [
+    const darkPalette = [
         new THREE.Color(0x00d2ff),
         new THREE.Color(0x38bdf8),
         new THREE.Color(0x818cf8),
         new THREE.Color(0xc084fc),
         new THREE.Color(0xffffff),
         new THREE.Color(0x3a7bd5)
+    ];
+
+    const lightPalette = [
+        new THREE.Color(0x0284c7), // Parlak Mavi
+        new THREE.Color(0x0f172a), // Siyahımsı Koyu Arduvaz
+        new THREE.Color(0x1e3a8a), // Gece Mavisi
+        new THREE.Color(0x1d4ed8), // Safir Mavi
+        new THREE.Color(0x0369a1), // Okyanus Mavisi
+        new THREE.Color(0x334155)  // Koyu Arduvaz
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -103,7 +112,7 @@
         velocities[i3 + 1] = 0;
         velocities[i3 + 2] = 0;
 
-        const col = palette[Math.floor(Math.random() * palette.length)];
+        const col = darkPalette[Math.floor(Math.random() * darkPalette.length)];
         colors[i3] = col.r;
         colors[i3 + 1] = col.g;
         colors[i3 + 2] = col.b;
@@ -116,7 +125,7 @@
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    const createParticleTexture = () => {
+    const createDarkParticleTexture = () => {
         const c = document.createElement('canvas');
         c.width = 64;
         c.height = 64;
@@ -131,18 +140,100 @@
         return new THREE.CanvasTexture(c);
     };
 
+    const createLightParticleTexture = () => {
+        const c = document.createElement('canvas');
+        c.width = 64;
+        c.height = 64;
+        const ctx = c.getContext('2d');
+        const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        grad.addColorStop(0, 'rgba(2, 132, 199, 1)');
+        grad.addColorStop(0.35, 'rgba(15, 23, 42, 0.85)');
+        grad.addColorStop(0.7, 'rgba(30, 58, 138, 0.45)');
+        grad.addColorStop(1, 'rgba(246, 248, 252, 0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 64, 64);
+        return new THREE.CanvasTexture(c);
+    };
+
+    const darkParticleTexture = createDarkParticleTexture();
+    const lightParticleTexture = createLightParticleTexture();
+
     const particleMaterial = new THREE.PointsMaterial({
         size: isMobile ? 0.22 : 0.18,
         vertexColors: true,
         transparent: true,
         opacity: 0.85,
-        map: createParticleTexture(),
+        map: darkParticleTexture,
         blending: THREE.AdditiveBlending,
         depthWrite: false
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
+
+    // --- TEMA YÖNETİMİ (AÇIK / KOYU TEMA 3D GEÇİŞİ) ---
+    window.setThreeTheme = function(theme) {
+        if (!scene || !scene.fog) return;
+        const colorsAttr = particleGeometry ? particleGeometry.attributes.color : null;
+        if (theme === 'light') {
+            scene.fog.color.setHex(0xf6f8fc);
+            scene.fog.density = 0.005; // Sis hafifletildi; tüm 3D derinlikteki mavi/siyahımsı yuvarlaklar net görünür
+            if (ambientLight) ambientLight.intensity = 1.6;
+            if (cyanLight) { cyanLight.color.setHex(0x0284c7); cyanLight.intensity = 1.8; }
+            if (blueLight) { blueLight.color.setHex(0x1d4ed8); blueLight.intensity = 1.8; }
+            if (violetLight) { violetLight.color.setHex(0x4338ca); violetLight.intensity = 1.5; }
+
+            if (particleMaterial) {
+                particleMaterial.map = lightParticleTexture;
+                particleMaterial.blending = THREE.NormalBlending;
+                particleMaterial.size = isMobile ? 0.30 : 0.24;
+                particleMaterial.opacity = 0.88;
+                particleMaterial.needsUpdate = true;
+            }
+
+            if (colorsAttr) {
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    const col = lightPalette[i % lightPalette.length];
+                    colorsAttr.array[i3] = col.r;
+                    colorsAttr.array[i3 + 1] = col.g;
+                    colorsAttr.array[i3 + 2] = col.b;
+                }
+                colorsAttr.needsUpdate = true;
+            }
+        } else {
+            scene.fog.color.setHex(0x070b14);
+            scene.fog.density = 0.018;
+            if (ambientLight) ambientLight.intensity = 0.8;
+            if (cyanLight) { cyanLight.color.setHex(0x00d2ff); cyanLight.intensity = 2.2; }
+            if (blueLight) { blueLight.color.setHex(0x3a7bd5); blueLight.intensity = 2.2; }
+            if (violetLight) { violetLight.color.setHex(0xa855f7); violetLight.intensity = 2.0; }
+
+            if (particleMaterial) {
+                particleMaterial.map = darkParticleTexture;
+                particleMaterial.blending = THREE.AdditiveBlending;
+                particleMaterial.size = isMobile ? 0.22 : 0.18;
+                particleMaterial.opacity = 0.85;
+                particleMaterial.needsUpdate = true;
+            }
+
+            if (colorsAttr && baseColors) {
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    colorsAttr.array[i3] = baseColors[i3];
+                    colorsAttr.array[i3 + 1] = baseColors[i3 + 1];
+                    colorsAttr.array[i3 + 2] = baseColors[i3 + 2];
+                }
+                colorsAttr.needsUpdate = true;
+            }
+        }
+    };
+
+    // İlk tema durumunu kontrol et
+    const initialTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    if (initialTheme === 'light') {
+        window.setThreeTheme('light');
+    }
 
     // --- 4. KARA DELİK (OLAY UFKU VE AKRESYON DİSKİ) 3D VARLIĞI ---
     const blackHoleGroup = new THREE.Group();

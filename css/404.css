@@ -820,3 +820,26 @@ h1.glitch-404::after {
     .snake-start-btn { padding: 12px 20px; font-size: 13px; }
     .btn-back-home { padding: 12px 26px; font-size: 14px; }
 }
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - 404 SAYFASI
+   ========================================================================== */
+[data-theme="light"] .cyber-badge-wrap {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(14, 165, 233, 0.35);
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="light"] .error-title {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .error-desc {
+    color: #475569;
+}
+
+[data-theme="light"] .cosmic-aura-ring {
+    background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.1) 0%, rgba(59, 130, 246, 0.04) 45%, transparent 75%);
+}

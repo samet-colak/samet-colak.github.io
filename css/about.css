@@ -452,3 +452,129 @@
         display: none; /* Mobilde yer kazanmak için chip gizlenir, başlık ve tag yeterli */
     }
 }
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - HAKKIMDA BÖLÜMÜ
+   ========================================================================== */
+[data-theme="light"] .about-card {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .about-card::before {
+    background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.3) 25%, rgba(255, 255, 255, 0.9) 50%, rgba(168, 85, 247, 0.3) 75%, transparent 100%);
+}
+
+[data-theme="light"] .about-card:hover {
+    border-color: rgba(14, 165, 233, 0.35);
+    box-shadow: 0 25px 55px -10px rgba(15, 23, 42, 0.12), 0 0 25px rgba(14, 165, 233, 0.08);
+}
+
+[data-theme="light"] .about-card h3 {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 60%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .skills-subdesc {
+    color: #64748b;
+}
+
+[data-theme="light"] .about-bio p {
+    color: #334155;
+}
+
+[data-theme="light"] .about-pillar {
+    background: rgba(248, 250, 252, 0.85);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .about-pillar:hover {
+    background: rgba(240, 249, 255, 0.95);
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+[data-theme="light"] .pillar-content h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .pillar-content p {
+    color: #64748b;
+}
+
+[data-theme="light"] .personal-info {
+    border-top-color: rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .info-item {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .info-title {
+    color: #64748b;
+}
+
+[data-theme="light"] .info-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .skills-badge-pill {
+    background: rgba(14, 165, 233, 0.1);
+    color: #0284c7;
+    border-color: rgba(14, 165, 233, 0.25);
+}
+
+[data-theme="light"] .skill-row {
+    background: rgba(248, 250, 252, 0.7);
+    border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+[data-theme="light"] .skill-row:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(203, 213, 225, 0.9);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .skill-name {
+    color: #0f172a;
+}
+
+[data-theme="light"] .skill-level-pill {
+    background: rgba(241, 245, 249, 0.9);
+    border-color: rgba(226, 232, 240, 0.9);
+    color: #64748b;
+}
+
+[data-theme="light"] .skill-percent {
+    color: #64748b;
+}
+
+[data-theme="light"] .skill-bar-track {
+    background: rgba(226, 232, 240, 0.8);
+}
+
+[data-theme="light"] .skills-ecosystem {
+    border-top-color: rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .ecosystem-header {
+    color: #64748b;
+}
+
+[data-theme="light"] .eco-tag {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(226, 232, 240, 0.9);
+    color: #334155;
+}
+
+[data-theme="light"] .eco-tag:hover {
+    background: rgba(240, 249, 255, 0.95);
+    border-color: rgba(14, 165, 233, 0.3);
+    color: #0f172a;
+}
+
+[data-theme="light"] .eco-tag svg {
+    color: #64748b;
+}

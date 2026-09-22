@@ -1417,3 +1417,190 @@
     .project-tech span,
     .tech-tag { font-size: 11px; padding: 4px 8px; }
 }
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - PROJELER & MODAL
+   ========================================================================== */
+[data-theme="light"] .sort-toggle-btn {
+    background: rgba(255, 255, 255, 0.85);
+    color: #0f172a;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .sort-toggle-btn:hover {
+    background: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.15);
+}
+
+[data-theme="light"] .project-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .project-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 25px 50px -10px rgba(15, 23, 42, 0.12), 0 0 25px rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="light"] .project-img-wrapper::after {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+}
+
+[data-theme="light"] .project-info h3 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .project-info p {
+    color: #475569;
+}
+
+[data-theme="light"] .project-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .project-features li:hover {
+    color: #0f172a;
+}
+
+[data-theme="light"] .modal-content {
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.99) 100%);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 30px 80px -15px rgba(15, 23, 42, 0.18), 0 0 40px rgba(14, 165, 233, 0.08);
+}
+
+[data-theme="light"] .modal-top-bar {
+    background: rgba(248, 250, 252, 0.96);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .modal-close-btn {
+    background: rgba(241, 245, 249, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    color: #475569;
+}
+
+[data-theme="light"] .modal-close-btn:hover {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+}
+
+[data-theme="light"] .modal-view-toggle {
+    background: rgba(226, 232, 240, 0.65);
+    border: 1px solid rgba(203, 213, 225, 0.85);
+}
+
+[data-theme="light"] .toggle-btn {
+    color: #64748b;
+}
+
+[data-theme="light"] .toggle-btn.active {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .modal-project-title {
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .modal-project-desc {
+    color: #475569;
+}
+
+[data-theme="light"] .modal-extra-box {
+    background: rgba(248, 250, 252, 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .modal-extra-box p {
+    color: #334155;
+}
+
+[data-theme="light"] .modal-specs-grid {
+    background: rgba(248, 250, 252, 0.92);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
+}
+
+[data-theme="light"] .specs-col-label {
+    color: #475569;
+}
+
+[data-theme="light"] .modal-features-list li {
+    color: #334155;
+}
+
+[data-theme="light"] .modal-features-list li:hover {
+    color: #0284c7;
+}
+
+[data-theme="light"] .modal-features-list li svg {
+    color: #0284c7;
+    filter: none;
+}
+
+[data-theme="light"] .modal-tech span,
+[data-theme="light"] .modal-tech .project-tech span,
+[data-theme="light"] .modal-tech .tech-tag {
+    background: #ffffff;
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    color: #0f172a;
+    box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .meta-chip {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    color: #475569;
+}
+
+[data-theme="light"] .meta-chip.chip-live {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #16a34a;
+}
+
+[data-theme="light"] .modal-links-wrapper {
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .modal-links .btn-outline {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.5px solid rgba(203, 213, 225, 0.95);
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .modal-links .btn-outline:hover {
+    background: #f8fafc;
+    border-color: #0f172a;
+    color: #0f172a;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .device-address-bar {
+    background: rgba(241, 245, 249, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    color: #0f172a;
+}
+
+[data-theme="light"] .device-url-text {
+    color: #475569;
+}
+
+[data-theme="light"] .device-tab-btn {
+    color: #64748b;
+}
+
+[data-theme="light"] .device-tab-btn.active {
+    background: #ffffff;
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}

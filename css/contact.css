@@ -606,3 +606,112 @@
         font-size: 14px;
     }
 }
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - İLETİŞİM BÖLÜMÜ
+   ========================================================================== */
+[data-theme="light"] .contact-status-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .contact-card-headline {
+    color: #0f172a;
+}
+
+[data-theme="light"] .contact-card-subtext {
+    color: #475569;
+}
+
+[data-theme="light"] .contact-quick-telemetry {
+    background: rgba(248, 250, 252, 0.88);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    color: #334155;
+}
+
+[data-theme="light"] .telemetry-separator {
+    color: rgba(148, 163, 184, 0.4);
+}
+
+[data-theme="light"] .tz-badge {
+    background: rgba(226, 232, 240, 0.8);
+    color: #475569;
+}
+
+[data-theme="light"] .contact-channel-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    color: #0f172a;
+}
+
+[data-theme="light"] .contact-channel-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.1), 0 0 25px rgba(14, 165, 233, 0.1);
+}
+
+[data-theme="light"] .channel-label {
+    color: #64748b;
+}
+
+[data-theme="light"] .channel-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .contact-glass-form-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .form-header-badge {
+    color: #0f172a;
+}
+
+[data-theme="light"] .form-header-sub {
+    color: #475569;
+}
+
+[data-theme="light"] .field-label {
+    color: #475569;
+}
+
+[data-theme="light"] .input-wrapper input,
+[data-theme="light"] .input-wrapper textarea {
+    background: rgba(248, 250, 252, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    color: #0f172a;
+}
+
+[data-theme="light"] .input-wrapper input::placeholder,
+[data-theme="light"] .input-wrapper textarea::placeholder {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .input-wrapper input:focus,
+[data-theme="light"] .input-wrapper textarea:focus {
+    background: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+}
+
+[data-theme="light"] .email-suggestions-list {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .email-suggestion-item .typed {
+    color: #0f172a;
+}
+
+[data-theme="light"] .email-suggestion-item .username {
+    color: #64748b;
+}
+
+[data-theme="light"] .email-suggestion-item:hover,
+[data-theme="light"] .email-suggestion-item.selected {
+    background: rgba(14, 165, 233, 0.08);
+}
