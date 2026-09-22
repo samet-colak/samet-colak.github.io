@@ -1,4 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <rect width="100" height="100" rx="20" fill="#0f172a"/>
-    <text x="50" y="75" font-size="70" fill="#00d2ff" font-family="sans-serif" font-weight="bold" text-anchor="middle">S</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <!-- Kozmik Titanyum Arka Plan Gradyanı -->
+    <linearGradient id="cosmicBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="50%" stop-color="#060913" />
+      <stop offset="100%" stop-color="#020408" />
+    </linearGradient>
+
+    <!-- Çerçeve Işıma Gradyanı (Squircle Kenarlık) -->
+    <linearGradient id="rimGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#0284c7" stop-opacity="0.5" />
+      <stop offset="75%" stop-color="#1e293b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Nebula Derin Uzay Radyal Halesi -->
+    <radialGradient id="nebulaHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.5" />
+      <stop offset="35%" stop-color="#0284c7" stop-opacity="0.25" />
+      <stop offset="70%" stop-color="#1e3a8a" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Yıldız Açık / Işıltılı Yüzey Gradyanı (Safir Camgöbeği) -->
+    <linearGradient id="starFacetLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="25%" stop-color="#67e8f9" />
+      <stop offset="60%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <!-- Yıldız Derinlik / Gölge Yüzey Gradyanı (Gece Safiri) -->
+    <linearGradient id="starFacetDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0369a1" />
+      <stop offset="85%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Yörünge Halkası Gradyanı -->
+    <linearGradient id="orbitRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#38bdf8" stop-opacity="0.7" />
+      <stop offset="75%" stop-color="#1d4ed8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#00d2ff" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Merkez Pulsar Çekirdeği Radyal Işıması -->
+    <radialGradient id="pulsarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#cffafe" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#00d2ff" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- İkincil Parlama Halesi -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Estetik Squircle Kapsayıcı (Dark & Light temalarda mükemmel kontrast) -->
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#cosmicBg)" stroke="url(#rimGlow)" stroke-width="1.75" />
+
+  <!-- 2. Arka Plan Kozmik Nebula Halesi -->
+  <circle cx="64" cy="64" r="48" fill="url(#nebulaHalo)" />
+
+  <!-- 3. 45 Derecelik İkincil Kırınım Yıldız Parıltıları (Diffraction Spikes) -->
+  <g transform="rotate(45 64 64)" opacity="0.45">
+    <path d="M 64 34 Q 64 64 94 64 Q 64 64 64 94 Q 64 64 34 64 Q 64 64 64 34 Z" fill="#0284c7" />
+    <line x1="64" y1="28" x2="64" y2="100" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round" />
+    <line x1="28" y1="64" x2="100" y2="64" stroke="#38bdf8" stroke-width="1.2" stroke-linecap="round" />
+  </g>
+
+  <!-- 4. Fütüristik Geometrik Kozmik Nova (4-Köşeli Siber Apex Yıldızı) -->
+  <!-- Kadran 4: Sol-Üst Kanat (Işıklı Kristal Yüzey) -->
+  <path d="M 18 64 Q 64 64 64 18 L 64 64 Z" fill="url(#starFacetLight)" />
+  <!-- Kadran 2: Sağ-Alt Kanat (Işıklı Kristal Yüzey) -->
+  <path d="M 110 64 Q 64 64 64 110 L 64 64 Z" fill="url(#starFacetLight)" />
+
+  <!-- Kadran 1: Sağ-Üst Kanat (Gölgeli Derinlik Yüzeyi) -->
+  <path d="M 64 18 Q 64 64 110 64 L 64 64 Z" fill="url(#starFacetDark)" />
+  <!-- Kadran 3: Sol-Alt Kanat (Gölgeli Derinlik Yüzeyi) -->
+  <path d="M 64 110 Q 64 64 18 64 L 64 64 Z" fill="url(#starFacetDark)" />
+
+  <!-- Kristal Kesim Omurga Çizgileri (Lazer Hassasiyeti) -->
+  <line x1="64" y1="18" x2="64" y2="110" stroke="#e0f2fe" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+  <line x1="18" y1="64" x2="110" y2="64" stroke="#e0f2fe" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+
+  <!-- 5. Eğik Siber Yörünge Halkası (Orbital Ring & Enerji Uydusu) -->
+  <g transform="rotate(-28 64 64)">
+    <!-- Yörünge Eliptik Yayı -->
+    <ellipse cx="64" cy="64" rx="46" ry="17" fill="none" stroke="url(#orbitRing)" stroke-width="2.4" stroke-dasharray="140 18" />
+    
+    <!-- Yörünge Üzerindeki Parlayan Kuantum Uydusu / Apex Enerji Düğümü -->
+    <circle cx="107" cy="62" r="4" fill="#ffffff" filter="url(#softGlow)" />
+    <circle cx="107" cy="62" r="2.2" fill="#00f0ff" />
+    
+    <!-- Karşıt Mikro Enerji Kıvılcımı -->
+    <circle cx="21" cy="66" r="2.2" fill="#38bdf8" opacity="0.85" />
+    <circle cx="21" cy="66" r="1.2" fill="#ffffff" />
+  </g>
+
+  <!-- 6. Merkez Kuantum Pulsar Çekirdeği -->
+  <circle cx="64" cy="64" r="13" fill="url(#pulsarGlow)" filter="url(#softGlow)" />
+  <circle cx="64" cy="64" r="5" fill="#ffffff" />
+  <circle cx="64" cy="64" r="2.5" fill="#e0f2fe" />
 </svg>
