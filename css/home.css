@@ -105,18 +105,9 @@
     margin-bottom: 40px;
 }
 
-@keyframes pulse-glow {
-    0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
-}
-
+/* Buton Nabız Animasyonu Kaldırıldı */
 .hero-buttons .btn:not(.btn-outline) {
-    animation: pulse-glow 2.5s infinite;
-}
-
-.hero-buttons .btn:not(.btn-outline):hover {
-    animation: none; /* Üzerine gelince nabız efektini durdur */
+    animation: none !important;
 }
 
 .social-links {
@@ -191,40 +182,24 @@
 
 /* --- YENİ MODERN UI/UX EKLENTİLERİ --- */
 
-/* Terminal Arkası Aydınlatma (Ambient Glow) */
+/* Terminal Arkası Aydınlatma Kaldırıldı */
 .terminal-glow {
-    position: absolute;
-    top: 50%;
-    left: calc(50% - 35px);
-    transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle at center, rgba(0, 210, 255, 0.15) 0%, transparent 60%);
-    filter: blur(40px);
-    z-index: -1;
-    border-radius: 50%;
-    animation: glow-pulse 4s infinite alternate ease-in-out;
-    pointer-events: none;
-}
-
-@keyframes glow-pulse {
-    0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    display: none !important;
 }
 
 /* --- TERMINAL / KOD PENCERESİ (PRO IDE EDITION) --- */
 .terminal-window {
     width: 100%;
-    max-width: 485px;
-    background: rgba(13, 17, 23, 0.82);
+    max-width: 535px;
+    background: rgba(13, 17, 23, 0.88);
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 35px rgba(0, 210, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.04), 0 0 30px rgba(0, 210, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     overflow: hidden;
     position: relative;
-    animation: floatTerminal 6.5s ease-in-out infinite;
+    animation: floatTerminal 8s ease-in-out infinite;
     transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
@@ -243,7 +218,7 @@
 
 @keyframes floatTerminal {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-14px); }
+    50% { transform: translateY(-7px); }
 }
 
 .terminal-header {
@@ -336,14 +311,15 @@
 }
 
 /* Sarı Buton (Minimize) Durumu */
-.terminal-window.terminal-minimized .terminal-body {
-    display: none;
+.terminal-window.terminal-minimized .terminal-body,
+.terminal-window.terminal-minimized .terminal-statusbar {
+    display: none !important;
 }
 
 /* Yeşil Buton (Maximize) Durumu */
 .terminal-window.terminal-maximized {
-    max-width: 550px;
-    transform: scale(1.05) translateY(-10px) !important;
+    max-width: 600px;
+    transform: scale(1.03) translateY(-8px) !important;
     animation: none;
     box-shadow: 0 35px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(0, 210, 255, 0.25);
     z-index: 20;
@@ -511,19 +487,39 @@
 
 /* Terminal Gövdesi (Kod Editörü) */
 .terminal-body {
-    padding: 18px 20px 20px;
-    background: rgba(10, 14, 23, 0.55);
-    overflow-x: auto;
+    padding: 16px 20px 14px;
+    background: rgba(10, 14, 23, 0.6);
+    overflow: hidden !important;
     transition: opacity 0.3s ease;
+}
+
+/* Scrollbarları Tamamen Kaldır (No scrollbars or scroll lines) */
+.terminal-window,
+.terminal-body,
+.terminal-code-wrapper,
+.code-pre {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.terminal-window::-webkit-scrollbar,
+.terminal-body::-webkit-scrollbar,
+.terminal-code-wrapper::-webkit-scrollbar,
+.code-pre::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 .terminal-code-wrapper {
     display: flex;
     align-items: stretch;
-    gap: 16px;
+    gap: 14px;
     font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
-    font-size: 13.5px;
-    line-height: 1.72;
+    font-size: 12.5px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Kod Satır Numaraları (Gutter) */
@@ -532,12 +528,12 @@
     flex-direction: column;
     text-align: right;
     user-select: none;
-    color: rgba(148, 163, 184, 0.32);
-    font-size: 12.5px;
-    line-height: 1.72;
-    padding-right: 14px;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-    min-width: 24px;
+    color: rgba(148, 163, 184, 0.35);
+    font-size: 12px;
+    line-height: 1.7;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    min-width: 22px;
     font-variant-numeric: tabular-nums;
     transition: opacity 0.2s ease;
 }
@@ -549,7 +545,7 @@
 .code-pre {
     margin: 0;
     flex: 1;
-    overflow-x: auto;
+    overflow: hidden !important;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -571,7 +567,6 @@
 .term-keyword { 
     color: #c084fc; 
     font-weight: 600;
-    text-shadow: 0 0 10px rgba(192, 132, 252, 0.2); 
 }
 .term-variable { 
     color: #38bdf8; 
@@ -582,61 +577,49 @@
 }
 .term-string { 
     color: #4ade80; 
-    text-shadow: 0 0 8px rgba(74, 222, 128, 0.15); 
 }
 .term-operator { 
     color: #38bdf8; 
     font-weight: 600; 
 }
 .term-cursor { 
-    display: inline-block;
-    width: 8px;
-    height: 14px;
-    vertical-align: -2px;
-    margin-left: 3px;
-    background: var(--primary-color);
-    box-shadow: 0 0 8px var(--primary-color);
-    animation: caretBlink 1.05s infinite;
-    border-radius: 1px;
-}
-
-@keyframes caretBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    display: none !important;
 }
 
 /* --- TERMINAL CLI & CONSOLE OUTPUT --- */
 .terminal-console-wrap {
     margin-top: 14px;
-    border-top: 1px dashed rgba(255, 255, 255, 0.09);
-    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 10px;
 }
 
 .cli-output {
     color: #a3be8c;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 12.5px;
-    line-height: 1.6;
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    font-size: 12px;
+    line-height: 1.55;
     display: none;
     flex-direction: column;
     gap: 4px;
-    max-height: 140px;
+    max-height: 130px;
     overflow-y: auto;
     padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 .cli-output.active { display: flex; }
 .cli-output span.error { color: #f87171; font-weight: 500; }
 .cli-output span.info { color: #38bdf8; font-weight: 500; }
-.cli-output::-webkit-scrollbar { width: 4px; }
-.cli-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+.cli-output::-webkit-scrollbar { width: 3px; }
+.cli-output::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 4px; }
 
 .terminal-cli {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    font-size: 12px;
 }
 
 /* Starship / ZSH Tarzı Prompt Tasarımı */
@@ -644,7 +627,7 @@
     display: inline-flex;
     align-items: center;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 11.5px;
     user-select: none;
     white-space: nowrap;
 }
@@ -662,14 +645,75 @@
     border: none;
     outline: none;
     color: #f8fafc;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 13px;
-    caret-color: #22c55e;
+    font-family: inherit;
+    font-size: 12px;
+    caret-color: #00d2ff;
 }
 
 #cli-input::placeholder {
-    color: rgba(148, 163, 184, 0.45);
-    font-size: 12px;
+    color: rgba(148, 163, 184, 0.4);
+    font-size: 11.5px;
+}
+
+/* --- IDE STATUSBAR (VS CODE / WARP STYLE) --- */
+.terminal-statusbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 16px;
+    background: rgba(10, 14, 23, 0.82);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: rgba(148, 163, 184, 0.65);
+    user-select: none;
+}
+
+.statusbar-left,
+.statusbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.status-item:hover {
+    color: #cbd5e1;
+}
+
+.status-branch svg {
+    color: #38bdf8;
+    opacity: 0.8;
+}
+
+.ready-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+    display: inline-block;
+}
+
+.running-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #eab308;
+    box-shadow: 0 0 6px rgba(234, 179, 8, 0.8);
+    display: inline-block;
+    animation: statusDotPulse 0.8s infinite alternate;
+}
+
+@keyframes statusDotPulse {
+    0% { opacity: 0.4; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1.15); }
 }
 
 
@@ -721,19 +765,41 @@
     }
     .terminal-window { 
         width: 100%; 
-        border-radius: 14px; 
+        border-radius: 12px; 
         margin: 0 auto;
     }
     .terminal-body { 
-        padding: 14px; 
-        font-size: 12px; 
+        padding: 13px 12px 12px; 
+        font-size: 11.5px; 
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none !important;
     }
-    .terminal-title { font-size: 11px; padding-left: 8px; gap: 5px; }
+    .terminal-body::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+    .terminal-code-wrapper {
+        gap: 10px;
+        font-size: 11.5px;
+    }
+    .code-gutter {
+        padding-right: 8px;
+        min-width: 18px;
+        font-size: 11px;
+    }
+    .terminal-title { font-size: 11px; padding-left: 0; gap: 5px; }
     .terminal-actions { right: 8px; }
     .copy-btn, .run-btn { padding: 5px 8px; font-size: 11px; }
-    .terminal-header { padding: 10px 10px; }
+    .terminal-header { padding: 9px 12px; }
+    .terminal-statusbar {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+    .statusbar-left, .statusbar-right {
+        gap: 8px;
+    }
     #cli-input { font-size: 16px !important; } /* iOS Safari auto-zoom önleme */
 }
 

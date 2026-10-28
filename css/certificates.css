@@ -1,24 +1,36 @@
-/* --- YENİ PROFESYONEL PROJELER BOŞ DURUM --- */
+/* ==========================================================================
+   SERTİFİKALAR (CERTIFICATES & ACHIEVEMENTS) - MODERN PRO EMPTY STATE
+   ========================================================================== */
+
 .pro-empty-state {
     text-align: center;
-    background: rgba(30, 41, 59, 0.4);
-    backdrop-filter: blur(10px);
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     padding: 70px 50px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     max-width: 750px;
     margin: 0 auto;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pro-empty-state:hover {
+    border-color: rgba(0, 210, 255, 0.25);
+    box-shadow: 0 30px 60px -12px rgba(0, 210, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .pro-empty-state::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    background: linear-gradient(90deg, transparent, var(--primary-color, #00d2ff), var(--accent-color, #3b82f6), transparent);
 }
 
 .loader-container {
@@ -35,16 +47,16 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border: 2px solid rgba(0, 210, 255, 0.1);
-    border-top-color: var(--primary-color);
+    border: 2px solid rgba(0, 210, 255, 0.12);
+    border-top-color: var(--primary-color, #00d2ff);
     border-radius: 50%;
     animation: spin 1.5s linear infinite;
 }
 
 .cert-icon {
-    font-size: 24px;
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    font-size: 26px;
+    color: var(--primary-color, #00d2ff);
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
 }
 
 @keyframes spin {
@@ -53,42 +65,87 @@
 
 .pro-empty-state h3 {
     color: #f8fafc;
-    font-size: 28px;
-    margin-bottom: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 26px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .pro-empty-state p {
     color: #94a3b8;
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.8;
-    margin-bottom: 35px;
-    max-width: 600px;
+    margin-bottom: 34px;
+    max-width: 580px;
     margin-inline: auto;
 }
 
+.pro-empty-state .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 32px;
+    font-size: 14.5px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   RESPONSIVE (MOBİL & TABLET UYUMU)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .pro-empty-state { padding: 40px 20px; }
-    .pro-empty-state h3 { font-size: 22px; }
-    .pro-empty-state p { font-size: 14px; }
+    .pro-empty-state {
+        padding: 44px 24px;
+        border-radius: 16px;
+    }
+
+    .pro-empty-state h3 {
+        font-size: 21px;
+    }
+
+    .pro-empty-state p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
 }
 
 @media (max-width: 480px) {
-    .pro-empty-state { padding: 30px 15px; border-radius: 12px; }
-    .pro-empty-state h3 { font-size: 18px; }
-    .pro-empty-state p { font-size: 13px; }
-    .loader-container { width: 60px; height: 60px; margin-bottom: 20px; }
-    .cert-icon { font-size: 20px; }
+    .pro-empty-state {
+        padding: 32px 18px;
+        border-radius: 14px;
+    }
+
+    .pro-empty-state h3 {
+        font-size: 18.5px;
+    }
+
+    .pro-empty-state p {
+        font-size: 13px;
+        margin-bottom: 26px;
+    }
+
+    .loader-container {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 20px;
+    }
+
+    .cert-icon {
+        font-size: 22px;
+    }
 }
 
 /* ==========================================================================
    AÇIK TEMA (LIGHT MODE) - SERTİFİKALAR
    ========================================================================== */
 [data-theme="light"] .pro-empty-state {
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(226, 232, 240, 0.9);
-    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .pro-empty-state:hover {
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 25px 55px -10px rgba(14, 165, 233, 0.12);
 }
 
 [data-theme="light"] .pro-empty-state h3 {
@@ -101,5 +158,5 @@
 
 [data-theme="light"] .spinner {
     border-color: rgba(14, 165, 233, 0.15);
-    border-top-color: var(--primary-color);
+    border-top-color: var(--primary-color, #00d2ff);
 }

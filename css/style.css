@@ -1358,8 +1358,8 @@ section {
 /* Ana İsim Başlığı */
 .preloader-title-wrap {
     position: relative;
-    overflow: hidden;
-    padding: 4px 12px;
+    overflow: visible;
+    padding: 12px 24px;
 }
 
 .preloader-title {
@@ -1371,6 +1371,8 @@ section {
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
+    z-index: 1;
 }
 
 .p-word {
@@ -1417,22 +1419,51 @@ section {
     }
 }
 
-/* Işık Parıltısı (Shimmer Flare) */
+/* Işık Parıltısı (Shimmer Flare - %100 Yuvarlak & Sıfır Köşeli İpeksi Optik Işık) */
 .preloader-light-glare {
     position: absolute;
-    top: 0;
-    left: -120%;
-    width: 80%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
-    transform: skewX(-25deg);
-    animation: preloader-glare-sweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.9s infinite;
+    top: 50%;
+    left: -160px;
+    width: 160px;
+    height: 120px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, 
+        rgba(255, 255, 255, 0.85) 0%, 
+        rgba(0, 210, 255, 0.45) 30%, 
+        rgba(0, 210, 255, 0.12) 55%, 
+        rgba(0, 210, 255, 0) 75%
+    );
+    filter: blur(22px);
+    mix-blend-mode: screen;
+    animation: preloader-glare-sweep 2.8s cubic-bezier(0.35, 0, 0.25, 1) 0.6s infinite;
     pointer-events: none;
+    z-index: 2;
 }
 
 @keyframes preloader-glare-sweep {
-    0% { left: -120%; }
-    100% { left: 220%; }
+    0% {
+        left: -160px;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.65);
+    }
+    20% {
+        opacity: 0.95;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.12);
+    }
+    80% {
+        opacity: 0.95;
+        transform: translateY(-50%) scale(1);
+    }
+    100% {
+        left: calc(100% + 160px);
+        opacity: 0;
+        transform: translateY(-50%) scale(0.65);
+    }
 }
 
 /* Alt Başlık / Rol */
@@ -1605,12 +1636,12 @@ button.cmd-item {
 .cmd-item:hover svg, .cmd-item.active svg { color: var(--primary-color); }
 
 /* --- FARE FENERİ (SPOTLIGHT HOVER) EFEKTİ --- */
-.project-card, .bento-card {
+.bento-card {
     position: relative;
 }
 
 /* Kart İçi Soft Aydınlatma (Inner Glow) */
-.project-card::before, .bento-card::before {
+.bento-card::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -1627,7 +1658,7 @@ button.cmd-item {
 }
 
 /* Kart Dış Çerçevesinde Gezen Parlama (Border Glow) */
-.project-card::after, .bento-card::after {
+.bento-card::after {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -1647,8 +1678,8 @@ button.cmd-item {
     transition: opacity 0.4s ease;
 }
 
-.project-card:hover::before, .bento-card:hover::before,
-.project-card:hover::after, .bento-card:hover::after {
+.bento-card:hover::before,
+.bento-card:hover::after {
     opacity: 1;
 }
 
@@ -2807,3 +2838,686 @@ button.cmd-item {
 }
 
 
+
+
+/* ==========================================================================
+   HAKKIMDA & TEKNİK YETKİNLİKLER (NEXT-GEN BENTO GRID ARCHITECTURE)
+   ========================================================================== */
+
+/* Ana Bento Izgarası (2 Satırlı Asimetrik & Dengeli Izgara) */
+.about-bento-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* Glassmorphism Bento Kart Temeli */
+.about-card {
+    background: rgba(13, 19, 33, 0.72);
+    backdrop-filter: blur(20px) saturate(170%);
+    -webkit-backdrop-filter: blur(20px) saturate(170%);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    padding: 34px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Üst Bevel Kristal Işık Kırılması */
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.35) 25%, rgba(255, 255, 255, 0.65) 50%, rgba(59, 130, 246, 0.35) 75%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Mouse Takip Eden Yumuşak Spotlight */
+.about-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 210, 255, 0.08), transparent 45%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-card:hover::after {
+    opacity: 1;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.28);
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.65), 0 0 35px rgba(0, 210, 255, 0.09);
+}
+
+.about-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   1. BİYOGRAFİ & MÜHENDİSLİK FELSEFESİ KARTI (bento-bio-card)
+   ========================================================================== */
+.bento-bio-card {
+    grid-column: 1 / 2;
+}
+
+.bento-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.bento-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.22);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--primary-color, #00d2ff);
+    letter-spacing: 0.3px;
+}
+
+.bento-badge .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00d2ff;
+    box-shadow: 0 0 8px #00d2ff;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.bento-watermark {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.15);
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.bento-heading {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #f8fafc;
+    margin-bottom: 18px;
+    letter-spacing: -0.3px;
+}
+
+.bento-bio-text p {
+    color: #cbd5e1;
+    font-size: 14.5px;
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+.bento-bio-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* 3 Mühendislik İlkesi (Pillars Row) */
+.bento-pillars-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bento-pillar-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 14px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+.bento-pillar-box:hover {
+    background: rgba(0, 210, 255, 0.05);
+    border-color: rgba(0, 210, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+.pillar-mini-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    color: var(--primary-color, #00d2ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pillar-mini-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 3px;
+}
+
+.pillar-mini-text span {
+    display: block;
+    font-size: 11.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. TELEMETRİ & KÜNYE WİDGET KARTI (bento-status-card)
+   ========================================================================== */
+.bento-status-card {
+    grid-column: 2 / 3;
+    justify-content: space-between;
+}
+
+.status-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.telemetry-badge {
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 1px;
+}
+
+.live-signal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #10b981;
+}
+
+.signal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+    animation: pulseGlow 1.8s infinite ease-in-out;
+}
+
+.status-hero-metric {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.18);
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.metric-avail-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.8);
+    flex-shrink: 0;
+}
+
+.metric-lead-label {
+    display: block;
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.metric-lead-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+/* Künye Özellik Satırları */
+.telemetry-specs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.telemetry-spec-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    font-size: 13px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.telemetry-spec-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.spec-label {
+    color: #64748b;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.spec-val {
+    color: #f1f5f9;
+    font-weight: 600;
+}
+
+.spec-accent {
+    color: var(--primary-color, #00d2ff);
+}
+
+.spec-highlight {
+    color: #38bdf8;
+}
+
+.status-card-action .btn-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* ==========================================================================
+   3. TEKNOLOJİ MATRİSİ KARTI (bento-matrix-card - Full Width)
+   ========================================================================== */
+.bento-matrix-card {
+    grid-column: 1 / -1;
+    padding: 36px 34px;
+}
+
+.matrix-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.matrix-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+}
+
+.matrix-desc {
+    color: #94a3b8;
+    font-size: 14px;
+    margin: 0;
+}
+
+.matrix-stack-pill {
+    font-size: 11.5px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 600;
+    color: var(--primary-color, #00d2ff);
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.22);
+    padding: 5px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+}
+
+/* 4 Kategorili Matris Izgarası */
+.matrix-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.matrix-cat-box {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 18px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.matrix-cat-box:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(0, 210, 255, 0.24);
+}
+
+.cat-box-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cat-icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cat-icon-wrap.cat-frontend {
+    background: rgba(0, 210, 255, 0.12);
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    color: #00d2ff;
+}
+
+.cat-icon-wrap.cat-backend {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: #10b981;
+}
+
+.cat-icon-wrap.cat-graphics {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    color: #c084fc;
+}
+
+.cat-icon-wrap.cat-devops {
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    color: #60a5fa;
+}
+
+.cat-box-header h4 {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin: 0;
+    letter-spacing: -0.2px;
+}
+
+/* Teknoloji Rozetleri (Pills) */
+.cat-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.m-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #cbd5e1;
+    transition: all 0.2s ease;
+}
+
+.m-tag:hover {
+    background: rgba(255, 255, 255, 0.09);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.m-tag.m-tag-hero {
+    background: rgba(0, 210, 255, 0.08);
+    border-color: rgba(0, 210, 255, 0.24);
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.m-tag.m-tag-hero:hover {
+    background: rgba(0, 210, 255, 0.16);
+    border-color: rgba(0, 210, 255, 0.45);
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE (TABLET & MOBİL UYUMLULUĞU)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .about-bento-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .bento-bio-card,
+    .bento-status-card,
+    .bento-matrix-card {
+        grid-column: 1 / -1;
+    }
+
+    .matrix-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        padding: 26px 20px;
+        border-radius: 18px;
+    }
+
+    .bento-heading {
+        font-size: 20px;
+    }
+
+    .bento-pillars-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .matrix-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .matrix-categories-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-card {
+        padding: 22px 16px;
+        border-radius: 16px;
+    }
+
+    .bento-heading {
+        font-size: 18px;
+    }
+
+    .bento-bio-text p {
+        font-size: 13.5px;
+    }
+
+    .m-tag {
+        font-size: 11.5px;
+        padding: 4px 8px;
+    }
+}
+
+/* ==========================================================================
+   AÇIK TEMA (LIGHT MODE) - HAKKIMDA BENTO GRID
+   ========================================================================== */
+[data-theme="light"] .about-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .about-card:hover {
+    border-color: rgba(14, 165, 233, 0.4);
+    box-shadow: 0 25px 55px -10px rgba(14, 165, 233, 0.12);
+}
+
+[data-theme="light"] .bento-badge {
+    background: rgba(14, 165, 233, 0.08);
+    border-color: rgba(14, 165, 233, 0.25);
+    color: #0284c7;
+}
+
+[data-theme="light"] .bento-watermark {
+    color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .bento-heading {
+    color: #0f172a;
+}
+
+[data-theme="light"] .bento-bio-text p {
+    color: #475569;
+}
+
+[data-theme="light"] .bento-pillars-row {
+    border-top-color: rgba(226, 232, 240, 0.8);
+}
+
+[data-theme="light"] .bento-pillar-box {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(226, 232, 240, 0.9);
+}
+
+[data-theme="light"] .bento-pillar-box:hover {
+    background: #ffffff;
+    border-color: rgba(14, 165, 233, 0.35);
+}
+
+[data-theme="light"] .pillar-mini-icon {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.25);
+    color: #0284c7;
+}
+
+[data-theme="light"] .pillar-mini-text strong {
+    color: #0f172a;
+}
+
+[data-theme="light"] .pillar-mini-text span {
+    color: #64748b;
+}
+
+[data-theme="light"] .status-hero-metric {
+    background: rgba(16, 185, 129, 0.06);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+[data-theme="light"] .metric-lead-value {
+    color: #0f172a;
+}
+
+[data-theme="light"] .telemetry-spec-row {
+    background: rgba(248, 250, 252, 0.8);
+    border-color: rgba(226, 232, 240, 0.8);
+}
+
+[data-theme="light"] .spec-val {
+    color: #0f172a;
+}
+
+[data-theme="light"] .matrix-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .matrix-desc {
+    color: #64748b;
+}
+
+[data-theme="light"] .matrix-stack-pill {
+    background: rgba(14, 165, 233, 0.08);
+    border-color: rgba(14, 165, 233, 0.25);
+    color: #0284c7;
+}
+
+[data-theme="light"] .matrix-cat-box {
+    background: rgba(248, 250, 252, 0.85);
+    border-color: rgba(226, 232, 240, 0.85);
+}
+
+[data-theme="light"] .matrix-cat-box:hover {
+    background: #ffffff;
+    border-color: rgba(14, 165, 233, 0.35);
+}
+
+[data-theme="light"] .cat-box-header {
+    border-bottom-color: rgba(226, 232, 240, 0.8);
+}
+
+[data-theme="light"] .cat-box-header h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .m-tag {
+    background: #ffffff;
+    border-color: rgba(226, 232, 240, 0.95);
+    color: #334155;
+}
+
+[data-theme="light"] .m-tag:hover {
+    background: rgba(14, 165, 233, 0.08);
+    color: #0284c7;
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+[data-theme="light"] .m-tag.m-tag-hero {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.3);
+    color: #0369a1;
+}

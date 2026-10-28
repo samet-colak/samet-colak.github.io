@@ -1,6 +1,6 @@
 /* TEAM */
 Developer: Samet Çolak
-Role: Software Developer & High School Student
+Role: Full Stack Web Developer
 Location: Istanbul, Turkey
 Contact: smttr.cccc@gmail.com
 

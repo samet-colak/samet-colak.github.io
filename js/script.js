@@ -17,39 +17,52 @@ const translations = {
         projects: "Projeler",
         certificates: "Sertifikalar",
         contact: "İletişim",
-        nav_status: "Staj & İş Birliklerine Açık",
+        nav_status: "Yeni Projelere & İş Birliklerine Açık",
         nav_search_text: "Hızlı Arama...",
         nav_cta: "Bana Ulaşın",
         hero_greeting_small: "Merhaba, benim adım",
         hero_im: "Ben bir",
-        hero_desc: "Yazılım dünyasına tutkuyla bağlı, modern web teknolojileri ve yapay zeka araçlarını harmanlayarak yenilikçi çözümler üreten bir geliştiriciyim. <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span> ve <span class='color-cs'>C#</span> alanlarındaki yetkinliklerimi sürekli ileriye taşıyor; kullanıcı deneyimini merkeze alan, ölçeklenebilir ve estetik projeler inşa ediyorum.",
+        hero_desc: "Modern web mimarileri, React, Next.js, TypeScript ve Supabase gibi yenilikçi teknolojilerle yüksek performanslı, estetik ve ölçeklenebilir dijital ürünler geliştiren bir Full Stack Web Geliştiriciyim.",
         hero_badge: "Yenilikçi Çözümler",
         hero_btn: "Projelerimi Gör",
         hero_btn_contact: "İletişime Geç",
-        about_heading: "Tutkulu Bir Genç Geliştirici",
-        about_p1: "Merhaba, ben Samet Çolak. Tuzla Mesleki ve Teknik Anadolu Lisesi Bilişim Teknolojileri bölümü 12. sınıf öğrencisiyim. Yazılım dünyasına olan merakım beni sürekli yeni şeyler öğrenmeye ve üretmeye itiyor.",
-        about_p2: "Sadece teorik bilgilerle yetinmiyor, modern web teknolojileri ve yapay zeka (AI) araçlarını birleştirerek kullanıcı dostu arayüzler tasarlıyorum. Hedefim, staj sürecimde vizyoner bir ekibin parçası olarak gerçek projelere değer katmak.",
-        about_pillar1_title: "Modern Web Mimarisi",
-        about_pillar1_desc: "Semantik HTML, modern CSS ve Three.js ile akıcı, kullanıcı odaklı arayüzler.",
-        about_pillar2_title: "Algoritma & Programlama",
-        about_pillar2_desc: "Python ve C# ile nesne yönelimli, temiz ve sürdürülebilir yazılım geliştirme.",
-        about_pillar3_title: "Yapay Zeka Entegrasyonu",
-        about_pillar3_desc: "Modern AI araçlarını tasarım ve kodlama süreçlerine entegre etme.",
+        about_badge_role: "Full Stack Web Mühendisi",
+        about_telemetry_title: "// TELEMETRİ & KÜNYE",
+        about_signal_label: "Canlı",
+        about_availability_title: "Mevcut Durum",
+        about_availability_val: "Yeni Projelere Açık",
+        info_work_mode: "Çalışma:",
+        info_work_mode_val: "Remote / Freelance",
+        about_heading: "Full Stack & Web Geliştirici",
+        about_p1: "Merhaba, ben Samet Çolak. Modern web ekosistemleri, kullanıcı deneyimi ve ölçeklenebilir yazılım mimarileri üzerine çalışan bir Full Stack Geliştiriciyim. Yazılım dünyasındaki yenilikleri yakından takip ediyor, temiz kod ve yüksek performans standartlarıyla dijital ürünler inşa ediyorum.",
+        about_p2: "React, Next.js, TypeScript ve Supabase gibi modern araçları Three.js ile zenginleştirerek hem görsel hem de işlevsel olarak kusursuz kullanıcı deneyimleri geliştiriyorum. Hedefim, yenilikçi fikirleri katma değer sağlayan, sürdürülebilir projelere dönüştürmek.",
+        about_pillar1_title: "Modern Web & SaaS Mimarisi",
+        about_pillar1_desc: "Next.js 16, React ve TypeScript ile yüksek performanslı, duyarlı ve SEO odaklı modern web uygulamaları.",
+        about_pillar2_title: "Backend & Veri Mimarisi",
+        about_pillar2_desc: "Supabase, PostgreSQL ve RESTful API altyapıları ile güvenli, ölçeklenebilir ve sağlam veri modelleri.",
+        about_pillar3_title: "3D Web & İnteraktif Deneyim",
+        about_pillar3_desc: "Three.js, WebGL parçacıkları ve modern CSS animasyonları ile akıcı, estetik kullanıcı deneyimi.",
         info_age: "Yaş:",
-        info_school: "Okul:",
+        info_school: "Rol:",
+        info_role: "Rol:",
+        info_focus: "Odak:",
         info_location: "Şehir:",
         info_status: "Durum:",
-        info_status_val: "Staj & Projeler",
-        skills_heading: "Teknik Yeteneklerim",
-        skills_subdesc: "Projelerimde aktif olarak kullandığım temel diller, teknolojiler ve araçlar.",
-        skills_badge: "6 Temel Teknoloji",
+        info_status_val: "Aktif & Projelere Açık",
+        skills_heading: "Teknik Yetkinlikler",
+        skills_subdesc: "Modern web uygulamaları ve dijital ürünler geliştirirken kullandığım temel teknolojiler.",
+        skills_badge: "Core Tech Stack",
         skills_ecosystem_heading: "Geliştirme Araçları & Ekosistem",
         skills_meta_focus: "Çalışma Alanı:",
-        skills_meta_focus_val: "Frontend & AI",
+        skills_meta_focus_val: "Full Stack & SaaS",
         skills_meta_code: "Kod Standartı:",
         skills_meta_code_val: "Clean & Modern",
-        skills_meta_status: "Staj Hedefi:",
-        skills_meta_status_val: "Gelişime Açık",
+        skills_meta_status: "İş Durumu:",
+        skills_meta_status_val: "Projelere Açık",
+        cat_frontend_title: "Frontend Mimarisi",
+        cat_backend_title: "Backend & Veritabanı",
+        cat_interactive_title: "Grafik & 3D Web",
+        cat_tools_title: "DevOps & Ekosistem",
         filter_all: "Tümü",
         filter_web: "Frontend & Web",
         filter_core: "Yazılım & Çekirdek",
@@ -65,10 +78,13 @@ const translations = {
         skill_three_tag: "3D İnteraktif Sahneler & Parçacık Fiziği",
         skill_ai_tag: "İş Akışı & Prompt Mühendisliği",
         projects_empty_title: "Projeler Hazırlanıyor",
-        projects_empty_desc: "Staj ve kariyer hedeflerim doğrultusunda geliştirmekte olduğum modern web ve yapay zeka entegreli projelerim, son optimizasyonların ardından çok yakında bu alanda sergilenecektir.",
-        project_barber_title: "Modern Berber & Kuaför Sitesi",
-        project_barber_desc: "Müşteri deneyimini merkeze alan, premium hissi veren modern arayüzü ve akıcı animasyonlarıyla öne çıkan tam duyarlı (responsive) berber salonu web platformu.",
-        project_barber_extra: "Bir berber veya kuaför salonunun sunduğu kaliteli hizmeti dijital dünyaya taşıyan bu proje, müşterilerinizin sitenizde keyifle vakit geçirmesi için tasarlandı. Göz yormayan şık tasarımı, kolay kullanımı ve hızlı yapısıyla ziyaretçilerinize güven veren, birinci sınıf bir deneyim sunuyor.",
+        projects_empty_desc: "Geliştirmekte olduğum modern web ve SaaS projelerim, son optimizasyonların ardından çok yakında bu alanda sergilenecektir.",
+        project_novadent_title: "NovaDent — Sağlık Turizmi & Diş Kliniği Platformu",
+        project_novadent_desc: "React 18 ve Tailwind CSS ile geliştirilmiş; interaktif Before/After simülatörü, 4 adımlı randevu sihirbazı ve 3 dilli (TR/EN/AR RTL) sağlık turizmi platformu.",
+        project_novadent_extra: "Uluslararası sağlık turizmi standartlarında tasarlanan NovaDent; hastaların diş hekimi seçebildiği, randevu oluşturup tek tıkla WhatsApp onayı alabildiği ve tedavi öncesi/sonrası gülüş simülasyonunu interaktif kaydırıcıyla test edebildiği yeni nesil bir dijital sağlık platformudur. Mobil uyumu, hızlı yüklenme süreleri ve Arapça için sağdan sola (RTL) tam dil desteği içerir.",
+        project_kitaphane_title: "Kitaphane — Kütüphane & SaaS Yönetim Platformu",
+        project_kitaphane_desc: "Next.js 16 ve Supabase bulut mimarisiyle geliştirilmiş; dinamik kitap kataloğu, üye yönetimi, emanet/iade takibi ve modern dashboard sunan tam kapsamlı SaaS otomasyonu.",
+        project_kitaphane_extra: "Kütüphane ve kitap takip süreçlerini dijitalleştiren bu SaaS platformu; Supabase PostgreSQL ve güvenli kimlik doğrulama altyapısı üzerine inşa edilmiştir. Kitap ekleme/silme, filtreleme, üye durumları ve ödünç alma döngülerini gerçek zamanlı olarak yöneten modern ve duyarlı bir kontrol paneli sunar.",
         modal_extra_empty: "Bu proje hakkında ekstra bir bilgi bulunmuyor.",
         modal_badge_featured: "Öne Çıkan Proje",
         modal_meta_category: "Web Geliştirme • UI/UX",
@@ -96,13 +112,22 @@ const translations = {
         sim_loading: "Canlı Arayüz Yükleniyor...",
         sim_live_active_hint: "Canlı İnteraktif Simülatör",
         sim_live_scroll_hint: "Çerçeve içinde kaydırma yapabilir ve butonlara tıklayabilirsiniz.",
-        certs_empty_title: "Sertifikalar Yükleniyor",
-        certs_empty_desc: "Eğitim süreçlerim ve katıldığım kurslar sonucunda almaya hak kazanacağım uluslararası geçerliliğe sahip sertifikalar yakında bu alanda listelenecektir.",
+        certs_empty_title: "Henüz Sertifika Eklenmedi",
+        certs_empty_desc: "Eğitim süreçlerim ve katıldığım kurslar devam etmekte olup, tamamlandıkça doğrulanmış sertifikalar bu alanda listelenecektir.",
+        certs_badge_status: "Doğrulanmış Uzmanlık & Sürekli Gelişim",
+        cert_p1_title: "Next.js 16 & React Mimarisi",
+        cert_p1_desc: "App Router, React Server Components (RSC), SSR/SSG ve modern render optimizasyonu.",
+        cert_p2_title: "TypeScript & Tip Güvenliği",
+        cert_p2_desc: "Strict mode, generic tip sistemleri, enterprise temiz kod standartları ve hatasız mimari.",
+        cert_p3_title: "Supabase & PostgreSQL",
+        cert_p3_desc: "İlişkisel veritabanı tasarımı, Row Level Security (RLS), OAuth ve gerçek zamanlı veri akışı.",
+        cert_p4_title: "Performans & Core Web Vitals",
+        cert_p4_desc: "Lighthouse 95+ metrikleri, sıfır layout shift (CLS), asset optimizasyonu ve SEO mükemmelliği.",
         sort_newest: "En Yeni",
         sort_oldest: "En Eski",
-        contact_text: "Bana aşağıdaki e-posta adresinden veya LinkedIn üzerinden ulaşabilirsiniz.",
+        contact_text: "Bana aşağıdaki e-posta adresinden veya GitHub üzerinden ulaşabilirsiniz.",
         contact_title: "Fikirleri Gerçeğe Dönüştürelim.",
-        contact_desc: "Kariyer hedeflerim doğrultusundaki staj fırsatları, profesyonel iş birlikleri veya yenilikçi projeler için benimle iletişime geçebilirsiniz. Fikirleri, ölçeklenebilir ve nitelikli dijital çözümlere dönüştürmek için doğrudan bana ulaşın.",
+        contact_desc: "Yeni projeler, freelance iş birlikleri veya modern yazılım çözümleri için benimle iletişime geçebilirsiniz. Fikirleri ölçeklenebilir ve nitelikli dijital ürünlere dönüştürmek için doğrudan bana ulaşın.",
         phone_label: "Telefon",
         email_label: "E-Posta",
         social_label: "Sosyal Medya",
@@ -179,14 +204,14 @@ const translations = {
         section_desc_certs: "Sürekli gelişim ilkem doğrultusunda tamamladığım eğitimler ve kazandığım uluslararası yetkinlikler.",
         section_tag_contact: "// 05. BÖLÜM: İLETİŞİM & BAĞLANTI",
         section_title_contact: "Fikirleri Gerçeğe Dönüştürelim",
-        section_desc_contact: "Kariyer hedeflerim doğrultusundaki staj fırsatları, profesyonel iş birlikleri veya yenilikçi projeler için benimle iletişime geçebilirsiniz.",
+        section_desc_contact: "Yeni projeler, freelance iş birlikleri veya modern yazılım çözümleri için benimle dilediğiniz zaman iletişime geçebilirsiniz.",
         footer_cta_tag: "HAYDİ BAŞLAYALIM",
         footer_cta_title: "Birlikte harika bir proje geliştirelim.",
-        footer_cta_desc: "Staj imkanları, web geliştirme veya yenilikçi yazılım projeleri için her zaman bir mesaj uzağınızdayım.",
+        footer_cta_desc: "Modern web geliştirme, danışmanlık veya profesyonel yazılım projeleri için her zaman bir mesaj uzağınızdayım.",
         footer_cta_btn: "İletişime Geç",
         footer_copy_email: "E-Postayı Kopyala",
         footer_copied_email: "Kopyalandı! ✓",
-        footer_brand_desc: "Tuzla MTAL Bilişim Teknolojileri öğrencisi. Modern web teknolojileri, temiz kod ve kullanıcı deneyimi odaklı dijital çözümler üretiyorum.",
+        footer_brand_desc: "Full Stack Web Geliştirici. Modern web teknolojileri, temiz kod ve kullanıcı deneyimi odaklı dijital çözümler üretiyorum.",
         footer_nav_heading: "Navigasyon",
         footer_social_heading: "Ağ & Bağlantı",
         footer_system_heading: "Sistem & Canlı Durum",
@@ -194,14 +219,13 @@ const translations = {
         footer_system_tech: "Three.js WebGL & JS",
         footer_made_with: "İstanbul'dan tutku ve temiz kod ile geliştirildi.",
         contact_card_headline: "Yeni Fırsatları Birlikte Konuşalım.",
-        contact_card_subtext: "Staj programları, modern web ve yazılım projeleri veya merak ettiğiniz her konuda bana dilediğiniz zaman ulaşabilirsiniz.",
+        contact_card_subtext: "Modern web ve SaaS projeleri, danışmanlık veya merak ettiğiniz her konuda bana dilediğiniz zaman ulaşabilirsiniz.",
         contact_form_sub: "Formu doldurup gönderdiğinizde mesajınız anında e-posta kutuma ulaşır.",
         contact_label_name: "Adınız Soyadınız",
         contact_label_email: "E-Posta Adresiniz",
         contact_label_message: "Mesajınız",
         contact_title_email: "E-Posta Gönder",
         contact_title_github: "GitHub Profilim",
-        contact_title_linkedin: "LinkedIn Profilim",
         info_location_val: "İstanbul, TR",
         cmd_placeholder: "Ne arıyorsunuz? (Örn: Projeler, İletişim...)",
         cmd_group_nav: "Navigasyon",
@@ -221,9 +245,16 @@ const translations = {
         term_btn_copy: "Kodu Kopyala",
         cli_placeholder: "Bir komut girin ('help')",
         term_status_ready: "Hazır",
+        term_status_running: "Çalışıyor...",
         feat_ui_ux: "UI/UX Tasarım",
         feat_responsive: "Tam Mobil Uyum",
         feat_performance: "Yüksek Performans",
+        feat_i18n_rtl: "3 Dil & RTL Desteği",
+        feat_appointment: "Randevu Sihirbazı & WhatsApp",
+        feat_slider: "Before/After Gülüş Simülatörü",
+        feat_supabase: "Supabase PostgreSQL & Auth",
+        feat_saas_dashboard: "Dinamik Yönetim Dashboard'u",
+        feat_ssr_next: "Next.js SSR & Yüksek Hız",
         nav_theme_title: "Temayı Değiştir (Açık / Koyu)",
         cmd_toggle_theme: "Temayı Değiştir (Açık / Koyu)",
         cmd_group_theme: "Görünüm & Tema",
@@ -236,39 +267,52 @@ const translations = {
         projects: "Projects",
         certificates: "Certificates",
         contact: "Contact",
-        nav_status: "Open to Work & Internship",
+        nav_status: "Open to Work & New Projects",
         nav_search_text: "Quick Search...",
         nav_cta: "Get in Touch",
         hero_greeting_small: "Hello, my name is",
         hero_im: "I am a",
-        hero_desc: "A passionate developer crafting innovative solutions by blending modern web technologies with AI tools. I continuously advance my proficiency in <span class='color-html'>HTML</span>, <span class='color-css'>CSS</span>, <span class='color-python'>Python</span>, and <span class='color-cs'>C#</span>, building scalable, aesthetic, and user-centric projects.",
+        hero_desc: "A Full Stack Web Developer building high-performance, aesthetic, and scalable digital products with React, Next.js, TypeScript, Supabase, and Three.js.",
         hero_badge: "Innovative Solutions",
         hero_btn: "View My Projects",
         hero_btn_contact: "Contact Me",
-        about_heading: "A Passionate Young Developer",
-        about_p1: "Hello, I am Samet Çolak. I am a 12th-grade Information Technologies student at Tuzla Vocational and Technical Anatolian High School. My curiosity for the software world constantly drives me to learn and create.",
-        about_p2: "I don't just settle for theoretical knowledge; I combine modern web technologies and AI tools to design user-friendly interfaces. My goal is to add value to real-world projects as part of a visionary team during my internship.",
-        about_pillar1_title: "Modern Web Architecture",
-        about_pillar1_desc: "Semantic HTML, modern CSS, and fluid interactive interfaces with Three.js.",
-        about_pillar2_title: "Algorithms & Programming",
-        about_pillar2_desc: "Clean, maintainable, object-oriented software development with Python & C#.",
-        about_pillar3_title: "AI Tools & Workflow",
-        about_pillar3_desc: "Integrating cutting-edge AI tools into development and design workflows.",
+        about_badge_role: "Full Stack Web Engineer",
+        about_telemetry_title: "// TELEMETRY & SPECS",
+        about_signal_label: "Live",
+        about_availability_title: "Availability",
+        about_availability_val: "Open to New Projects",
+        info_work_mode: "Work Mode:",
+        info_work_mode_val: "Remote / Freelance",
+        about_heading: "Full Stack & Web Developer",
+        about_p1: "Hello, I am Samet Çolak. I am a Full Stack Developer focused on modern web ecosystems, seamless user experience, and scalable software architecture. I actively keep up with the latest technological paradigms, delivering products built on clean code and performance.",
+        about_p2: "I craft end-to-end applications leveraging React, Next.js, TypeScript, and Supabase, enriched with Three.js interactive graphics. My goal is to transform ideas into impactful, sustainable digital solutions.",
+        about_pillar1_title: "Modern Web & SaaS Architecture",
+        about_pillar1_desc: "High-performance, responsive, and SEO-optimized web applications with Next.js 16, React, and TypeScript.",
+        about_pillar2_title: "Backend & Data Architecture",
+        about_pillar2_desc: "Secure, scalable data models and APIs with Supabase, PostgreSQL, and RESTful architectures.",
+        about_pillar3_title: "3D Web & Interactive UI",
+        about_pillar3_desc: "Fluid, aesthetic user experiences powered by Three.js, WebGL particle physics, and modern CSS.",
         info_age: "Age:",
-        info_school: "School:",
+        info_school: "Role:",
+        info_role: "Role:",
+        info_focus: "Focus:",
         info_location: "Location:",
         info_status: "Status:",
-        info_status_val: "Internship & Projects",
-        skills_heading: "Technical Skills",
-        skills_subdesc: "Core languages, technologies, and libraries I actively leverage in projects.",
-        skills_badge: "6 Core Technologies",
+        info_status_val: "Active & Open to Work",
+        skills_heading: "Technical Competencies",
+        skills_subdesc: "Core technologies and modern tools I actively leverage in production.",
+        skills_badge: "Core Tech Stack",
         skills_ecosystem_heading: "Dev Tools & Ecosystem",
         skills_meta_focus: "Domain Focus:",
-        skills_meta_focus_val: "Frontend & AI",
+        skills_meta_focus_val: "Full Stack & SaaS",
         skills_meta_code: "Code Standards:",
         skills_meta_code_val: "Clean & Modern",
-        skills_meta_status: "Internship Goal:",
-        skills_meta_status_val: "Growth-Oriented",
+        skills_meta_status: "Availability:",
+        skills_meta_status_val: "Open to Projects",
+        cat_frontend_title: "Frontend Architecture",
+        cat_backend_title: "Backend & Database",
+        cat_interactive_title: "3D Web & Graphics",
+        cat_tools_title: "DevOps & Ecosystem",
         filter_all: "All",
         filter_web: "Frontend & Web",
         filter_core: "Software & Core",
@@ -284,10 +328,13 @@ const translations = {
         skill_three_tag: "3D Interactive Scenes & Particle Physics",
         skill_ai_tag: "Workflow & Prompt Engineering",
         projects_empty_title: "Projects in Progress",
-        projects_empty_desc: "The modern web and AI-integrated projects I am developing in line with my internship and career goals will be showcased here very soon after final optimizations.",
-        project_barber_title: "Modern Barber & Salon Website",
-        project_barber_desc: "A fully responsive premium barber salon web platform, standing out with its customer-centric approach, modern interface, and fluid animations.",
-        project_barber_extra: "Bringing the high-quality service of a barber or hair salon into the digital world, this project is designed for your customers to easily navigate and enjoy your site. With its elegant and modern design, user-friendly structure, and fast performance, it offers visitors a premium and trustworthy experience.",
+        projects_empty_desc: "Modern web and SaaS projects currently under development will be showcased here soon following final optimizations.",
+        project_novadent_title: "NovaDent — Health Tourism & Dental Clinic Platform",
+        project_novadent_desc: "A next-gen digital healthcare platform built with React 18 & Tailwind CSS, featuring an interactive Before/After simulator, 4-step booking wizard, and 3-language (TR/EN/AR RTL) support.",
+        project_novadent_extra: "Designed according to international health tourism standards, NovaDent is a modern digital health platform where patients can select doctors, book dynamic appointments with automated WhatsApp confirmation, and experience interactive before/after smile transformations. Features full responsive design, rapid load speeds, and right-to-left (RTL) Arabic support.",
+        project_kitaphane_title: "Kitaphane — Cloud Library & SaaS Management System",
+        project_kitaphane_desc: "A comprehensive SaaS platform built with Next.js 16 and Supabase cloud architecture, featuring dynamic cataloging, user authentication, and loan tracking.",
+        project_kitaphane_extra: "Modernizing library and inventory management, this SaaS platform is powered by Supabase PostgreSQL and secure authentication. It provides real-time book borrowing tracking, member status monitoring, advanced filtering, and a sleek responsive administrative dashboard.",
         modal_extra_empty: "There is no extra information about this project.",
         modal_badge_featured: "Featured Project",
         modal_meta_category: "Web Development • UI/UX",
@@ -315,17 +362,26 @@ const translations = {
         sim_loading: "Loading Live Interface...",
         sim_live_active_hint: "Live Interactive Simulator",
         sim_live_scroll_hint: "You can freely scroll and click inside the frame.",
-        certs_empty_title: "Certificates Loading",
-        certs_empty_desc: "The internationally recognized certificates I will earn as a result of my education and courses will be listed in this area very soon.",
+        certs_empty_title: "No Certificates Added Yet",
+        certs_empty_desc: "My coursework and specialization trainings are actively ongoing. Verified certificates will be featured in this space as they are completed.",
+        certs_badge_status: "Verified Competencies & Continuous Learning",
+        cert_p1_title: "Next.js 16 & React Architecture",
+        cert_p1_desc: "App Router, React Server Components (RSC), SSR/SSG, and modern render optimization.",
+        cert_p2_title: "TypeScript & Type Safety",
+        cert_p2_desc: "Strict mode, generic type systems, clean enterprise code standards, and error-free architecture.",
+        cert_p3_title: "Supabase & PostgreSQL",
+        cert_p3_desc: "Relational database design, Row Level Security (RLS), OAuth, and realtime data streaming.",
+        cert_p4_title: "Performance & Core Web Vitals",
+        cert_p4_desc: "Lighthouse 95+ metrics, zero cumulative layout shift (CLS), asset optimization, and SEO excellence.",
         sort_newest: "Newest",
         sort_oldest: "Oldest",
-        contact_text: "You can reach me via the email below or through LinkedIn.",
+        contact_text: "You can reach me via the email below or through GitHub.",
         contact_title: "Let's Turn Ideas Into Reality.",
-        contact_desc: "You can contact me for internship opportunities aligned with my career goals, professional collaborations, or innovative projects. Reach out to me directly to transform ideas into scalable and qualified digital solutions.",
+        contact_desc: "Feel free to reach out for new projects, freelance collaborations, or modern software solutions. Contact me directly to transform ideas into scalable, high-quality digital products.",
         phone_label: "Phone",
         email_label: "Email",
         social_label: "Social Media",
-        contact_status: "Open to Opportunities",
+        contact_status: "Available for Projects & Collaborations",
         email_action: "Write to Me ➔",
         connect_action: "Connect ➔",
         follow_action: "Follow ➔",
@@ -395,17 +451,17 @@ const translations = {
         section_desc_projects: "Digital products crafted with a focus on seamless user experience, high performance, and clean code.",
         section_tag_certs: "// SECTION 04: CREDENTIALS & ACHIEVEMENTS",
         section_title_certs: "Certificates & Achievements",
-        section_desc_certs: "International credentials and coursework completed as part of my continuous learning journey.",
+        section_desc_certs: "Coursework and qualifications acquired in line with my principle of continuous professional development.",
         section_tag_contact: "// SECTION 05: GET IN TOUCH",
         section_title_contact: "Let's Build Something Great",
-        section_desc_contact: "Feel free to reach out for internship opportunities, professional collaborations, or innovative web development projects.",
+        section_desc_contact: "Feel free to reach out for new projects, freelance collaborations, or modern software solutions.",
         footer_cta_tag: "LET'S COLLABORATE",
         footer_cta_title: "Let's build something extraordinary together.",
-        footer_cta_desc: "Always a message away for internship opportunities, web engineering, or creative software projects.",
+        footer_cta_desc: "Always a message away for modern web development, consulting, or innovative software projects.",
         footer_cta_btn: "Get in Touch",
         footer_copy_email: "Copy Email",
         footer_copied_email: "Copied! ✓",
-        footer_brand_desc: "Information Technologies student at Tuzla MTAL. Building user-centric web applications with clean code and modern AI workflows.",
+        footer_brand_desc: "Full Stack Web Developer. Building user-centric web applications with clean code and modern architecture.",
         footer_nav_heading: "Navigation",
         footer_social_heading: "Connect & Social",
         footer_system_heading: "System & Telemetry",
@@ -413,14 +469,13 @@ const translations = {
         footer_system_tech: "Three.js WebGL & JS",
         footer_made_with: "Crafted with passion and clean code in Istanbul.",
         contact_card_headline: "Let's Discuss New Opportunities Together.",
-        contact_card_subtext: "Feel free to reach out anytime for internship programs, modern web & software projects, or any questions.",
+        contact_card_subtext: "Feel free to reach out anytime for modern web & SaaS projects, consulting, or inquiries.",
         contact_form_sub: "Fill out the form and your message will reach my inbox instantly.",
         contact_label_name: "Your Full Name",
         contact_label_email: "Your Email Address",
         contact_label_message: "Your Message",
         contact_title_email: "Send Email",
         contact_title_github: "My GitHub Profile",
-        contact_title_linkedin: "My LinkedIn Profile",
         info_location_val: "Istanbul, TR",
         cmd_placeholder: "What are you looking for? (e.g. Projects, Contact...)",
         cmd_group_nav: "Navigation",
@@ -440,9 +495,16 @@ const translations = {
         term_btn_copy: "Copy Code",
         cli_placeholder: "Enter a command ('help')",
         term_status_ready: "Ready",
+        term_status_running: "Running...",
         feat_ui_ux: "UI/UX Design",
         feat_responsive: "Fully Responsive",
         feat_performance: "High Performance",
+        feat_i18n_rtl: "3-Language & Native RTL",
+        feat_appointment: "Booking Wizard & WhatsApp",
+        feat_slider: "Before/After Smile Simulator",
+        feat_supabase: "Supabase PostgreSQL & Auth",
+        feat_saas_dashboard: "Dynamic Management Dashboard",
+        feat_ssr_next: "Next.js SSR & High Speed",
         nav_theme_title: "Toggle Theme (Light / Dark)",
         cmd_toggle_theme: "Toggle Theme (Light / Dark)",
         cmd_group_theme: "Appearance & Theme",
@@ -452,11 +514,14 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem('portfolio_lang') || 'tr';
+window.translations = translations;
+window.currentLang = currentLang;
 const langBtn = document.getElementById('lang-btn');
 let originalTitle = document.title;
 
 function updateLanguage(lang) {
     currentLang = lang;
+    window.currentLang = lang;
     document.documentElement.lang = lang;
     
     // 1. data-i18n (Metin ve HTML içerikler)
@@ -594,14 +659,16 @@ if (mobileThemeBtn) {
 
 updateLanguage(currentLang); // Sayfa açılır açılmaz dili uygula
 
-langBtn.addEventListener('click', () => {
-    currentLang = currentLang === 'tr' ? 'en' : 'tr';
-    localStorage.setItem('portfolio_lang', currentLang); // Dili tarayıcıya kaydet
-    updateLanguage(currentLang);
-    
-    // Yeni Dil ayarını diğer sayfa modüllerine duyur (Custom Event)
-    window.dispatchEvent(new CustomEvent('langChanged', { detail: currentLang }));
-});
+if (langBtn) {
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('portfolio_lang', currentLang); // Dili tarayıcıya kaydet
+        updateLanguage(currentLang);
+        
+        // Yeni Dil ayarını diğer sayfa modüllerine duyur (Custom Event)
+        window.dispatchEvent(new CustomEvent('langChanged', { detail: currentLang }));
+    });
+}
 
 // --- BAŞKA SEKMEYE GİDİNCE ÇIKAN YAZI (TITLE EFEKTİ) ---
 document.addEventListener("visibilitychange", () => {
@@ -673,6 +740,8 @@ if (window.matchMedia("(pointer: fine)").matches) {
     document.body.appendChild(cursorDot);
     document.body.appendChild(cursorOutline);
 
+    const bgShapes = document.querySelectorAll('.shape');
+
     window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
@@ -687,7 +756,6 @@ if (window.matchMedia("(pointer: fine)").matches) {
         }, { duration: 400, fill: "forwards" });
 
         // --- ARKA PLAN KÜRELERİ (PARALLAX) EFEKTİ ---
-        const bgShapes = document.querySelectorAll('.shape');
         if (bgShapes.length > 0) {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
@@ -729,12 +797,11 @@ if (window.location.protocol !== 'file:') {
     }
 }
 
-// --- PROJE MODAL & CANLI CİHAZ SİMÜLATÖRÜ SİSTEMİ ---
+// --- PROJE DETAY MODALI SİSTEMİ ---
 const projectModal = document.getElementById('project-modal');
 const projectCards = document.querySelectorAll('.project-card');
 
 if (projectModal && projectCards.length > 0) {
-    const modalContent = projectModal.querySelector('.modal-content');
     const modalCloseBtn = projectModal.querySelector('#modal-close-btn');
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
@@ -742,190 +809,7 @@ if (projectModal && projectCards.length > 0) {
     const modalExtra = document.getElementById('modal-extra');
     const modalTech = document.getElementById('modal-tech');
     const modalLinks = document.getElementById('modal-links');
-    const modalLinksLive = document.getElementById('modal-links-live');
     const modalFeaturesList = document.getElementById('modal-features-list');
-
-    // Cihaz Simülatörü ve Panel Elemanları
-    const panelAbout = document.getElementById('panel-about');
-    const panelLive = document.getElementById('panel-live');
-    const viewToggleBtns = projectModal.querySelectorAll('.view-toggle-btn');
-    const deviceFrame = document.getElementById('device-frame');
-    const deviceIframe = document.getElementById('device-iframe');
-    const deviceUrlDisplay = document.getElementById('device-url-display');
-    const deviceResDisplay = document.getElementById('device-res-display');
-    const deviceExternalLink = document.getElementById('device-external-link');
-    const browserTabTitle = document.getElementById('browser-tab-title');
-    const deviceLoadingOverlay = document.getElementById('device-loading-overlay');
-    const deviceReloadBtn = document.getElementById('device-reload-btn');
-    const deviceScreenViewport = document.getElementById('device-screen-viewport');
-    const deviceTabs = projectModal.querySelectorAll('.device-tab');
-    const liveStatusText = document.getElementById('live-status-text');
-
-    let currentProjectLiveUrl = '';
-    let currentDevice = 'desktop';
-
-    const deviceResolutions = {
-        desktop: '1440 × 900',
-        tablet: '768 × 1024',
-        mobile: '390 × 844'
-    };
-
-    const deviceTargetSpecs = {
-        desktop: { width: 1440 },
-        tablet: { width: 768 },
-        mobile: { width: 390 }
-    };
-
-    const deviceLabels = {
-        desktop: '1440 × 900 • Canlı Önizleme',
-        tablet: '768 × 1024 • Tablet Görünümü',
-        mobile: '390 × 844 • Mobil Görünüm'
-    };
-
-    // Cihaz Görünüm Alanı Ölçekleme Fonksiyonu (1440p Desktop & Doğal Cihaz Çözünürlüğü)
-    const updateDeviceViewportScale = (targetDevice = currentDevice) => {
-        if (!deviceScreenViewport || !deviceIframe) return;
-        const vWidth = deviceScreenViewport.clientWidth;
-        const vHeight = deviceScreenViewport.clientHeight;
-        if (!vWidth || !vHeight) return;
-
-        const spec = deviceTargetSpecs[targetDevice] || deviceTargetSpecs.desktop;
-        const targetWidth = spec.width;
-        const scale = vWidth / targetWidth;
-        const iframeHeight = Math.round(vHeight / scale);
-
-        deviceIframe.style.width = `${targetWidth}px`;
-        deviceIframe.style.height = `${iframeHeight}px`;
-        deviceIframe.style.transform = `scale(${scale})`;
-        deviceIframe.style.transformOrigin = 'top left';
-    };
-
-    // Simülatör Adres Çubuğu Yenileme (↺ Reload) Butonu
-    if (deviceReloadBtn && deviceIframe) {
-        deviceReloadBtn.addEventListener('click', () => {
-            if (!currentProjectLiveUrl) return;
-
-            deviceReloadBtn.classList.add('spinning');
-            if (deviceLoadingOverlay) {
-                deviceLoadingOverlay.classList.add('active');
-            }
-
-            const reloadUrl = currentProjectLiveUrl;
-            deviceIframe.src = 'about:blank';
-            setTimeout(() => {
-                deviceIframe.src = reloadUrl;
-            }, 60);
-
-            setTimeout(() => {
-                deviceReloadBtn.classList.remove('spinning');
-                if (deviceLoadingOverlay) {
-                    deviceLoadingOverlay.classList.remove('active');
-                }
-            }, 1200);
-        });
-    }
-
-    // Görünüm Değiştirici: Hakkında <-> Canlı Simülatör
-    const setModalView = (targetView) => {
-        viewToggleBtns.forEach(btn => {
-            if (btn.getAttribute('data-view') === targetView) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        if (targetView === 'live') {
-            if (modalContent) modalContent.classList.add('live-active');
-            if (panelAbout) panelAbout.classList.remove('active');
-            if (panelLive) panelLive.classList.add('active');
-
-            // Canlı Web Sitesi Iframe'ini Başlat
-            if (deviceIframe && currentProjectLiveUrl) {
-                if (deviceIframe.src !== currentProjectLiveUrl) {
-                    if (deviceLoadingOverlay) deviceLoadingOverlay.classList.add('active');
-                    deviceIframe.src = currentProjectLiveUrl;
-                    deviceIframe.onload = () => {
-                        if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
-                        if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
-                        updateDeviceViewportScale(currentDevice);
-                    };
-                    setTimeout(() => {
-                        if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
-                        if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
-                    }, 4000);
-                }
-            }
-
-            // Canlı görünüme geçiş sonrası ölçeklemeyi viewport hazır olduğunda güncelle
-            setTimeout(() => {
-                updateDeviceViewportScale(currentDevice);
-            }, 60);
-            setTimeout(() => {
-                updateDeviceViewportScale(currentDevice);
-            }, 350);
-        } else {
-            // Hakkında Modu
-            if (modalContent) modalContent.classList.remove('live-active');
-            if (panelLive) panelLive.classList.remove('active');
-            if (panelAbout) panelAbout.classList.add('active');
-            if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
-            if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
-        }
-    };
-
-    viewToggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const view = btn.getAttribute('data-view') || 'about';
-            setModalView(view);
-        });
-    });
-
-    // Cihaz Sekmelerini Dinle (Masaüstü, Tablet, Mobil)
-    deviceTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetDevice = tab.getAttribute('data-device') || 'desktop';
-            currentDevice = targetDevice;
-            deviceTabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-
-            // Eğer kullanıcı Hakkında görünümündeyken bir cihaza tıklarsa doğrudan Canlı moda geçir
-            if (panelLive && !panelLive.classList.contains('active')) {
-                setModalView('live');
-            }
-
-            if (deviceFrame) {
-                deviceFrame.className = `device-frame frame-${targetDevice}`;
-            }
-            if (deviceResDisplay && deviceResolutions[targetDevice]) {
-                deviceResDisplay.textContent = deviceResolutions[targetDevice];
-            }
-            if (liveStatusText && deviceLabels[targetDevice]) {
-                liveStatusText.textContent = deviceLabels[targetDevice];
-            }
-
-            // Cihaz çerçeve geçişi (0.4s) boyunca ve tamamlandığında iframe ölçeklemesini hesapla
-            updateDeviceViewportScale(targetDevice);
-            setTimeout(() => updateDeviceViewportScale(targetDevice), 150);
-            setTimeout(() => updateDeviceViewportScale(targetDevice), 420);
-        });
-    });
-
-    // Pencere yeniden boyutlandırıldığında veya viewport değiştiğinde iframe ölçeklemesini yenile
-    window.addEventListener('resize', () => {
-        if (panelLive && panelLive.classList.contains('active')) {
-            updateDeviceViewportScale(currentDevice);
-        }
-    });
-
-    if (window.ResizeObserver && deviceScreenViewport) {
-        const resizeObserver = new ResizeObserver(() => {
-            if (panelLive && panelLive.classList.contains('active')) {
-                updateDeviceViewportScale(currentDevice);
-            }
-        });
-        resizeObserver.observe(deviceScreenViewport);
-    }
 
     const openModal = () => {
         // Windows kaydırma çubuğu genişliğini hesaplayıp sıçramayı (layout shift) engelle
@@ -940,47 +824,43 @@ if (projectModal && projectCards.length > 0) {
 
     const closeModal = () => {
         projectModal.classList.remove('active');
-        // Kapanış animasyonu (300ms) bittikten sonra body stilini geri al ve simülatörü sıfırla
         setTimeout(() => {
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
-            currentDevice = 'desktop';
-            setModalView('about');
-            if (deviceIframe) deviceIframe.src = 'about:blank';
-            if (deviceLoadingOverlay) deviceLoadingOverlay.classList.remove('active');
-            if (deviceReloadBtn) deviceReloadBtn.classList.remove('spinning');
-        }, 320);
+        }, 250);
     };
 
     projectCards.forEach(card => {
         card.addEventListener('click', (e) => {
-            // Eğer GitHub veya Canlı İzle butonuna tıklandıysa pop-up'ı AÇMA (orijinal linke gitsin)
+            // Eğer doğrudan butonlara veya linke tıklandıysa pop-up açma (orijinal linke gitsin)
             if (e.target.closest('.project-links') || e.target.closest('a')) return;
 
-            // Karttan mevcut verileri çek
+            // Başlık
             const titleElem = card.querySelector('.project-title');
             if (modalTitle && titleElem) modalTitle.innerHTML = titleElem.innerHTML;
-            
+
+            // Birincil Açıklama
             const descElement = card.querySelector('p[data-i18n]');
             if (modalDesc && descElement) {
                 modalDesc.setAttribute('data-i18n', descElement.getAttribute('data-i18n'));
                 modalDesc.innerHTML = descElement.innerHTML;
             }
-            
-            if (modalTech) modalTech.innerHTML = card.querySelector('.project-tech').innerHTML;
 
-            // Butonları hem Hakkında hem de Canlı görünümüne aktar
-            const linksHtml = card.querySelector('.project-links').innerHTML;
-            if (modalLinks) modalLinks.innerHTML = linksHtml;
-            if (modalLinksLive) modalLinksLive.innerHTML = linksHtml;
+            // Teknolojiler
+            const techElem = card.querySelector('.project-tech');
+            if (modalTech && techElem) modalTech.innerHTML = techElem.innerHTML;
 
-            // Öne çıkan özellikleri (Features) aktar
+            // Butonlar
+            const linksElem = card.querySelector('.project-links');
+            if (modalLinks && linksElem) modalLinks.innerHTML = linksElem.innerHTML;
+
+            // Öne Çıkan Özellikler Listesi
             const featuresElem = card.querySelector('.project-features');
             if (modalFeaturesList && featuresElem) {
                 modalFeaturesList.innerHTML = featuresElem.innerHTML;
             }
-            
-            // Arka plan resmini al
+
+            // Kapak Görseli
             const imgElem = card.querySelector('.project-img');
             if (imgElem && modalImg) {
                 const bgImage = window.getComputedStyle(imgElem).backgroundImage;
@@ -988,34 +868,7 @@ if (projectModal && projectCards.length > 0) {
                 modalImg.src = cleanUrl !== 'none' ? cleanUrl : '';
             }
 
-            // Canlı linki tespit et
-            const liveAnchor = card.querySelector('.project-links a[href*="http"]:not([href*="github"])');
-            currentProjectLiveUrl = liveAnchor ? liveAnchor.getAttribute('href') : 'https://sametcolak.com.tr/berber-sitesi/';
-
-            // Simülatör adres çubuğunu ve sekmesini güncelle
-            if (deviceUrlDisplay) {
-                const cleanDisplay = currentProjectLiveUrl.replace(/^https?:\/\//, '');
-                deviceUrlDisplay.textContent = cleanDisplay;
-            }
-            if (deviceExternalLink) {
-                deviceExternalLink.href = currentProjectLiveUrl;
-            }
-            if (browserTabTitle && titleElem) {
-                browserTabTitle.textContent = `${titleElem.textContent.trim()} — Canlı Önizleme`;
-            }
-
-            // Varsayılan olarak masaüstü cihazı ve Hakkında moduna getir
-            currentDevice = 'desktop';
-            deviceTabs.forEach((t, idx) => {
-                if (idx === 0) t.classList.add('active');
-                else t.classList.remove('active');
-            });
-            if (deviceFrame) deviceFrame.className = 'device-frame frame-desktop';
-            if (deviceResDisplay) deviceResDisplay.textContent = deviceResolutions.desktop;
-            if (liveStatusText) liveStatusText.textContent = deviceLabels.desktop;
-            setModalView('about');
-            
-            // Ekstra metni dil sistemine entegre ederek al
+            // Mimari & Vizyon Ekstra Açıklaması
             const extraKey = card.getAttribute('data-i18n-extra');
             if (modalExtra) {
                 if (extraKey && translations[currentLang] && translations[currentLang][extraKey]) {
@@ -1033,6 +886,7 @@ if (projectModal && projectCards.length > 0) {
 
     // Modalı Kapatma Olayları
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+
     projectModal.addEventListener('click', (e) => {
         if (e.target === projectModal || e.target.classList.contains('modal-backdrop-glow')) {
             closeModal();
@@ -1405,35 +1259,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 lang: "Python",
                 color: "#38bdf8",
                 glow: "rgba(0, 210, 255, 0.18)",
-                code: `<span class="term-comment"># Samet Çolak - Profil</span>\n<span class="term-keyword">class</span> <span class="term-variable">Developer</span>:\n    <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):\n        <span class="term-variable">self</span>.<span class="term-property">name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>\n        <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>\n        <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>]\n        <span class="term-variable">self</span>.<span class="term-property">ai</span> <span class="term-operator">=</span> <span class="term-keyword">True</span><span class="term-cursor">_</span>`
+                code: `<span class="term-comment"># Samet Çolak - Profil</span>\n<span class="term-keyword">class</span> <span class="term-variable">Developer</span>:\n    <span class="term-keyword">def</span> <span class="term-property">__init__</span>(<span class="term-variable">self</span>):\n        <span class="term-variable">self</span>.<span class="term-property">name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>\n        <span class="term-variable">self</span>.<span class="term-property">role</span> <span class="term-operator">=</span> <span class="term-string">"Full Stack Web Developer"</span>\n        <span class="term-variable">self</span>.<span class="term-property">skills</span> <span class="term-operator">=</span> [<span class="term-string">"Next.js"</span>, <span class="term-string">"React"</span>, <span class="term-string">"TypeScript"</span>]\n        <span class="term-variable">self</span>.<span class="term-property">database</span> <span class="term-operator">=</span> <span class="term-string">"Supabase / PostgreSQL"</span>\n        <span class="term-variable">self</span>.<span class="term-property">available</span> <span class="term-operator">=</span> <span class="term-keyword">True</span>`
             },
             {
-                file: "developer.js",
-                lang: "JavaScript",
-                color: "#facc15",
-                glow: "rgba(250, 204, 21, 0.15)",
-                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">const</span> <span class="term-variable">developer</span> <span class="term-operator">=</span> {\n    <span class="term-property">name</span>: <span class="term-string">"Samet Çolak"</span>,\n    <span class="term-property">role</span>: <span class="term-string">"Software Developer"</span>,\n    <span class="term-property">skills</span>: [<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>],\n    <span class="term-property">learningAI</span>: <span class="term-keyword">true</span>\n};<span class="term-cursor">_</span>`
+                file: "developer.ts",
+                lang: "TypeScript",
+                color: "#3178c6",
+                glow: "rgba(49, 120, 198, 0.18)",
+                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">interface</span> <span class="term-variable">Profile</span> {\n    <span class="term-property">name</span>: <span class="term-keyword">string</span>;\n    <span class="term-property">role</span>: <span class="term-string">"Full Stack Web Developer"</span>;\n    <span class="term-property">skills</span>: <span class="term-keyword">string</span>[];\n}\n<span class="term-keyword">const</span> <span class="term-variable">samet</span>: <span class="term-variable">Profile</span> = {\n    <span class="term-property">name</span>: <span class="term-string">"Samet Çolak"</span>,\n    <span class="term-property">role</span>: <span class="term-string">"Full Stack Web Developer"</span>,\n    <span class="term-property">skills</span>: [<span class="term-string">"Next.js 16"</span>, <span class="term-string">"React"</span>, <span class="term-string">"TypeScript"</span>],\n    <span class="term-property">available</span>: <span class="term-keyword">true</span>\n};`
             },
             {
                 file: "developer.cs",
                 lang: "C#",
                 color: "#c084fc",
                 glow: "rgba(192, 132, 252, 0.16)",
-                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">public class</span> <span class="term-variable">Developer</span> {\n    <span class="term-keyword">public string</span> <span class="term-property">Name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-keyword">public string</span> <span class="term-property">Role</span> <span class="term-operator">=</span> <span class="term-string">"Software Developer"</span>;\n    <span class="term-keyword">public string[]</span> <span class="term-property">Skills</span> <span class="term-operator">=</span> {<span class="term-string">"HTML"</span>, <span class="term-string">"CSS"</span>, <span class="term-string">"Python"</span>, <span class="term-string">"C#"</span>};\n    <span class="term-keyword">public bool</span> <span class="term-property">LearningAI</span> <span class="term-operator">=</span> <span class="term-keyword">true</span>;\n}<span class="term-cursor">_</span>`
+                code: `<span class="term-comment">// Samet Çolak - Profil</span>\n<span class="term-keyword">public class</span> <span class="term-variable">Developer</span> {\n    <span class="term-keyword">public string</span> <span class="term-property">Name</span> <span class="term-operator">=</span> <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-keyword">public string</span> <span class="term-property">Role</span> <span class="term-operator">=</span> <span class="term-string">"Full Stack Web Developer"</span>;\n    <span class="term-keyword">public string[]</span> <span class="term-property">Skills</span> <span class="term-operator">=</span> {<span class="term-string">"Next.js"</span>, <span class="term-string">"React"</span>, <span class="term-string">"TypeScript"</span>};\n    <span class="term-keyword">public string</span> <span class="term-property">Database</span> <span class="term-operator">=</span> <span class="term-string">"Supabase"</span>;\n    <span class="term-keyword">public bool</span> <span class="term-property">IsAvailable</span> <span class="term-operator">=</span> <span class="term-keyword">true</span>;\n}`
             },
             {
                 file: "developer.html",
                 lang: "HTML5",
                 color: "#fb923c",
                 glow: "rgba(251, 146, 60, 0.15)",
-                code: `<span class="term-comment">&lt;!-- Samet Çolak - Profil --&gt;</span>\n<span class="term-keyword">&lt;div</span> <span class="term-property">class=</span><span class="term-string">"developer"</span><span class="term-keyword">&gt;</span>\n    <span class="term-keyword">&lt;h1&gt;</span>Samet Çolak<span class="term-keyword">&lt;/h1&gt;</span>\n    <span class="term-keyword">&lt;p&gt;</span>Software Developer<span class="term-keyword">&lt;/p&gt;</span>\n    <span class="term-keyword">&lt;ul</span> <span class="term-property">class=</span><span class="term-string">"skills"</span><span class="term-keyword">&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>HTML &amp; CSS<span class="term-keyword">&lt;/li&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>Python &amp; C#<span class="term-keyword">&lt;/li&gt;</span>\n    <span class="term-keyword">&lt;/ul&gt;</span>\n<span class="term-keyword">&lt;/div&gt;</span><span class="term-cursor">_</span>`
+                code: `<span class="term-comment">&lt;!-- Samet Çolak - Profil --&gt;</span>\n<span class="term-keyword">&lt;div</span> <span class="term-property">class=</span><span class="term-string">"developer-card"</span><span class="term-keyword">&gt;</span>\n    <span class="term-keyword">&lt;h1&gt;</span>Samet Çolak<span class="term-keyword">&lt;/h1&gt;</span>\n    <span class="term-keyword">&lt;p&gt;</span>Full Stack Web Developer<span class="term-keyword">&lt;/p&gt;</span>\n    <span class="term-keyword">&lt;ul</span> <span class="term-property">class=</span><span class="term-string">"stack"</span><span class="term-keyword">&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>Next.js &amp; React<span class="term-keyword">&lt;/li&gt;</span>\n        <span class="term-keyword">&lt;li&gt;</span>TypeScript &amp; Supabase<span class="term-keyword">&lt;/li&gt;</span>\n    <span class="term-keyword">&lt;/ul&gt;</span>\n<span class="term-keyword">&lt;/div&gt;</span>`
             },
             {
                 file: "developer.css",
                 lang: "CSS3",
                 color: "#60a5fa",
                 glow: "rgba(96, 165, 250, 0.15)",
-                code: `<span class="term-comment">/* Samet Çolak - Profil */</span>\n<span class="term-keyword">.developer</span> {\n    <span class="term-property">--name</span>: <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-property">--role</span>: <span class="term-string">"Software Developer"</span>;\n    <span class="term-property">--skills</span>: <span class="term-string">"HTML, CSS, Python, C#"</span>;\n    <span class="term-property">display</span>: <span class="term-variable">flex</span>;\n    <span class="term-property">learning-ai</span>: <span class="term-variable">true</span>;\n}<span class="term-cursor">_</span>`
+                code: `<span class="term-comment">/* Samet Çolak - Profil */</span>\n<span class="term-keyword">.developer</span> {\n    <span class="term-property">--name</span>: <span class="term-string">"Samet Çolak"</span>;\n    <span class="term-property">--role</span>: <span class="term-string">"Full Stack Web Developer"</span>;\n    <span class="term-property">--skills</span>: <span class="term-string">"Next.js, React, TypeScript"</span>;\n    <span class="term-property">--database</span>: <span class="term-string">"Supabase"</span>;\n    <span class="term-property">quality</span>: <span class="term-variable">premium</span>;\n}`
             }
         ];
 
@@ -1450,11 +1304,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 codeDisplay.innerHTML = target.code;
 
                 // Satır numaralarını senkronize et
+                const lineCount = target.code.split('\n').length;
                 if (codeGutter) {
-                    const lineCount = target.code.split('\n').length;
                     codeGutter.innerHTML = Array.from({length: lineCount}, (_, i) => `<span>${i + 1}</span>`).join('');
                     codeGutter.style.opacity = 1;
                 }
+
+                // IDE Status Bar güncellemeleri
+                const termStatusPos = document.getElementById('term-status-pos');
+                if (termStatusPos) termStatusPos.textContent = `Ln ${lineCount}, Col 1`;
 
                 // Dil rozeti ve dosya ikon noktası
                 if (termStatusLang) termStatusLang.textContent = target.lang;
@@ -1687,8 +1545,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- FARE FENERİ (SPOTLIGHT) MOTORU ---
 document.addEventListener('mousemove', (e) => {
-    // Hem projelerdeki hem de iletişim sayfasındaki kartları (bento) bul
-    const spotlightCards = document.querySelectorAll('.project-card, .bento-card');
+    // İletişim sayfasındaki bento kartları bul
+    const spotlightCards = document.querySelectorAll('.bento-card');
     
     spotlightCards.forEach(card => {
         const rect = card.getBoundingClientRect();
@@ -1960,7 +1818,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selection = window.getSelection();
             const text = selection.toString().trim();
             
-            if (text.length > 0 && !ctxMenu.classList.contains('active')) {
+            if (text.length > 0 && selection && selection.rangeCount > 0 && !ctxMenu.classList.contains('active')) {
                 const range = selection.getRangeAt(0);
                 const rect = range.getBoundingClientRect();
                 
@@ -1978,13 +1836,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', (e) => { if(!e.target.closest('#selection-tooltip')) selMenu.classList.remove('active'); });
     
     // Buton Fonksiyonları
-    document.getElementById('sel-btn-copy').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.getSelection().toString());
-        const span = document.querySelector('#sel-btn-copy span');
-        const oldText = span.textContent;
-        span.textContent = translations[currentLang]['sel_copied'];
-        setTimeout(() => span.textContent = oldText, 2000);
-    });
+    const selBtnCopy = document.getElementById('sel-btn-copy');
+    if (selBtnCopy) {
+        selBtnCopy.addEventListener('click', () => {
+            const selectedText = window.getSelection() ? window.getSelection().toString() : '';
+            if (navigator.clipboard && selectedText) {
+                navigator.clipboard.writeText(selectedText).catch(() => {});
+            }
+            const span = document.querySelector('#sel-btn-copy span');
+            if (span) {
+                const oldText = span.textContent;
+                span.textContent = translations[currentLang]?.sel_copied || 'Kopyalandı! ✓';
+                setTimeout(() => span.textContent = oldText, 2000);
+            }
+        });
+    }
 });
 
 // --- FOOTER E-POSTA KOPYALAMA BUTONU ---

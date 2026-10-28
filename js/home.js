@@ -1,7 +1,7 @@
 // --- YAZIP SİLİNME (TYPEWRITER) ANİMASYONU ---
 const typeStrings = {
-    tr: ["Yazılım Geliştiricisi", "Lise Öğrencisi", "Web Tasarımcısı", "Teknoloji Tutkunu"],
-    en: ["Software Developer", "High School Student", "Web Designer", "Tech Enthusiast"]
+    tr: ["Full Stack Web Geliştiricisi", "Next.js & React Uzmanı", "UI/UX Tasarımcısı", "Yazılım Geliştiricisi"],
+    en: ["Full Stack Web Developer", "Next.js & React Specialist", "UI/UX Designer", "Software Developer"]
 };
 
 const typingTextElement = document.querySelector('.typing-text');
@@ -109,7 +109,7 @@ if (terminalWindow && terminalHeader) {
     let baseLeft = 0, baseTop = 0, termWidth = 0, termHeight = 0;
 
     terminalHeader.addEventListener('mousedown', (e) => {
-        if (e.target.closest('.terminal-buttons') || e.target.closest('.terminal-actions')) return;
+        if (e.target.closest('.terminal-buttons') || e.target.closest('.terminal-actions') || e.target.closest('.terminal-title')) return;
         isDragging = true;
         initialX = e.clientX - currentX;
         initialY = e.clientY - currentY;
@@ -213,32 +213,34 @@ if (runBtn && cliOutput) {
                 
                 switch(fileName) {
                     case 'developer.py':
-                        await printToConsole("{'name': 'Samet Çolak', 'role': 'Software Developer', 'skills': ['HTML', 'CSS', 'Python', 'C#'], 'ai': True}", '', 150);
+                        await printToConsole("{'name': 'Samet Çolak', 'role': 'Full Stack Web Developer', 'skills': ['Next.js', 'React', 'TypeScript'], 'database': 'Supabase', 'status': 'Open to Projects 🚀'}", '', 150);
                         break;
+                    case 'developer.ts':
                     case 'developer.js':
                         await printToConsole('{', '', 100);
                         await printToConsole('&nbsp;&nbsp;name: "Samet Çolak",', '', 100);
-                        await printToConsole('&nbsp;&nbsp;role: "Software Developer",', '', 100);
-                        await printToConsole('&nbsp;&nbsp;skills: ["HTML", "CSS", "Python", "C#"],', '', 100);
-                        await printToConsole('&nbsp;&nbsp;learningAI: true', '', 100);
+                        await printToConsole('&nbsp;&nbsp;role: "Full Stack Web Developer",', '', 100);
+                        await printToConsole('&nbsp;&nbsp;skills: ["Next.js 16", "React", "TypeScript"],', '', 100);
+                        await printToConsole('&nbsp;&nbsp;database: "Supabase",', '', 100);
+                        await printToConsole('&nbsp;&nbsp;openToWork: true', '', 100);
                         await printToConsole('}', '', 100);
                         break;
                     case 'developer.cs':
                         await printToConsole('Developer Object:', '', 100);
                         await printToConsole('Name: Samet Çolak', '', 100);
-                        await printToConsole('Role: Software Developer', '', 100);
-                        await printToConsole('Skills: System.String[] { "HTML", "CSS", "Python", "C#" }', '', 100);
-                        await printToConsole('LearningAI: True', '', 100);
+                        await printToConsole('Role: Full Stack Web Developer', '', 100);
+                        await printToConsole('Skills: System.String[] { "Next.js", "React", "TypeScript", "Supabase", "Three.js" }', '', 100);
+                        await printToConsole('Status: Open to Projects', '', 100);
                         break;
                     case 'developer.html':
                         await printToConsole('DOM Render:', '', 100);
                         await printToConsole(`
                             <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; margin-top: 10px; border: 1px solid rgba(255, 255, 255, 0.1); font-family: 'Poppins', sans-serif;">
                                 <h1 style="color: #fff; font-size: 24px; margin-bottom: 5px;">Samet Çolak</h1>
-                                <p style="color: #00d2ff; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">Software Developer</p>
+                                <p style="color: #00d2ff; font-size: 14px; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">Full Stack Web Developer</p>
                                 <ul style="color: #cbd5e1; margin-left: 20px; font-size: 14px; line-height: 1.8;">
-                                    <li style="list-style-type: disc;">${isEn ? 'HTML &amp; CSS Specialist' : 'HTML &amp; CSS Uzmanı'}</li>
-                                    <li style="list-style-type: disc;">${isEn ? 'Python &amp; C# Developer' : 'Python &amp; C# Geliştiricisi'}</li>
+                                    <li style="list-style-type: disc;">${isEn ? 'Next.js 16 &amp; React Specialist' : 'Next.js 16 &amp; React Uzmanı'}</li>
+                                    <li style="list-style-type: disc;">${isEn ? 'TypeScript, Supabase &amp; Three.js' : 'TypeScript, Supabase &amp; Three.js'}</li>
                                 </ul>
                             </div>
                         `, '', 200);
@@ -246,16 +248,16 @@ if (runBtn && cliOutput) {
                     case 'developer.css':
                         await printToConsole('Styles Applied:', '', 100);
                         await printToConsole('<span class="term-keyword">.samet-colak</span> {', '', 100);
-                        await printToConsole('&nbsp;&nbsp;<span class="term-property">role</span>: <span class="term-string">"Software Developer"</span>;', '', 100);
-                        await printToConsole('&nbsp;&nbsp;<span class="term-property">skills</span>: <span class="term-string">"HTML, CSS, Python, C#"</span>;', '', 100);
+                        await printToConsole('&nbsp;&nbsp;<span class="term-property">role</span>: <span class="term-string">"Full Stack Web Developer"</span>;', '', 100);
+                        await printToConsole('&nbsp;&nbsp;<span class="term-property">skills</span>: <span class="term-string">"Next.js, React, TypeScript, Supabase"</span>;', '', 100);
                         await printToConsole('&nbsp;&nbsp;<span class="term-property">design</span>: <span class="term-variable">premium</span>;', '', 100);
                         await printToConsole('&nbsp;&nbsp;<span class="term-property">passion</span>: <span class="term-variable">100%</span>;', '', 100);
                         await printToConsole('}', '', 100);
                         await printToConsole(isEn ? 'CSS Variables (theme: dark) loaded successfully.' : 'CSS Değişkenleri (tema: koyu) başarıyla yüklendi.', 'info', 200);
                         break;
                     default:
-                        await printToConsole('Samet Çolak - Software Developer', '', 100);
-                        await printToConsole(isEn ? 'Skills: HTML, CSS, Python, C#' : 'Yetkinlikler: HTML, CSS, Python, C#', '', 100);
+                        await printToConsole('Samet Çolak - Full Stack Web Developer', '', 100);
+                        await printToConsole(isEn ? 'Skills: Next.js, React, TypeScript, Supabase' : 'Yetkinlikler: Next.js, React, TypeScript, Supabase', '', 100);
                         await printToConsole(isEn ? 'Status: Ready for Innovative Solutions 🚀' : 'Durum: Yenilikçi Çözümlere Hazır 🚀', '', 100);
                 }
                 
@@ -304,13 +306,13 @@ if (cliInput && cliOutput) {
                     break;
                 case 'whoami':
                     await printToConsole(isEn 
-                        ? 'Samet Çolak. High School Student & Passionate Software Developer.'
-                        : 'Samet Çolak. Lise Öğrencisi ve Tutkulu bir Yazılım Geliştirici.', '', 100);
+                        ? 'Samet Çolak. Full Stack Web Developer & Software Engineer.'
+                        : 'Samet Çolak. Full Stack Web Geliştirici ve Yazılım Mühendisi.', '', 100);
                     break;
                 case 'skills':
                     await printToConsole(isEn
-                        ? 'Stack: HTML5, CSS3, JavaScript (ES6+), Python, C#, Three.js, Git/GitHub, AI Workflows.'
-                        : 'Yetenekler: HTML5, CSS3, JavaScript (ES6+), Python, C#, Three.js, Git/GitHub, AI Araçları.', 'info', 100);
+                        ? 'Stack: Next.js 16, React, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Three.js, Node.js, Git.'
+                        : 'Stack: Next.js 16, React, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Three.js, Node.js, Git.', 'info', 100);
                     break;
                 case 'projects':
                     await printToConsole(isEn ? 'Navigating to Projects section...' : 'Projeler bölümüne süzülünüyor...', 'info', 100);

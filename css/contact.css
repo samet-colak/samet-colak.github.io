@@ -233,10 +233,10 @@
     transform: translate(3px, -3px);
 }
 
-/* Sosyal Satırı (2 Sütun) */
+/* Sosyal Satırı */
 .contact-social-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 16px;
 }
 

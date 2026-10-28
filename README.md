@@ -143,7 +143,7 @@ Bu platform, yalnızca bir portfolyo değil, aynı zamanda keşfedilmeyi bekleye
 <div align="center">
 
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=html,css,js,threejs,python,cs,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,supabase,postgres,threejs,nodejs,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
 </a>
 
 <br><br>
@@ -231,15 +231,13 @@ Projeyi kendi bilgisayarınızda klonlayıp incelemek veya çalıştırmak için
 
 ## 📬 İletişim & Sosyal Bağlantılar
 
-Staj fırsatları, profesyonel projeler veya yenilikçi yazılım fikirleri için benimle dilediğiniz zaman iletişime geçebilirsiniz:
+Profesyonel projeler, freelance iş birlikleri veya yenilikçi yazılım fikirleri için benimle dilediğiniz zaman iletişime geçebilirsiniz:
 
 <div align="center">
 
 <br>
 
 [![Web Platformu](https://img.shields.io/badge/Web_Sitesi-sametcolak.com.tr-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://sametcolak.com.tr)
-&nbsp;&nbsp;
-[![LinkedIn Profilim](https://img.shields.io/badge/LinkedIn-Samet_Çolak-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com)
 &nbsp;&nbsp;
 [![GitHub Profilim](https://img.shields.io/badge/GitHub-@samet--colak-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/samet-colak)
 &nbsp;&nbsp;
